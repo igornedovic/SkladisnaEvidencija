@@ -60,6 +60,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UCNovaStavka.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCNovaStavka.Designer.cs">
+      <DependentUpon>UCNovaStavka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaDokumenata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaDokumenata.Designer.cs">
+      <DependentUpon>UCPretragaDokumenata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaProizvoda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaProizvoda.Designer.cs">
+      <DependentUpon>UCPretragaProizvoda.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCUnosDokumenta.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -81,6 +99,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCNovaStavka.resx">
+      <DependentUpon>UCNovaStavka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPretragaDokumenata.resx">
+      <DependentUpon>UCPretragaDokumenata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPretragaProizvoda.resx">
+      <DependentUpon>UCPretragaProizvoda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCUnosDokumenta.resx">
       <DependentUpon>UCUnosDokumenta.cs</DependentUpon>
     </EmbeddedResource>
