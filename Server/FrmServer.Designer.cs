@@ -32,45 +32,65 @@ namespace Server
             this.btnStart = new System.Windows.Forms.Button();
             this.lblVreme = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
+            this.dgvKlijenti = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(39, 94);
+            this.btnStart.Location = new System.Drawing.Point(29, 13);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(171, 69);
+            this.btnStart.Size = new System.Drawing.Size(124, 65);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Pokreni";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblVreme
             // 
             this.lblVreme.AutoSize = true;
-            this.lblVreme.Location = new System.Drawing.Point(557, 122);
+            this.lblVreme.Location = new System.Drawing.Point(732, 37);
+            this.lblVreme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVreme.Name = "lblVreme";
-            this.lblVreme.Size = new System.Drawing.Size(41, 15);
+            this.lblVreme.Size = new System.Drawing.Size(46, 17);
             this.lblVreme.TabIndex = 1;
             this.lblVreme.Text = "label1";
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(283, 94);
+            this.btnStop.Location = new System.Drawing.Point(223, 13);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(171, 69);
+            this.btnStop.Size = new System.Drawing.Size(124, 65);
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "Zaustavi";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // Form1
+            // dgvKlijenti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKlijenti.Location = new System.Drawing.Point(29, 99);
+            this.dgvKlijenti.Name = "dgvKlijenti";
+            this.dgvKlijenti.RowHeadersWidth = 51;
+            this.dgvKlijenti.RowTemplate.Height = 24;
+            this.dgvKlijenti.Size = new System.Drawing.Size(851, 322);
+            this.dgvKlijenti.TabIndex = 3;
+            // 
+            // FrmServer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 352);
+            this.ClientSize = new System.Drawing.Size(909, 450);
+            this.Controls.Add(this.dgvKlijenti);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lblVreme);
             this.Controls.Add(this.btnStart);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FrmServer";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +101,7 @@ namespace Server
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblVreme;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.DataGridView dgvKlijenti;
     }
 }
 

@@ -1,0 +1,9 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Server.exe.config
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Server.exe
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Server.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.FrmServer.resources
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.GenerateResource.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.exe
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.pdb

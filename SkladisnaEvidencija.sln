@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms", "Forme\Forms.csproj", "{9AA04C70-C454-4A15-8191-692AE9D7DFF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Client.Forms", "Forme\Projekat.Client.Forms.csproj", "{9AA04C70-C454-4A15-8191-692AE9D7DFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Server.Main", "Server\Projekat.Server.Main.csproj", "{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

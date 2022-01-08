@@ -10,29 +10,31 @@ namespace Server
 {
     public class ClientHandler
     {
-        private Socket client;
+        private Socket socket;
+        private bool kraj = false;
 
-        public ClientHandler(Socket client)
+        public EventHandler OdjavljenKlijent;
+
+        public ClientHandler(Socket socket)
         {
-            this.client = client;
+            this.socket = socket;
         }
 
-        public void StartHandler()
+        internal void HandleRequests()
         {
-            try
-            {
-                NetworkStream stream = new NetworkStream(client);
-                BinaryFormatter formatter = new BinaryFormatter();
-            }
-            catch(Exception)
-            {
-
-            }
+            throw new NotImplementedException();
         }
 
-        internal void Stop()
+        internal void CloseSocket()
         {
-            client.Close();
+            if (socket != null)
+            {
+                kraj = true;
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+                socket = null;
+                OdjavljenKlijent?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }
