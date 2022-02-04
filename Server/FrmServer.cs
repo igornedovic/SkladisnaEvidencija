@@ -20,7 +20,7 @@ namespace Server
             btnStart.Enabled = true;
             btnStop.Enabled = false;
 
-            Timer timer = new Timer();
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
             timer.Start();

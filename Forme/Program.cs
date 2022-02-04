@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forme.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,30 @@ namespace Forme
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+            DialogResult result = frmLogin.DialogResult;
+            frmLogin.Dispose();
+
+            while (true)
+            {
+                try
+                {
+                    if (result == DialogResult.OK)
+                    {
+                        Application.Run(new FrmMain());
+                    }
+                    if (result == DialogResult.Cancel)
+                    {
+                        break;
+                    }
+                }
+                catch (ServerCommunicationException)
+                {
+                    MessageBox.Show("Greska pri radu sa serverom!");
+                }
+            }
         }
     }
 }

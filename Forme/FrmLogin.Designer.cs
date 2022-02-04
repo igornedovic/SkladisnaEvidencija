@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Forme
 {
     partial class FrmLogin
@@ -85,7 +87,7 @@ namespace Forme
             this.txtPassword.Location = new System.Drawing.Point(256, 260);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(267, 35);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 4;        
             // 
             // btnLogin
             // 
@@ -98,6 +100,7 @@ namespace Forme
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // FrmLogin
             // 
@@ -129,6 +132,12 @@ namespace Forme
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
+
+        public Label LblUsername { get => lblUsername; set => lblUsername = value; }
+        public Label LblPassword { get => lblPassword; set => lblPassword = value; }
+        public TextBox TxtUsername { get => txtUsername; set => txtUsername = value; }
+        public TextBox TxtPassword { get => txtPassword; set => txtPassword = value; }
+        public Button BtnLogin { get => btnLogin; set => btnLogin = value; }
     }
 }
 

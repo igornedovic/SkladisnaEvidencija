@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Client.Forms", "Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Server.Main", "Server\Projekat.Server.Main.csproj", "{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Common.Domain", "Projekat.Common.Domain\Projekat.Common.Domain.csproj", "{80B12DFC-3EAC-4006-80FA-D19142AD510A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat.Common.Communication", "Projekat.Common.Communication\Projekat.Common.Communication.csproj", "{1B2E670E-3E06-4082-8E5F-A841D3BB62B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{759FBB23-F868-4FB7-899B-C76CC0BC6ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B12DFC-3EAC-4006-80FA-D19142AD510A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B12DFC-3EAC-4006-80FA-D19142AD510A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B12DFC-3EAC-4006-80FA-D19142AD510A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B12DFC-3EAC-4006-80FA-D19142AD510A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2E670E-3E06-4082-8E5F-A841D3BB62B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2E670E-3E06-4082-8E5F-A841D3BB62B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2E670E-3E06-4082-8E5F-A841D3BB62B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2E670E-3E06-4082-8E5F-A841D3BB62B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
