@@ -7,3 +7,11 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.CoreCompileInputs.cache
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.exe
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Server.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Common.Communication.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.ApplicationLogic.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Common.Communication.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Common.Domain.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.ApplicationLogic.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.CopyComplete

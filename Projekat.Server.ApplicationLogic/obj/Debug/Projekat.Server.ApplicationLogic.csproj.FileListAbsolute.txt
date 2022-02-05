@@ -1,0 +1,9 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.ApplicationLogic.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.ApplicationLogic.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Common.Domain.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.csproj.CopyComplete
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.pdb

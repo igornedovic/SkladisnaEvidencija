@@ -13,3 +13,8 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Projekat.Client.
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Projekat.Client.Forms.csproj.CoreCompileInputs.cache
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.exe
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Communication.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Communication.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Domain.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Projekat.Client.Forms.csproj.CopyComplete

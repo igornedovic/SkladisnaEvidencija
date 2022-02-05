@@ -1,0 +1,6 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\bin\Debug\Projekat.Common.Communication.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\bin\Debug\Projekat.Common.Communication.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\obj\Debug\Projekat.Common.Communication.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\obj\Debug\Projekat.Common.Communication.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\obj\Debug\Projekat.Common.Communication.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Communication\obj\Debug\Projekat.Common.Communication.pdb

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projekat.Common.Domain;
+using Projekat.Server.ApplicationLogic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,10 @@ namespace Server
             btnStart.Enabled = true;
             btnStop.Enabled = false;
 
+            dgvKlijenti.DataSource = new BindingList<Admin>(Controller.Instance.Admini);
+            dgvKlijenti.Columns["Username"].HeaderText = "Korisnicko ime";
+            dgvKlijenti.Columns["Password"].HeaderText = "Sifra";
+
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
@@ -29,6 +35,8 @@ namespace Server
         private void Timer_Tick(object sender, EventArgs e)
         {
             lblVreme.Text = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
+
+            dgvKlijenti.DataSource = new BindingList<Admin>(Controller.Instance.Admini);
         }
 
         private void btnStart_Click(object sender, EventArgs e)

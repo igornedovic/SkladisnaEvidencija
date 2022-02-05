@@ -1,0 +1,6 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\bin\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\bin\Debug\Projekat.Common.Domain.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\obj\Debug\Projekat.Common.Domain.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\obj\Debug\Projekat.Common.Domain.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\obj\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Common.Domain\obj\Debug\Projekat.Common.Domain.pdb

@@ -39,7 +39,7 @@ namespace Server
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(29, 13);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(124, 65);
             this.btnStart.TabIndex = 0;
@@ -60,7 +60,7 @@ namespace Server
             // btnStop
             // 
             this.btnStop.Location = new System.Drawing.Point(223, 13);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(124, 65);
             this.btnStop.TabIndex = 2;
@@ -71,11 +71,11 @@ namespace Server
             // dgvKlijenti
             // 
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlijenti.Location = new System.Drawing.Point(29, 99);
+            this.dgvKlijenti.Location = new System.Drawing.Point(153, 99);
             this.dgvKlijenti.Name = "dgvKlijenti";
             this.dgvKlijenti.RowHeadersWidth = 51;
             this.dgvKlijenti.RowTemplate.Height = 24;
-            this.dgvKlijenti.Size = new System.Drawing.Size(851, 322);
+            this.dgvKlijenti.Size = new System.Drawing.Size(604, 339);
             this.dgvKlijenti.TabIndex = 3;
             // 
             // FrmServer
@@ -87,7 +87,7 @@ namespace Server
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lblVreme);
             this.Controls.Add(this.btnStart);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmServer";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
