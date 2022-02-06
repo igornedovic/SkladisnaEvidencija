@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Forme.UserControls
 {
     partial class UCUnosDokumenta
@@ -367,5 +369,34 @@ namespace Forme.UserControls
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnSacuvaj;
+
+        public Label LblNaziv { get => lblNaziv; set => lblNaziv = value; }
+        public Label LblDatum { get => lblDatum; set => lblDatum = value; }
+        public GroupBox GroupBox1 { get => groupBox1; set => groupBox1 = value; }
+        public TextBox TxtEmail { get => txtEmail; set => txtEmail = value; }
+        public TextBox TxtPib { get => txtPib; set => txtPib = value; }
+        public TextBox TxtFirma { get => txtFirma; set => txtFirma = value; }
+        public TextBox TxtAdresa { get => txtAdresa; set => txtAdresa = value; }
+        public TextBox TxtPrezime { get => txtPrezime; set => txtPrezime = value; }
+        public TextBox TxtIme { get => txtIme; set => txtIme = value; }
+        public Label LblAdresa { get => lblAdresa; set => lblAdresa = value; }
+        public Label LblEmail { get => lblEmail; set => lblEmail = value; }
+        public Label LblPib { get => lblPib; set => lblPib = value; }
+        public Label LblFirma { get => lblFirma; set => lblFirma = value; }
+        public Label LblPrezime { get => lblPrezime; set => lblPrezime = value; }
+        public Label LblIme { get => lblIme; set => lblIme = value; }
+        public CheckBox CboxPravnoLice { get => cboxPravnoLice; set => cboxPravnoLice = value; }
+        public CheckBox CboxFizickoLice { get => cboxFizickoLice; set => cboxFizickoLice = value; }
+        public ContextMenuStrip ContextMenuStrip1 { get => contextMenuStrip1; set => contextMenuStrip1 = value; }
+        public TextBox TxtDatum { get => txtDatum; set => txtDatum = value; }
+        public ComboBox CbNaziv { get => cbNaziv; set => cbNaziv = value; }
+        public Button BtnDodaj { get => btnDodaj; set => btnDodaj = value; }
+        public Button BtnObrisi { get => btnObrisi; set => btnObrisi = value; }
+        public DataGridView DgvStavke { get => dgvStavke; set => dgvStavke = value; }
+        public TextBox TxtUkupno { get => txtUkupno; set => txtUkupno = value; }
+        public Label LblUkupno { get => lblUkupno; set => lblUkupno = value; }
+        public TextBox TxtStatus { get => txtStatus; set => txtStatus = value; }
+        public Label LblStatus { get => lblStatus; set => lblStatus = value; }
+        public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
     }
 }

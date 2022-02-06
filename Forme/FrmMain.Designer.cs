@@ -35,6 +35,7 @@ namespace Forme
             this.pretragaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@ namespace Forme
             this.proizvodiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(834, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(917, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,6 +65,7 @@ namespace Forme
             this.unosDokumentaToolStripMenuItem.Name = "unosDokumentaToolStripMenuItem";
             this.unosDokumentaToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.unosDokumentaToolStripMenuItem.Text = "Unos dokumenta";
+            this.unosDokumentaToolStripMenuItem.Click += new System.EventHandler(this.unosDokumentaToolStripMenuItem_Click);
             // 
             // pretragaToolStripMenuItem
             // 
@@ -82,17 +84,27 @@ namespace Forme
             // pretragaProizvodaToolStripMenuItem
             // 
             this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
-            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 28);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(917, 578);
+            this.pnlMain.TabIndex = 1;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 471);
+            this.ClientSize = new System.Drawing.Size(917, 606);
+            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -108,5 +120,6 @@ namespace Forme
         private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proizvodiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaProizvodaToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlMain;
     }
 }

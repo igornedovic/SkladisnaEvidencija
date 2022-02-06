@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Forme.UserControls
 {
     partial class UCNovaStavka
@@ -179,5 +181,18 @@ namespace Forme.UserControls
         private System.Windows.Forms.Button btnOdbaci;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.ComboBox cbJedinicaMere;
+
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public Label Label3 { get => label3; set => label3 = value; }
+        public Label Label4 { get => label4; set => label4 = value; }
+        public Label Label5 { get => label5; set => label5 = value; }
+        public TextBox TxtProizvod { get => txtProizvod; set => txtProizvod = value; }
+        public TextBox TxtKolicina { get => txtKolicina; set => txtKolicina = value; }
+        public TextBox TxtCena { get => txtCena; set => txtCena = value; }
+        public TextBox TxtIznos { get => txtIznos; set => txtIznos = value; }
+        public Button BtnOdbaci { get => btnOdbaci; set => btnOdbaci = value; }
+        public Button BtnDodaj { get => btnDodaj; set => btnDodaj = value; }
+        public ComboBox CbJedinicaMere { get => cbJedinicaMere; set => cbJedinicaMere = value; }
     }
 }

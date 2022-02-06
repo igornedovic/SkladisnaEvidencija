@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forme.GUIController;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Forme.UserControls
 {
     public partial class UCUnosDokumenta : UserControl
     {
+        private UnosDokumentaController controller;
         public UCUnosDokumenta()
         {
             InitializeComponent();
+            controller = new UnosDokumentaController(this);
+            controller.Init();
         }
     }
 }

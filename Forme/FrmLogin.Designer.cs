@@ -86,8 +86,9 @@ namespace Forme
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(256, 260);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(267, 35);
-            this.txtPassword.TabIndex = 4;        
+            this.txtPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
