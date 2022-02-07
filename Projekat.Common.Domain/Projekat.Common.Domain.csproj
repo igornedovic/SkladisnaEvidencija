@@ -44,6 +44,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Dokument.cs" />
     <Compile Include="FizickoLice.cs" />
+    <Compile Include="IDomainObject.cs" />
     <Compile Include="JedinicaMere.cs" />
     <Compile Include="PoslovniPartner.cs" />
     <Compile Include="PravnoLice.cs" />

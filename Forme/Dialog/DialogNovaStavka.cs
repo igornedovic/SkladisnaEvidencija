@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Forme.UserControls
+namespace Forme.Dialog
 {
-    public partial class UCNovaStavka : UserControl
+    public partial class DialogNovaStavka : Form
     {
-        public UCNovaStavka()
+        public DialogNovaStavka()
         {
             InitializeComponent();
         }

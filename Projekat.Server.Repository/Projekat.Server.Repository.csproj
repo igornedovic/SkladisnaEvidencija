@@ -42,7 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenericDbRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Projekat.Common.Domain\Projekat.Common.Domain.csproj">
+      <Project>{80B12DFC-3EAC-4006-80FA-D19142AD510A}</Project>
+      <Name>Projekat.Common.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projekat.Server.DatabaseBroker\Projekat.Server.DatabaseBroker.csproj">
+      <Project>{AF389127-3A20-4788-B739-E8D438512364}</Project>
+      <Name>Projekat.Server.DatabaseBroker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

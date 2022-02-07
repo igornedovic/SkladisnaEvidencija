@@ -49,5 +49,10 @@ namespace Projekat.Server.ApplicationLogic
             }
             return aktivanAdmin;
         }
+
+        public List<Proizvod> UcitajProizvode()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

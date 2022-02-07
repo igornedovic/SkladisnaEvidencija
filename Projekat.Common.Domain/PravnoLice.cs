@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 namespace Projekat.Common.Domain
 {
     [Serializable]
-    public class PravnoLice
+    public class PravnoLice : PoslovniPartner
     {
-        public int PartnerId { get; set; }
         public string NazivFirme { get; set; }
         public string PIB { get; set; }
         public string Email { get; set; }
