@@ -1,4 +1,5 @@
 ﻿using Projekat.Common.Domain;
+using Projekat.Server.SystemOperations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,9 @@ namespace Projekat.Server.ApplicationLogic
 
         public List<Proizvod> UcitajProizvode()
         {
-            throw new NotImplementedException();
+            BaznaSistemskaOperacija so = new UcitajProizvodeSO();
+            so.ExecuteTemplate();
+            return ((UcitajProizvodeSO)so).Rezultat;
         }
     }
 }

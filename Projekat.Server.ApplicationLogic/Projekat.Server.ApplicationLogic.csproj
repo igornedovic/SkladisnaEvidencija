@@ -49,6 +49,10 @@
       <Project>{80B12DFC-3EAC-4006-80FA-D19142AD510A}</Project>
       <Name>Projekat.Common.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Projekat.Server.SystemOperations\Projekat.Server.SystemOperations.csproj">
+      <Project>{4FE7C3F1-59A5-48DD-BB0F-3B862536113E}</Project>
+      <Name>Projekat.Server.SystemOperations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,6 +46,25 @@ namespace Forme.GUIController
         {
             dialog = new DialogNovaStavka();
             dialog.CbProizvod.DataSource = Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.UcitajProizvode);
+            dialog.CbProizvod.SelectedIndexChanged += CbProizvod_SelectedIndexChanged;
+            dialog.ShowDialog();
+        }
+
+        private void CbProizvod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dialog.CbProizvod.SelectedItem != null)
+                {
+                    Proizvod proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+                    dialog.TxtJm.Text = proizvod.JedinicaMere.Naziv;
+                }
+
+            }
+            catch (FormatException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Greska: " + ex.Message);
+            }
         }
 
         private void CboxPravnoLice_CheckedChanged(object sender, EventArgs e)

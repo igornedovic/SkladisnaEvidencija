@@ -12,6 +12,9 @@ namespace Projekat.Common.Domain
         string TableName { get; }
         string InsertValues { get; }
 
+        string PrimaryKey { get; }
+        string ForeignKey { get; }
+
         IDomainObject ReadObjectRow(SqlDataReader reader);
     }
 }

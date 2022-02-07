@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaznaSistemskaOperacija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcitajProizvodeSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekat.Common.Domain\Projekat.Common.Domain.csproj">

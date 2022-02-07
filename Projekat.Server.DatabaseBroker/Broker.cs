@@ -45,5 +45,10 @@ namespace Projekat.Server.DatabaseBroker
         {
             transaction.Rollback();
         }
+
+        public SqlCommand KreirajKomandu()
+        {
+            return new SqlCommand("", connection, transaction);
+        }
     }
 }

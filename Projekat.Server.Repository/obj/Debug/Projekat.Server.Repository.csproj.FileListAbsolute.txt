@@ -1,0 +1,11 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Server.Repository.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Server.Repository.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Common.Domain.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Server.DatabaseBroker.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Common.Domain.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\bin\Debug\Projekat.Server.DatabaseBroker.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\obj\Debug\Projekat.Server.Repository.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\obj\Debug\Projekat.Server.Repository.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\obj\Debug\Projekat.Server.Repository.csproj.CopyComplete
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\obj\Debug\Projekat.Server.Repository.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.Repository\obj\Debug\Projekat.Server.Repository.pdb

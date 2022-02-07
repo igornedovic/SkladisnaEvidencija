@@ -7,3 +7,9 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.csproj.CopyComplete
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.dll
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\obj\Debug\Projekat.Server.ApplicationLogic.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.SystemOperations.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.Repository.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.DatabaseBroker.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.SystemOperations.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.Repository.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.ApplicationLogic\bin\Debug\Projekat.Server.DatabaseBroker.pdb

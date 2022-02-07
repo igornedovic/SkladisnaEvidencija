@@ -18,7 +18,11 @@ namespace Projekat.Common.Domain
 
         public string TableName => "Proizvod";
 
-        public string InsertValues => throw new NotImplementedException();
+        public string InsertValues => null;
+
+        public string PrimaryKey => "ProizvodId";
+
+        public string ForeignKey => "JmId";
 
         public override bool Equals(object obj)
         {
@@ -35,14 +39,25 @@ namespace Projekat.Common.Domain
             return ProizvodId.GetHashCode();
         }
 
-        public IDomainObject ReadObjectRow(SqlDataReader reader)
-        {
-            throw new NotImplementedException();
-        }
 
         public override string ToString()
         {
             return $"{Naziv}";
+        }
+        public IDomainObject ReadObjectRow(SqlDataReader reader)
+        {
+            Proizvod p = new Proizvod();
+            p.ProizvodId = (int)reader["ProizvodId"];
+            p.Naziv = (string)reader["NazivProizvoda"];
+            p.UkupnaKolicina = (int)reader["UkupnaKolicina"];
+            p.Opis = (string)reader["Opis"];
+            p.JedinicaMere = new JedinicaMere
+            {
+                JedinicaMereId = (int)reader["JedinicaMereId"],
+                Naziv = (string)reader["NazivJediniceMere"]
+            };
+
+            return p;
         }
     }
 }

@@ -2,6 +2,7 @@
 using Projekat.Server.DatabaseBroker;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,36 @@ namespace Projekat.Server.Repository
 
         public List<IDomainObject> VratiSve(IDomainObject obj)
         {
-            throw new NotImplementedException();
+            List<IDomainObject> rezultat = new List<IDomainObject>();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"SELECT * FROM {obj.TableName}";
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    IDomainObject objekat = obj.ReadObjectRow(reader);
+                    rezultat.Add(objekat);
+                }
+            }
+
+            return rezultat;
+        }
+
+        public List<IDomainObject> VratiSve(IDomainObject obj, IDomainObject obj1 = null)
+        {
+            List<IDomainObject> rezultat = new List<IDomainObject>();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON ({obj.ForeignKey} = {obj1.PrimaryKey})";
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    IDomainObject objekat = obj.ReadObjectRow(reader);
+                    rezultat.Add(objekat);
+                }
+            }
+
+            return rezultat;
         }
         public void Sacuvaj(IDomainObject obj)
         {
@@ -58,5 +88,6 @@ namespace Projekat.Server.Repository
         {
             throw new NotImplementedException();
         }
+
     }
 }

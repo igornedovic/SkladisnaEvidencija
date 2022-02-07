@@ -5,7 +5,6 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Projekat.Client.
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.FrmLogin.resources
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.FrmMain.resources
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.Properties.Resources.resources
-C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.UserControls.UCNovaStavka.resources
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.UserControls.UCPretragaDokumenata.resources
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.UserControls.UCPretragaProizvoda.resources
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.UserControls.UCUnosDokumenta.resources
@@ -18,3 +17,4 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Communication.pdb
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\bin\Debug\Projekat.Common.Domain.pdb
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Projekat.Client.Forms.csproj.CopyComplete
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Forme\obj\Debug\Forme.Dialog.DialogNovaStavka.resources

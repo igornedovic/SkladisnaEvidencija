@@ -1,0 +1,6 @@
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\bin\Debug\Projekat.Server.DatabaseBroker.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\bin\Debug\Projekat.Server.DatabaseBroker.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\obj\Debug\Projekat.Server.DatabaseBroker.csproj.AssemblyReference.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\obj\Debug\Projekat.Server.DatabaseBroker.csproj.CoreCompileInputs.cache
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\obj\Debug\Projekat.Server.DatabaseBroker.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Projekat.Server.DatabaseBroker\obj\Debug\Projekat.Server.DatabaseBroker.pdb

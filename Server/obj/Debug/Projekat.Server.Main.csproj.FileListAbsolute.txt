@@ -15,3 +15,9 @@ C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Common
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.ApplicationLogic.pdb
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.AssemblyReference.cache
 C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\obj\Debug\Projekat.Server.Main.csproj.CopyComplete
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.SystemOperations.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.Repository.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.DatabaseBroker.dll
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.SystemOperations.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.Repository.pdb
+C:\Users\igorn\source\repos\SkladisnaEvidencija\Server\bin\Debug\Projekat.Server.DatabaseBroker.pdb
