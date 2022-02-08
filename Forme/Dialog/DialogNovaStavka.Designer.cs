@@ -73,6 +73,7 @@ namespace Forme.Dialog
             // 
             this.txtIznos.Location = new System.Drawing.Point(211, 244);
             this.txtIznos.Name = "txtIznos";
+            this.txtIznos.ReadOnly = true;
             this.txtIznos.Size = new System.Drawing.Size(177, 22);
             this.txtIznos.TabIndex = 22;
             // 

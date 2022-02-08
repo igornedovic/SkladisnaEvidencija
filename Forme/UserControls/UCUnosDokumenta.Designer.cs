@@ -35,24 +35,24 @@ namespace Forme.UserControls
             this.lblNaziv = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboxFizickoLice = new System.Windows.Forms.CheckBox();
-            this.cboxPravnoLice = new System.Windows.Forms.CheckBox();
-            this.lblIme = new System.Windows.Forms.Label();
-            this.lblPrezime = new System.Windows.Forms.Label();
-            this.lblFirma = new System.Windows.Forms.Label();
-            this.lblPib = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPib = new System.Windows.Forms.TextBox();
+            this.txtFirma = new System.Windows.Forms.TextBox();
+            this.txtAdresa = new System.Windows.Forms.TextBox();
+            this.txtPrezime = new System.Windows.Forms.TextBox();
+            this.txtIme = new System.Windows.Forms.TextBox();
             this.lblAdresa = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPib = new System.Windows.Forms.Label();
+            this.lblFirma = new System.Windows.Forms.Label();
+            this.lblPrezime = new System.Windows.Forms.Label();
+            this.lblIme = new System.Windows.Forms.Label();
+            this.cboxPravnoLice = new System.Windows.Forms.CheckBox();
+            this.cboxFizickoLice = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtDatum = new System.Windows.Forms.TextBox();
             this.cbNaziv = new System.Windows.Forms.ComboBox();
-            this.txtIme = new System.Windows.Forms.TextBox();
-            this.txtPrezime = new System.Windows.Forms.TextBox();
-            this.txtAdresa = new System.Windows.Forms.TextBox();
-            this.txtFirma = new System.Windows.Forms.TextBox();
-            this.txtPib = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnNovaStavka = new System.Windows.Forms.Button();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
             this.txtUkupno = new System.Windows.Forms.TextBox();
@@ -105,15 +105,101 @@ namespace Forme.UserControls
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Poslovni Partner";
             // 
-            // cboxFizickoLice
+            // txtEmail
             // 
-            this.cboxFizickoLice.AutoSize = true;
-            this.cboxFizickoLice.Location = new System.Drawing.Point(31, 21);
-            this.cboxFizickoLice.Name = "cboxFizickoLice";
-            this.cboxFizickoLice.Size = new System.Drawing.Size(98, 21);
-            this.cboxFizickoLice.TabIndex = 0;
-            this.cboxFizickoLice.Text = "Fizicko lice";
-            this.cboxFizickoLice.UseVisualStyleBackColor = true;
+            this.txtEmail.Location = new System.Drawing.Point(364, 129);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(181, 22);
+            this.txtEmail.TabIndex = 10;
+            // 
+            // txtPib
+            // 
+            this.txtPib.Location = new System.Drawing.Point(364, 90);
+            this.txtPib.Name = "txtPib";
+            this.txtPib.Size = new System.Drawing.Size(181, 22);
+            this.txtPib.TabIndex = 9;
+            // 
+            // txtFirma
+            // 
+            this.txtFirma.Location = new System.Drawing.Point(364, 55);
+            this.txtFirma.Name = "txtFirma";
+            this.txtFirma.Size = new System.Drawing.Size(181, 22);
+            this.txtFirma.TabIndex = 8;
+            // 
+            // txtAdresa
+            // 
+            this.txtAdresa.Location = new System.Drawing.Point(217, 171);
+            this.txtAdresa.Name = "txtAdresa";
+            this.txtAdresa.Size = new System.Drawing.Size(181, 22);
+            this.txtAdresa.TabIndex = 7;
+            // 
+            // txtPrezime
+            // 
+            this.txtPrezime.Location = new System.Drawing.Point(89, 92);
+            this.txtPrezime.Name = "txtPrezime";
+            this.txtPrezime.Size = new System.Drawing.Size(181, 22);
+            this.txtPrezime.TabIndex = 7;
+            // 
+            // txtIme
+            // 
+            this.txtIme.Location = new System.Drawing.Point(89, 55);
+            this.txtIme.Name = "txtIme";
+            this.txtIme.Size = new System.Drawing.Size(181, 22);
+            this.txtIme.TabIndex = 7;
+            // 
+            // lblAdresa
+            // 
+            this.lblAdresa.AutoSize = true;
+            this.lblAdresa.Location = new System.Drawing.Point(154, 174);
+            this.lblAdresa.Name = "lblAdresa";
+            this.lblAdresa.Size = new System.Drawing.Size(57, 17);
+            this.lblAdresa.TabIndex = 7;
+            this.lblAdresa.Text = "Adresa:";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(276, 132);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(46, 17);
+            this.lblEmail.TabIndex = 5;
+            this.lblEmail.Text = "Email:";
+            // 
+            // lblPib
+            // 
+            this.lblPib.AutoSize = true;
+            this.lblPib.Location = new System.Drawing.Point(276, 95);
+            this.lblPib.Name = "lblPib";
+            this.lblPib.Size = new System.Drawing.Size(33, 17);
+            this.lblPib.TabIndex = 6;
+            this.lblPib.Text = "PIB:";
+            // 
+            // lblFirma
+            // 
+            this.lblFirma.AutoSize = true;
+            this.lblFirma.Location = new System.Drawing.Point(276, 58);
+            this.lblFirma.Name = "lblFirma";
+            this.lblFirma.Size = new System.Drawing.Size(82, 17);
+            this.lblFirma.TabIndex = 5;
+            this.lblFirma.Text = "Naziv firme:";
+            // 
+            // lblPrezime
+            // 
+            this.lblPrezime.AutoSize = true;
+            this.lblPrezime.Location = new System.Drawing.Point(28, 95);
+            this.lblPrezime.Name = "lblPrezime";
+            this.lblPrezime.Size = new System.Drawing.Size(63, 17);
+            this.lblPrezime.TabIndex = 4;
+            this.lblPrezime.Text = "Prezime:";
+            // 
+            // lblIme
+            // 
+            this.lblIme.AutoSize = true;
+            this.lblIme.Location = new System.Drawing.Point(28, 58);
+            this.lblIme.Name = "lblIme";
+            this.lblIme.Size = new System.Drawing.Size(34, 17);
+            this.lblIme.TabIndex = 3;
+            this.lblIme.Text = "Ime:";
             // 
             // cboxPravnoLice
             // 
@@ -125,59 +211,15 @@ namespace Forme.UserControls
             this.cboxPravnoLice.Text = "Pravno lice";
             this.cboxPravnoLice.UseVisualStyleBackColor = true;
             // 
-            // lblIme
+            // cboxFizickoLice
             // 
-            this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(28, 58);
-            this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(34, 17);
-            this.lblIme.TabIndex = 3;
-            this.lblIme.Text = "Ime:";
-            // 
-            // lblPrezime
-            // 
-            this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Location = new System.Drawing.Point(28, 95);
-            this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(63, 17);
-            this.lblPrezime.TabIndex = 4;
-            this.lblPrezime.Text = "Prezime:";
-            // 
-            // lblFirma
-            // 
-            this.lblFirma.AutoSize = true;
-            this.lblFirma.Location = new System.Drawing.Point(276, 58);
-            this.lblFirma.Name = "lblFirma";
-            this.lblFirma.Size = new System.Drawing.Size(82, 17);
-            this.lblFirma.TabIndex = 5;
-            this.lblFirma.Text = "Naziv firme:";
-            // 
-            // lblPib
-            // 
-            this.lblPib.AutoSize = true;
-            this.lblPib.Location = new System.Drawing.Point(276, 95);
-            this.lblPib.Name = "lblPib";
-            this.lblPib.Size = new System.Drawing.Size(33, 17);
-            this.lblPib.TabIndex = 6;
-            this.lblPib.Text = "PIB:";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(276, 132);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 17);
-            this.lblEmail.TabIndex = 5;
-            this.lblEmail.Text = "Email:";
-            // 
-            // lblAdresa
-            // 
-            this.lblAdresa.AutoSize = true;
-            this.lblAdresa.Location = new System.Drawing.Point(154, 174);
-            this.lblAdresa.Name = "lblAdresa";
-            this.lblAdresa.Size = new System.Drawing.Size(57, 17);
-            this.lblAdresa.TabIndex = 7;
-            this.lblAdresa.Text = "Adresa:";
+            this.cboxFizickoLice.AutoSize = true;
+            this.cboxFizickoLice.Location = new System.Drawing.Point(31, 21);
+            this.cboxFizickoLice.Name = "cboxFizickoLice";
+            this.cboxFizickoLice.Size = new System.Drawing.Size(98, 21);
+            this.cboxFizickoLice.TabIndex = 0;
+            this.cboxFizickoLice.Text = "Fizicko lice";
+            this.cboxFizickoLice.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -200,56 +242,14 @@ namespace Forme.UserControls
             this.cbNaziv.Size = new System.Drawing.Size(193, 24);
             this.cbNaziv.TabIndex = 6;
             // 
-            // txtIme
+            // btnNovaStavka
             // 
-            this.txtIme.Location = new System.Drawing.Point(89, 55);
-            this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(181, 22);
-            this.txtIme.TabIndex = 7;
-            // 
-            // txtPrezime
-            // 
-            this.txtPrezime.Location = new System.Drawing.Point(89, 92);
-            this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(181, 22);
-            this.txtPrezime.TabIndex = 7;
-            // 
-            // txtAdresa
-            // 
-            this.txtAdresa.Location = new System.Drawing.Point(217, 171);
-            this.txtAdresa.Name = "txtAdresa";
-            this.txtAdresa.Size = new System.Drawing.Size(181, 22);
-            this.txtAdresa.TabIndex = 7;
-            // 
-            // txtFirma
-            // 
-            this.txtFirma.Location = new System.Drawing.Point(364, 55);
-            this.txtFirma.Name = "txtFirma";
-            this.txtFirma.Size = new System.Drawing.Size(181, 22);
-            this.txtFirma.TabIndex = 8;
-            // 
-            // txtPib
-            // 
-            this.txtPib.Location = new System.Drawing.Point(364, 90);
-            this.txtPib.Name = "txtPib";
-            this.txtPib.Size = new System.Drawing.Size(181, 22);
-            this.txtPib.TabIndex = 9;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(364, 129);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 22);
-            this.txtEmail.TabIndex = 10;
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(139, 160);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(119, 46);
-            this.btnDodaj.TabIndex = 7;
-            this.btnDodaj.Text = "Nova stavka";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnNovaStavka.Location = new System.Drawing.Point(139, 160);
+            this.btnNovaStavka.Name = "btnNovaStavka";
+            this.btnNovaStavka.Size = new System.Drawing.Size(119, 46);
+            this.btnNovaStavka.TabIndex = 7;
+            this.btnNovaStavka.Text = "Nova stavka";
+            this.btnNovaStavka.UseVisualStyleBackColor = true;
             // 
             // btnObrisi
             // 
@@ -275,6 +275,7 @@ namespace Forme.UserControls
             // 
             this.txtUkupno.Location = new System.Drawing.Point(754, 472);
             this.txtUkupno.Name = "txtUkupno";
+            this.txtUkupno.ReadOnly = true;
             this.txtUkupno.Size = new System.Drawing.Size(181, 22);
             this.txtUkupno.TabIndex = 11;
             // 
@@ -323,7 +324,7 @@ namespace Forme.UserControls
             this.Controls.Add(this.lblUkupno);
             this.Controls.Add(this.dgvStavke);
             this.Controls.Add(this.btnObrisi);
-            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.btnNovaStavka);
             this.Controls.Add(this.cbNaziv);
             this.Controls.Add(this.txtDatum);
             this.Controls.Add(this.groupBox1);
@@ -361,7 +362,7 @@ namespace Forme.UserControls
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox txtDatum;
         private System.Windows.Forms.ComboBox cbNaziv;
-        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Button btnNovaStavka;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.DataGridView dgvStavke;
         private System.Windows.Forms.TextBox txtUkupno;
@@ -390,7 +391,7 @@ namespace Forme.UserControls
         public ContextMenuStrip ContextMenuStrip1 { get => contextMenuStrip1; set => contextMenuStrip1 = value; }
         public TextBox TxtDatum { get => txtDatum; set => txtDatum = value; }
         public ComboBox CbNaziv { get => cbNaziv; set => cbNaziv = value; }
-        public Button BtnDodaj { get => btnDodaj; set => btnDodaj = value; }
+        public Button BtnNovaStavka { get => btnNovaStavka; set => btnNovaStavka = value; }
         public Button BtnObrisi { get => btnObrisi; set => btnObrisi = value; }
         public DataGridView DgvStavke { get => dgvStavke; set => dgvStavke = value; }
         public TextBox TxtUkupno { get => txtUkupno; set => txtUkupno = value; }

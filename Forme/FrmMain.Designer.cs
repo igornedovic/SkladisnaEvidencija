@@ -47,7 +47,7 @@ namespace Forme
             this.proizvodiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(917, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1015, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,7 +57,7 @@ namespace Forme
             this.unosDokumentaToolStripMenuItem,
             this.pretragaToolStripMenuItem});
             this.magacinskiDokumentiToolStripMenuItem.Name = "magacinskiDokumentiToolStripMenuItem";
-            this.magacinskiDokumentiToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.magacinskiDokumentiToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.magacinskiDokumentiToolStripMenuItem.Text = "Magacinski dokumenti";
             // 
             // unosDokumentaToolStripMenuItem
@@ -78,7 +78,7 @@ namespace Forme
             this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pretragaProizvodaToolStripMenuItem});
             this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
-            this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.proizvodiToolStripMenuItem.Text = "Proizvodi";
             // 
             // pretragaProizvodaToolStripMenuItem
@@ -92,14 +92,14 @@ namespace Forme
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 28);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(917, 578);
+            this.pnlMain.Size = new System.Drawing.Size(1015, 480);
             this.pnlMain.TabIndex = 1;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 606);
+            this.ClientSize = new System.Drawing.Size(1015, 508);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmMain";
