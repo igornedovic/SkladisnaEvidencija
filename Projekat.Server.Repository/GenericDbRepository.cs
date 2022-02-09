@@ -73,7 +73,7 @@ namespace Projekat.Server.Repository
         public int SacuvajIVratiId(IDomainObject obj)
         {
             SqlCommand command = broker.KreirajKomandu();
-            command.CommandText = $"INSERT INTO {obj.TableName} VALUES ({obj.InsertValues})";
+            command.CommandText = $"INSERT INTO {obj.TableName} OUTPUT INSERTED.MagacinskiDokumentId VALUES ({obj.InsertValues})";
             return (int)command.ExecuteScalar();
         }
         public void Sacuvaj(IDomainObject obj)
