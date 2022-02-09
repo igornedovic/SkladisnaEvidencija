@@ -51,11 +51,24 @@ namespace Projekat.Server.ApplicationLogic
             return aktivanAdmin;
         }
 
+        public List<PoslovniPartner> UcitajPoslovnePartnere()
+        {
+            BaznaSistemskaOperacija so = new UcitajPoslovnePartnereSO();
+            so.ExecuteTemplate();
+            return ((UcitajPoslovnePartnereSO)so).Rezultat;
+        }
+
         public List<Proizvod> UcitajProizvode()
         {
             BaznaSistemskaOperacija so = new UcitajProizvodeSO();
             so.ExecuteTemplate();
             return ((UcitajProizvodeSO)so).Rezultat;
+        }
+
+        public void UnesiMagacinskiDokument(Dokument dokument)
+        {
+            BaznaSistemskaOperacija so = new UnesiMagacinskiDokumentSO(dokument);
+            so.ExecuteTemplate();
         }
     }
 }

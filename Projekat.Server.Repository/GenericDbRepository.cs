@@ -53,7 +53,7 @@ namespace Projekat.Server.Repository
             return rezultat;
         }
 
-        public List<IDomainObject> VratiSve(IDomainObject obj, IDomainObject obj1 = null)
+        public List<IDomainObject> VratiSve(IDomainObject obj, IDomainObject obj1)
         {
             List<IDomainObject> rezultat = new List<IDomainObject>();
             SqlCommand command = broker.KreirajKomandu();
@@ -69,9 +69,18 @@ namespace Projekat.Server.Repository
 
             return rezultat;
         }
+
+        public int SacuvajIVratiId(IDomainObject obj)
+        {
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"INSERT INTO {obj.TableName} VALUES ({obj.InsertValues})";
+            return (int)command.ExecuteScalar();
+        }
         public void Sacuvaj(IDomainObject obj)
         {
-            throw new NotImplementedException();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"INSERT INTO {obj.TableName} VALUES ({obj.InsertValues})";
+            command.ExecuteNonQuery();
         }
 
         public void Izmeni(IDomainObject obj)

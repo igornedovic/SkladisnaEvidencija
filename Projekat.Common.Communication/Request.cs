@@ -9,7 +9,9 @@ namespace Projekat.Common.Communication
     public enum Operation
     {
         Login,
+        UcitajPoslovnePartnere,
         UcitajProizvode,
+        UnesiMagacinskiDokument,
         End
     }
 

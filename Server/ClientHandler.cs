@@ -64,8 +64,14 @@ namespace Server
                             response.Message = "Pogresni kredencijali!";
                         }
                         break;
+                    case Operation.UcitajPoslovnePartnere:
+                        response.Result = Controller.Instance.UcitajPoslovnePartnere();
+                        break;
                     case Operation.UcitajProizvode:
                         response.Result = Controller.Instance.UcitajProizvode();
+                        break;
+                    case Operation.UnesiMagacinskiDokument:
+                        Controller.Instance.UnesiMagacinskiDokument((Dokument)request.RequestObject);
                         break;
                     case Operation.End:
                         kraj = true;
