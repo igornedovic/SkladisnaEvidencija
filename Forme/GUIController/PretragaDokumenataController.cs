@@ -34,6 +34,14 @@ namespace Forme.GUIController
             dokumenti = new BindingList<Dokument>(Communication.Instance.SendRequestGetResult<List<Dokument>>(Operation.UcitajMagacinskeDokumente));
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumenti;
 
+            PrilagodiTabelu();
+
+            uCPretragaDokumenata.BtnPretrazi.Click += BtnPretrazi_Click;
+            uCPretragaDokumenata.BtnResetuj.Click += BtnResetuj_Click;
+        }
+
+        private void PrilagodiTabelu()
+        {
             uCPretragaDokumenata.DgvDokumenti.Columns["DokumentId"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["PoslovniPartner"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["TableName"].Visible = false;
@@ -41,18 +49,18 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.Columns["PrimaryKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["ForeignKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["Criteria"].Visible = false;
-
-            uCPretragaDokumenata.BtnPretrazi.Click += BtnPretrazi_Click;
-            uCPretragaDokumenata.BtnResetuj.Click += BtnResetuj_Click;
         }
-
         private void BtnResetuj_Click(object sender, EventArgs e)
         {
             uCPretragaDokumenata.CbNaziv.SelectedIndex = 0;
             uCPretragaDokumenata.TxtDatum.Text = "";
 
+            uCPretragaDokumenata.BtnPretrazi.Enabled = true;
+
             uCPretragaDokumenata.DgvDokumenti.DataSource = null;
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumenti;
+
+            PrilagodiTabelu();
         }
 
         private void BtnPretrazi_Click(object sender, EventArgs e)
@@ -69,6 +77,8 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.DataSource = null;
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumentiPretraga;
 
+            PrilagodiTabelu();
+
             if (dokumentiPretraga != null && dokumentiPretraga.Count > 0)
             {
                 MessageBox.Show("Sistem je pronasao magacinske dokumente po zadatom kriterijumu!");
@@ -77,6 +87,8 @@ namespace Forme.GUIController
             {
                 MessageBox.Show("Sistem ne moze da pronadje magacinske dokumente po zadatom kriterijumu!");
             }
+
+            uCPretragaDokumenata.BtnPretrazi.Enabled = false;
 
         }
 
