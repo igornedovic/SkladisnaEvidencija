@@ -53,22 +53,36 @@ namespace Projekat.Server.ApplicationLogic
 
         public List<PoslovniPartner> UcitajPoslovnePartnere()
         {
-            BaznaSistemskaOperacija so = new UcitajPoslovnePartnereSO();
+            OpstaSistemskaOperacija so = new UcitajPoslovnePartnereSO();
             so.ExecuteTemplate();
             return ((UcitajPoslovnePartnereSO)so).Rezultat;
         }
 
         public List<Proizvod> UcitajProizvode()
         {
-            BaznaSistemskaOperacija so = new UcitajProizvodeSO();
+            OpstaSistemskaOperacija so = new UcitajProizvodeSO();
             so.ExecuteTemplate();
             return ((UcitajProizvodeSO)so).Rezultat;
         }
 
         public void UnesiMagacinskiDokument(Dokument dokument)
         {
-            BaznaSistemskaOperacija so = new UnesiMagacinskiDokumentSO(dokument);
+            OpstaSistemskaOperacija so = new UnesiMagacinskiDokumentSO(dokument);
             so.ExecuteTemplate();
+        }
+
+        public object UcitajMagacinskeDokumente()
+        {
+            OpstaSistemskaOperacija so = new UcitajMagacinskeDokumenteSO();
+            so.ExecuteTemplate();
+            return ((UcitajMagacinskeDokumenteSO)so).Rezultat;
+        }
+
+        public object PretraziMagacinskeDokumente(Dokument dokumentZaPretragu)
+        {
+            OpstaSistemskaOperacija so = new PretraziMagacinskeDokumenteSO(dokumentZaPretragu);
+            so.ExecuteTemplate();
+            return ((PretraziMagacinskeDokumenteSO)so).Rezultat;
         }
     }
 }

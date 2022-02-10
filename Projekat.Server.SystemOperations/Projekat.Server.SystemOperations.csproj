@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaznaSistemskaOperacija.cs" />
+    <Compile Include="OpstaSistemskaOperacija.cs" />
+    <Compile Include="PretraziMagacinskeDokumenteSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcitajMagacinskeDokumenteSO.cs" />
     <Compile Include="UcitajPoslovnePartnereSO.cs" />
     <Compile Include="UcitajProizvodeSO.cs" />
     <Compile Include="UnesiMagacinskiDokumentSO.cs" />

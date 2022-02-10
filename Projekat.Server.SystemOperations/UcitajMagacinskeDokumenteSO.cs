@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Projekat.Server.SystemOperations
 {
-    public class UcitajProizvodeSO : OpstaSistemskaOperacija
+    public class UcitajMagacinskeDokumenteSO : OpstaSistemskaOperacija
     {
-        public List<Proizvod> Rezultat { get; private set; }
+        public List<Dokument> Rezultat { get; private set; }
         protected override void Execute()
         {
-            Rezultat = repository.VratiSveJoin(new Proizvod(), new JedinicaMere()).OfType<Proizvod>().ToList();
+            Rezultat = repository.VratiSve(new Dokument()).OfType<Dokument>().ToList();
         }
     }
 }

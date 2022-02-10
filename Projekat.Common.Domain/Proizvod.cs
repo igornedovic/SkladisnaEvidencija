@@ -24,6 +24,8 @@ namespace Projekat.Common.Domain
 
         public string ForeignKey => "JmId";
 
+        public string Criteria => null;
+
         public override bool Equals(object obj)
         {
             if (obj is Proizvod p)

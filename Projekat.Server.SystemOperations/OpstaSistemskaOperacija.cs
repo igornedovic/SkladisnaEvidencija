@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Projekat.Server.SystemOperations
 {
-    public abstract class BaznaSistemskaOperacija
+    public abstract class OpstaSistemskaOperacija
     {
         protected IRepository<IDomainObject> repository = new GenericDbRepository();
 

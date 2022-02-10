@@ -32,9 +32,17 @@ namespace Projekat.Common.Domain
 
         public string ForeignKey => null;
 
+        public string Criteria => $"NazivMagacinskogDokumenta={(int)NazivDokumenta} AND Datum='{Datum}'";
+
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Dokument d = new Dokument();
+            d.DokumentId = (int)reader["MagacinskiDokumentId"];
+            d.NazivDokumenta = (NazivDokumenta)reader["NazivMagacinskogDokumenta"];
+            d.Datum = (DateTime)reader["Datum"];
+            d.UkupanIznos = (double)reader["UkupanIznos"];
+            d.Status = (string)reader["Status"];
+            return d;
         }
     }
 }

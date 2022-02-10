@@ -53,7 +53,7 @@ namespace Projekat.Server.Repository
             return rezultat;
         }
 
-        public List<IDomainObject> VratiSve(IDomainObject obj, IDomainObject obj1)
+        public List<IDomainObject> VratiSveJoin(IDomainObject obj, IDomainObject obj1)
         {
             List<IDomainObject> rezultat = new List<IDomainObject>();
             SqlCommand command = broker.KreirajKomandu();
@@ -83,17 +83,29 @@ namespace Projekat.Server.Repository
             command.ExecuteNonQuery();
         }
 
+        public List<IDomainObject> Pretrazi(string kriterijum, IDomainObject obj)
+        {
+            List<IDomainObject> rezultat = new List<IDomainObject>();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"SELECT * FROM {obj.TableName} WHERE {kriterijum}";
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    IDomainObject objekat = obj.ReadObjectRow(reader);
+                    rezultat.Add(objekat);
+                }
+            }
+
+            return rezultat;
+        }
+
         public void Izmeni(IDomainObject obj)
         {
             throw new NotImplementedException();
         }
 
         public void Obrisi(IDomainObject obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<IDomainObject> Pretrazi(string kriterijum)
         {
             throw new NotImplementedException();
         }

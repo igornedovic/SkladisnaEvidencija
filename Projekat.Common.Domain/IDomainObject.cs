@@ -15,6 +15,8 @@ namespace Projekat.Common.Domain
         string PrimaryKey { get; }
         string ForeignKey { get; }
 
+        string Criteria { get; }
+
         IDomainObject ReadObjectRow(SqlDataReader reader);
     }
 }

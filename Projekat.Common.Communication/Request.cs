@@ -12,6 +12,15 @@ namespace Projekat.Common.Communication
         UcitajPoslovnePartnere,
         UcitajProizvode,
         UnesiMagacinskiDokument,
+        UcitajMagacinskeDokumente,
+        PretraziMagacinskeDokumente,
+        UcitajMagacinskiDokument,
+        IzmeniMagacinskiDokument,
+        StornirajMagacinskiDokument,
+        PretraziProizvode,
+        UcitajProizvod,
+        IzmeniProizvod,
+        ObrisiProizvod,
         End
     }
 

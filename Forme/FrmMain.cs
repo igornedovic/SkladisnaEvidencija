@@ -32,6 +32,11 @@ namespace Forme
             ChangePanel(new UCUnosDokumenta());
         }
 
+        private void pretragaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePanel(new UCPretragaDokumenata());
+        }
+
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             try

@@ -21,6 +21,8 @@ namespace Projekat.Common.Domain
 
         public virtual string ForeignKey => null;
 
+        public string Criteria => null;
+
         public virtual IDomainObject ReadObjectRow(SqlDataReader reader)
         {
             PoslovniPartner pp = new PoslovniPartner();

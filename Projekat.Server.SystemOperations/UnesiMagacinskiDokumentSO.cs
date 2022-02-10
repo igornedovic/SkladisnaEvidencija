@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Projekat.Server.SystemOperations
 {
-    public class UnesiMagacinskiDokumentSO : BaznaSistemskaOperacija
+    public class UnesiMagacinskiDokumentSO : OpstaSistemskaOperacija
     {
         private readonly Dokument dokument;
 

@@ -25,6 +25,8 @@ namespace Projekat.Common.Domain
 
         public string ForeignKey => null;
 
+        public string Criteria => null;
+
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {
             throw new NotImplementedException();
