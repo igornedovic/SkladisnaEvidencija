@@ -35,6 +35,10 @@ namespace Forme.UserControls
             this.lblNaziv = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAdresaPl = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFirma = new System.Windows.Forms.ComboBox();
+            this.cbImePrezime = new System.Windows.Forms.ComboBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPib = new System.Windows.Forms.TextBox();
             this.txtAdresaFl = new System.Windows.Forms.TextBox();
@@ -56,10 +60,6 @@ namespace Forme.UserControls
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
-            this.cbImePrezime = new System.Windows.Forms.ComboBox();
-            this.cbFirma = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAdresaPl = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +104,38 @@ namespace Forme.UserControls
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Poslovni Partner";
+            // 
+            // txtAdresaPl
+            // 
+            this.txtAdresaPl.Location = new System.Drawing.Point(406, 164);
+            this.txtAdresaPl.Name = "txtAdresaPl";
+            this.txtAdresaPl.Size = new System.Drawing.Size(181, 22);
+            this.txtAdresaPl.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(318, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Adresa:";
+            // 
+            // cbFirma
+            // 
+            this.cbFirma.FormattingEnabled = true;
+            this.cbFirma.Location = new System.Drawing.Point(406, 55);
+            this.cbFirma.Name = "cbFirma";
+            this.cbFirma.Size = new System.Drawing.Size(181, 24);
+            this.cbFirma.TabIndex = 12;
+            // 
+            // cbImePrezime
+            // 
+            this.cbImePrezime.FormattingEnabled = true;
+            this.cbImePrezime.Location = new System.Drawing.Point(131, 55);
+            this.cbImePrezime.Name = "cbImePrezime";
+            this.cbImePrezime.Size = new System.Drawing.Size(181, 24);
+            this.cbImePrezime.TabIndex = 11;
             // 
             // txtEmail
             // 
@@ -232,6 +264,7 @@ namespace Forme.UserControls
             // 
             // dgvStavke
             // 
+            this.dgvStavke.AllowUserToAddRows = false;
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavke.Location = new System.Drawing.Point(89, 310);
@@ -282,38 +315,6 @@ namespace Forme.UserControls
             this.btnSacuvaj.TabIndex = 14;
             this.btnSacuvaj.Text = "Sacuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = true;
-            // 
-            // cbImePrezime
-            // 
-            this.cbImePrezime.FormattingEnabled = true;
-            this.cbImePrezime.Location = new System.Drawing.Point(131, 55);
-            this.cbImePrezime.Name = "cbImePrezime";
-            this.cbImePrezime.Size = new System.Drawing.Size(181, 24);
-            this.cbImePrezime.TabIndex = 11;
-            // 
-            // cbFirma
-            // 
-            this.cbFirma.FormattingEnabled = true;
-            this.cbFirma.Location = new System.Drawing.Point(406, 55);
-            this.cbFirma.Name = "cbFirma";
-            this.cbFirma.Size = new System.Drawing.Size(181, 24);
-            this.cbFirma.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(318, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Adresa:";
-            // 
-            // txtAdresaPl
-            // 
-            this.txtAdresaPl.Location = new System.Drawing.Point(406, 164);
-            this.txtAdresaPl.Name = "txtAdresaPl";
-            this.txtAdresaPl.Size = new System.Drawing.Size(181, 22);
-            this.txtAdresaPl.TabIndex = 14;
             // 
             // UCUnosDokumenta
             // 

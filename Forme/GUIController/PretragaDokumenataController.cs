@@ -49,6 +49,8 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.Columns["PrimaryKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["ForeignKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["Criteria"].Visible = false;
+
+            uCPretragaDokumenata.DgvDokumenti.Columns["Datum"].DefaultCellStyle.Format = "dd.MM.yyyy";
         }
         private void BtnResetuj_Click(object sender, EventArgs e)
         {

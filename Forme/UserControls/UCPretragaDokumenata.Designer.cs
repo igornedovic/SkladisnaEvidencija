@@ -44,6 +44,7 @@ namespace Forme.UserControls
             this.txtPoslovniPartner = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnResetuj = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
@@ -93,6 +94,7 @@ namespace Forme.UserControls
             // 
             // dgvDokumenti
             // 
+            this.dgvDokumenti.AllowUserToAddRows = false;
             this.dgvDokumenti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDokumenti.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvDokumenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,6 +125,7 @@ namespace Forme.UserControls
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dgvStavke);
             this.groupBox1.Controls.Add(this.txtPoslovniPartner);
             this.groupBox1.Controls.Add(this.label3);
@@ -135,10 +138,11 @@ namespace Forme.UserControls
             // 
             // dgvStavke
             // 
+            this.dgvStavke.AllowUserToAddRows = false;
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvStavke.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStavke.Location = new System.Drawing.Point(37, 74);
+            this.dgvStavke.Location = new System.Drawing.Point(37, 84);
             this.dgvStavke.Name = "dgvStavke";
             this.dgvStavke.ReadOnly = true;
             this.dgvStavke.RowHeadersWidth = 51;
@@ -171,6 +175,15 @@ namespace Forme.UserControls
             this.btnResetuj.TabIndex = 9;
             this.btnResetuj.Text = "Resetuj filtere";
             this.btnResetuj.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Stavke:";
             // 
             // UCPretragaDokumenata
             // 
@@ -212,6 +225,7 @@ namespace Forme.UserControls
         private System.Windows.Forms.TextBox txtPoslovniPartner;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnResetuj;
+        private Label label4;
 
         public Label Label1 { get => label1; set => label1 = value; }
         public Label Label2 { get => label2; set => label2 = value; }
