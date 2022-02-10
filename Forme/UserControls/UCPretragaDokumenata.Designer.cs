@@ -40,11 +40,12 @@ namespace Forme.UserControls
             this.btnIzmeni = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
             this.txtPoslovniPartner = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnResetuj = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnDetalji = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
@@ -85,7 +86,7 @@ namespace Forme.UserControls
             // 
             // btnPretrazi
             // 
-            this.btnPretrazi.Location = new System.Drawing.Point(534, 21);
+            this.btnPretrazi.Location = new System.Drawing.Point(556, 21);
             this.btnPretrazi.Name = "btnPretrazi";
             this.btnPretrazi.Size = new System.Drawing.Size(132, 41);
             this.btnPretrazi.TabIndex = 4;
@@ -98,7 +99,7 @@ namespace Forme.UserControls
             this.dgvDokumenti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDokumenti.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvDokumenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDokumenti.Location = new System.Drawing.Point(70, 85);
+            this.dgvDokumenti.Location = new System.Drawing.Point(185, 78);
             this.dgvDokumenti.Name = "dgvDokumenti";
             this.dgvDokumenti.RowHeadersWidth = 51;
             this.dgvDokumenti.RowTemplate.Height = 24;
@@ -129,12 +130,21 @@ namespace Forme.UserControls
             this.groupBox1.Controls.Add(this.dgvStavke);
             this.groupBox1.Controls.Add(this.txtPoslovniPartner);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(70, 308);
+            this.groupBox1.Location = new System.Drawing.Point(70, 286);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 246);
+            this.groupBox1.Size = new System.Drawing.Size(493, 254);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Stavke:";
             // 
             // dgvStavke
             // 
@@ -142,7 +152,7 @@ namespace Forme.UserControls
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvStavke.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStavke.Location = new System.Drawing.Point(37, 84);
+            this.dgvStavke.Location = new System.Drawing.Point(37, 88);
             this.dgvStavke.Name = "dgvStavke";
             this.dgvStavke.ReadOnly = true;
             this.dgvStavke.RowHeadersWidth = 51;
@@ -169,26 +179,27 @@ namespace Forme.UserControls
             // 
             // btnResetuj
             // 
-            this.btnResetuj.Location = new System.Drawing.Point(671, 21);
+            this.btnResetuj.Location = new System.Drawing.Point(715, 21);
             this.btnResetuj.Name = "btnResetuj";
             this.btnResetuj.Size = new System.Drawing.Size(129, 41);
             this.btnResetuj.TabIndex = 9;
             this.btnResetuj.Text = "Resetuj filtere";
             this.btnResetuj.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // btnDetalji
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Stavke:";
+            this.btnDetalji.Location = new System.Drawing.Point(893, 170);
+            this.btnDetalji.Name = "btnDetalji";
+            this.btnDetalji.Size = new System.Drawing.Size(101, 41);
+            this.btnDetalji.TabIndex = 10;
+            this.btnDetalji.Text = "Detalji";
+            this.btnDetalji.UseVisualStyleBackColor = true;
             // 
             // UCPretragaDokumenata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDetalji);
             this.Controls.Add(this.btnResetuj);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStorniraj);
@@ -200,7 +211,7 @@ namespace Forme.UserControls
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UCPretragaDokumenata";
-            this.Size = new System.Drawing.Size(803, 568);
+            this.Size = new System.Drawing.Size(1032, 554);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -225,7 +236,8 @@ namespace Forme.UserControls
         private System.Windows.Forms.TextBox txtPoslovniPartner;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnResetuj;
-        private Label label4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnDetalji;
 
         public Label Label1 { get => label1; set => label1 = value; }
         public Label Label2 { get => label2; set => label2 = value; }
@@ -240,5 +252,7 @@ namespace Forme.UserControls
         public TextBox TxtPoslovniPartner { get => txtPoslovniPartner; set => txtPoslovniPartner = value; }
         public Label Label3 { get => label3; set => label3 = value; }
         public Button BtnResetuj { get => btnResetuj; set => btnResetuj = value; }
+        public Label Label4 { get => label4; set => label4 = value; }
+        public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
     }
 }

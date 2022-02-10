@@ -84,5 +84,12 @@ namespace Projekat.Server.ApplicationLogic
             so.ExecuteTemplate();
             return ((PretraziMagacinskeDokumenteSO)so).Rezultat;
         }
+
+        public object UcitajMagacinskiDokument(Dokument izabraniDokument)
+        {
+            OpstaSistemskaOperacija so = new UcitajMagacinskiDokumentSO(izabraniDokument);
+            so.ExecuteTemplate();
+            return ((UcitajMagacinskiDokumentSO)so).Rezultat;
+        }
     }
 }

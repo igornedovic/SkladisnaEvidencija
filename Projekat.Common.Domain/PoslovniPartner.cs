@@ -21,7 +21,7 @@ namespace Projekat.Common.Domain
 
         public virtual string ForeignKey => null;
 
-        public string Criteria => null;
+        public object Criteria => null;
 
         public virtual IDomainObject ReadObjectRow(SqlDataReader reader)
         {

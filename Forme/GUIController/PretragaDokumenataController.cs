@@ -38,6 +38,7 @@ namespace Forme.GUIController
 
             uCPretragaDokumenata.BtnPretrazi.Click += BtnPretrazi_Click;
             uCPretragaDokumenata.BtnResetuj.Click += BtnResetuj_Click;
+            uCPretragaDokumenata.BtnDetalji.Click += BtnDetalji_Click;
         }
 
         private void PrilagodiTabelu()
@@ -51,6 +52,18 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.Columns["Criteria"].Visible = false;
 
             uCPretragaDokumenata.DgvDokumenti.Columns["Datum"].DefaultCellStyle.Format = "dd.MM.yyyy";
+        }
+
+        private void BtnDetalji_Click(object sender, EventArgs e)
+        {
+            if (uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Izaberite dokument u tabeli za koji zelite da ucitate podatke!");
+                return;
+            }
+
+            Dokument izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
+            Dokument temp = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
         }
         private void BtnResetuj_Click(object sender, EventArgs e)
         {

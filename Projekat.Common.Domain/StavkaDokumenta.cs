@@ -25,11 +25,22 @@ namespace Projekat.Common.Domain
 
         public string ForeignKey => null;
 
-        public string Criteria => null;
+        public object Criteria => null;
 
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            StavkaDokumenta sd = new StavkaDokumenta();
+            sd.DokumentId = (int)reader["DokumentId"];
+            sd.RbStavke = (int)reader["RBStavke"];
+            sd.Kolicina = (int)reader["Kolicina"];
+            sd.Cena = (double)reader["Cena"];
+            sd.Iznos = (double)reader["Iznos"];
+            sd.Proizvod = new Proizvod
+            {
+                ProizvodId = (int)reader["ProizvodId"]
+            };
+
+            return sd;
         }
     }
 }

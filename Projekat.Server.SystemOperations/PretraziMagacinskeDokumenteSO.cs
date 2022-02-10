@@ -18,6 +18,7 @@ namespace Projekat.Server.SystemOperations
         public List<Dokument> Rezultat { get; private set; }
         protected override void Execute()
         {
+            dokumentZaPretragu.Criteria = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";
             Rezultat = repository.Pretrazi(dokumentZaPretragu.Criteria, dokumentZaPretragu).OfType<Dokument>().ToList();
         }
     }

@@ -83,11 +83,28 @@ namespace Projekat.Server.Repository
             command.ExecuteNonQuery();
         }
 
-        public List<IDomainObject> Pretrazi(string kriterijum, IDomainObject obj)
+        public List<IDomainObject> Pretrazi(object kriterijum, IDomainObject obj)
         {
             List<IDomainObject> rezultat = new List<IDomainObject>();
             SqlCommand command = broker.KreirajKomandu();
             command.CommandText = $"SELECT * FROM {obj.TableName} WHERE {kriterijum}";
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    IDomainObject objekat = obj.ReadObjectRow(reader);
+                    rezultat.Add(objekat);
+                }
+            }
+
+            return rezultat;
+        }
+
+        public List<IDomainObject> PretraziJoin(object kriterijum, IDomainObject obj, IDomainObject obj1)
+        {
+            List<IDomainObject> rezultat = new List<IDomainObject>();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON ({obj.ForeignKey} = {obj1.PrimaryKey}) WHERE {kriterijum}";
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -109,6 +126,5 @@ namespace Projekat.Server.Repository
         {
             throw new NotImplementedException();
         }
-
     }
 }

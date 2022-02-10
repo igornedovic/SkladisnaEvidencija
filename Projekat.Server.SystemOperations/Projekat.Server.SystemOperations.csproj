@@ -45,6 +45,7 @@
     <Compile Include="PretraziMagacinskeDokumenteSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UcitajMagacinskeDokumenteSO.cs" />
+    <Compile Include="UcitajMagacinskiDokumentSO.cs" />
     <Compile Include="UcitajPoslovnePartnereSO.cs" />
     <Compile Include="UcitajProizvodeSO.cs" />
     <Compile Include="UnesiMagacinskiDokumentSO.cs" />
