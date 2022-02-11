@@ -16,16 +16,22 @@ namespace Projekat.Server.SystemOperations
             this.izabraniDokument = izabraniDokument;
         }
 
-        public List<PravnoLice> PravnoLice { get; private set; }
-        public List<FizickoLice> FizickoLice { get; private set; }
-        public List<StavkaDokumenta> StavkeDokumenta { get; set; }
-        public Dokument Rezultat { get; private set; }
+        public List<StavkaDokumenta> Stavke { get; private set; }
+
+        public Dokument Rezultat { get; set; }
         protected override void Execute()
         {
-            izabraniDokument.Criteria = izabraniDokument.PoslovniPartner.PartnerId;
-            PravnoLice = repository.PretraziJoin(izabraniDokument.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PravnoLice>().ToList();
+            izabraniDokument.Criteria = $"DokumentId={izabraniDokument.DokumentId}";
+            Stavke = repository.Pretrazi(izabraniDokument.Criteria, new StavkaDokumenta()).OfType<StavkaDokumenta>().ToList();
+            izabraniDokument.StavkeDokumenta = Stavke;
 
+            foreach(StavkaDokumenta s in izabraniDokument.StavkeDokumenta)
+            {
+                s.Criteria = $"ProizvodId={s.Proizvod.ProizvodId}";
+                s.Proizvod = (repository.PretraziJoin(s.Criteria, new Proizvod(), new JedinicaMere()).OfType<Proizvod>().ToList())[0];
+            }
 
+            Rezultat = izabraniDokument;
         }
     }
 }

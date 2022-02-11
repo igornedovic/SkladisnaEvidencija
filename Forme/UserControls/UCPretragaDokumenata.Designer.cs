@@ -40,12 +40,13 @@ namespace Forme.UserControls
             this.btnIzmeni = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnObrisiStavku = new System.Windows.Forms.Button();
+            this.btnNovaStavka = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
-            this.txtPoslovniPartner = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnResetuj = new System.Windows.Forms.Button();
             this.btnDetalji = new System.Windows.Forms.Button();
+            this.btnSacuvaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
@@ -54,7 +55,7 @@ namespace Forme.UserControls
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 33);
+            this.label1.Location = new System.Drawing.Point(68, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 0;
@@ -63,7 +64,7 @@ namespace Forme.UserControls
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(302, 33);
+            this.label2.Location = new System.Drawing.Point(329, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 1;
@@ -71,7 +72,7 @@ namespace Forme.UserControls
             // 
             // txtDatum
             // 
-            this.txtDatum.Location = new System.Drawing.Point(361, 30);
+            this.txtDatum.Location = new System.Drawing.Point(401, 30);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(167, 22);
             this.txtDatum.TabIndex = 2;
@@ -79,14 +80,14 @@ namespace Forme.UserControls
             // cbNaziv
             // 
             this.cbNaziv.FormattingEnabled = true;
-            this.cbNaziv.Location = new System.Drawing.Point(120, 30);
+            this.cbNaziv.Location = new System.Drawing.Point(133, 30);
             this.cbNaziv.Name = "cbNaziv";
             this.cbNaziv.Size = new System.Drawing.Size(167, 24);
             this.cbNaziv.TabIndex = 3;
             // 
             // btnPretrazi
             // 
-            this.btnPretrazi.Location = new System.Drawing.Point(556, 21);
+            this.btnPretrazi.Location = new System.Drawing.Point(598, 21);
             this.btnPretrazi.Name = "btnPretrazi";
             this.btnPretrazi.Size = new System.Drawing.Size(132, 41);
             this.btnPretrazi.TabIndex = 4;
@@ -99,7 +100,7 @@ namespace Forme.UserControls
             this.dgvDokumenti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDokumenti.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvDokumenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDokumenti.Location = new System.Drawing.Point(185, 78);
+            this.dgvDokumenti.Location = new System.Drawing.Point(71, 78);
             this.dgvDokumenti.Name = "dgvDokumenti";
             this.dgvDokumenti.RowHeadersWidth = 51;
             this.dgvDokumenti.RowTemplate.Height = 24;
@@ -108,16 +109,16 @@ namespace Forme.UserControls
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(597, 372);
+            this.btnIzmeni.Location = new System.Drawing.Point(884, 354);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(132, 41);
             this.btnIzmeni.TabIndex = 6;
-            this.btnIzmeni.Text = "Izmeni";
+            this.btnIzmeni.Text = "Omoguci izmene";
             this.btnIzmeni.UseVisualStyleBackColor = true;
             // 
             // btnStorniraj
             // 
-            this.btnStorniraj.Location = new System.Drawing.Point(597, 458);
+            this.btnStorniraj.Location = new System.Drawing.Point(884, 448);
             this.btnStorniraj.Name = "btnStorniraj";
             this.btnStorniraj.Size = new System.Drawing.Size(132, 41);
             this.btnStorniraj.TabIndex = 7;
@@ -126,21 +127,41 @@ namespace Forme.UserControls
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSacuvaj);
+            this.groupBox1.Controls.Add(this.btnObrisiStavku);
+            this.groupBox1.Controls.Add(this.btnNovaStavka);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dgvStavke);
-            this.groupBox1.Controls.Add(this.txtPoslovniPartner);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(70, 286);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 254);
+            this.groupBox1.Size = new System.Drawing.Size(778, 281);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji";
             // 
+            // btnObrisiStavku
+            // 
+            this.btnObrisiStavku.Location = new System.Drawing.Point(657, 152);
+            this.btnObrisiStavku.Name = "btnObrisiStavku";
+            this.btnObrisiStavku.Size = new System.Drawing.Size(78, 61);
+            this.btnObrisiStavku.TabIndex = 12;
+            this.btnObrisiStavku.Text = "Obrisi stavku";
+            this.btnObrisiStavku.UseVisualStyleBackColor = true;
+            // 
+            // btnNovaStavka
+            // 
+            this.btnNovaStavka.Location = new System.Drawing.Point(657, 58);
+            this.btnNovaStavka.Name = "btnNovaStavka";
+            this.btnNovaStavka.Size = new System.Drawing.Size(78, 61);
+            this.btnNovaStavka.TabIndex = 11;
+            this.btnNovaStavka.Text = "Nova stavka";
+            this.btnNovaStavka.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 64);
+            this.label4.Location = new System.Drawing.Point(34, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 7;
@@ -152,34 +173,16 @@ namespace Forme.UserControls
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvStavke.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStavke.Location = new System.Drawing.Point(37, 88);
+            this.dgvStavke.Location = new System.Drawing.Point(37, 57);
             this.dgvStavke.Name = "dgvStavke";
-            this.dgvStavke.ReadOnly = true;
             this.dgvStavke.RowHeadersWidth = 51;
             this.dgvStavke.RowTemplate.Height = 24;
-            this.dgvStavke.Size = new System.Drawing.Size(442, 156);
+            this.dgvStavke.Size = new System.Drawing.Size(576, 156);
             this.dgvStavke.TabIndex = 6;
-            // 
-            // txtPoslovniPartner
-            // 
-            this.txtPoslovniPartner.Location = new System.Drawing.Point(155, 29);
-            this.txtPoslovniPartner.Name = "txtPoslovniPartner";
-            this.txtPoslovniPartner.ReadOnly = true;
-            this.txtPoslovniPartner.Size = new System.Drawing.Size(167, 22);
-            this.txtPoslovniPartner.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Poslovni partner:";
             // 
             // btnResetuj
             // 
-            this.btnResetuj.Location = new System.Drawing.Point(715, 21);
+            this.btnResetuj.Location = new System.Drawing.Point(884, 21);
             this.btnResetuj.Name = "btnResetuj";
             this.btnResetuj.Size = new System.Drawing.Size(129, 41);
             this.btnResetuj.TabIndex = 9;
@@ -188,12 +191,21 @@ namespace Forme.UserControls
             // 
             // btnDetalji
             // 
-            this.btnDetalji.Location = new System.Drawing.Point(893, 170);
+            this.btnDetalji.Location = new System.Drawing.Point(884, 158);
             this.btnDetalji.Name = "btnDetalji";
-            this.btnDetalji.Size = new System.Drawing.Size(101, 41);
+            this.btnDetalji.Size = new System.Drawing.Size(129, 41);
             this.btnDetalji.TabIndex = 10;
             this.btnDetalji.Text = "Detalji";
             this.btnDetalji.UseVisualStyleBackColor = true;
+            // 
+            // btnSacuvaj
+            // 
+            this.btnSacuvaj.Location = new System.Drawing.Point(262, 234);
+            this.btnSacuvaj.Name = "btnSacuvaj";
+            this.btnSacuvaj.Size = new System.Drawing.Size(132, 41);
+            this.btnSacuvaj.TabIndex = 13;
+            this.btnSacuvaj.Text = "Sacuvaj";
+            this.btnSacuvaj.UseVisualStyleBackColor = true;
             // 
             // UCPretragaDokumenata
             // 
@@ -211,7 +223,7 @@ namespace Forme.UserControls
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UCPretragaDokumenata";
-            this.Size = new System.Drawing.Size(1032, 554);
+            this.Size = new System.Drawing.Size(1032, 583);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -233,11 +245,12 @@ namespace Forme.UserControls
         private System.Windows.Forms.Button btnStorniraj;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvStavke;
-        private System.Windows.Forms.TextBox txtPoslovniPartner;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnResetuj;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDetalji;
+        private System.Windows.Forms.Button btnObrisiStavku;
+        private System.Windows.Forms.Button btnNovaStavka;
+        private System.Windows.Forms.Button btnSacuvaj;
 
         public Label Label1 { get => label1; set => label1 = value; }
         public Label Label2 { get => label2; set => label2 = value; }
@@ -249,10 +262,11 @@ namespace Forme.UserControls
         public Button BtnStorniraj { get => btnStorniraj; set => btnStorniraj = value; }
         public GroupBox GroupBox1 { get => groupBox1; set => groupBox1 = value; }
         public DataGridView DgvStavke { get => dgvStavke; set => dgvStavke = value; }
-        public TextBox TxtPoslovniPartner { get => txtPoslovniPartner; set => txtPoslovniPartner = value; }
-        public Label Label3 { get => label3; set => label3 = value; }
         public Button BtnResetuj { get => btnResetuj; set => btnResetuj = value; }
         public Label Label4 { get => label4; set => label4 = value; }
         public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
+        public Button BtnObrisiStavku { get => btnObrisiStavku; set => btnObrisiStavku = value; }
+        public Button BtnNovaStavka { get => btnNovaStavka; set => btnNovaStavka = value; }
+        public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
     }
 }

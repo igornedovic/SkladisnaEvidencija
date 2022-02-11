@@ -109,6 +109,7 @@ namespace Forme.UserControls
             // 
             this.txtAdresaPl.Location = new System.Drawing.Point(406, 164);
             this.txtAdresaPl.Name = "txtAdresaPl";
+            this.txtAdresaPl.ReadOnly = true;
             this.txtAdresaPl.Size = new System.Drawing.Size(181, 22);
             this.txtAdresaPl.TabIndex = 14;
             // 
@@ -141,6 +142,7 @@ namespace Forme.UserControls
             // 
             this.txtEmail.Location = new System.Drawing.Point(406, 126);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(181, 22);
             this.txtEmail.TabIndex = 10;
             // 
@@ -148,6 +150,7 @@ namespace Forme.UserControls
             // 
             this.txtPib.Location = new System.Drawing.Point(406, 90);
             this.txtPib.Name = "txtPib";
+            this.txtPib.ReadOnly = true;
             this.txtPib.Size = new System.Drawing.Size(181, 22);
             this.txtPib.TabIndex = 9;
             // 
@@ -155,6 +158,7 @@ namespace Forme.UserControls
             // 
             this.txtAdresaFl.Location = new System.Drawing.Point(131, 90);
             this.txtAdresaFl.Name = "txtAdresaFl";
+            this.txtAdresaFl.ReadOnly = true;
             this.txtAdresaFl.Size = new System.Drawing.Size(181, 22);
             this.txtAdresaFl.TabIndex = 7;
             // 
@@ -266,6 +270,7 @@ namespace Forme.UserControls
             // 
             this.dgvStavke.AllowUserToAddRows = false;
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvStavke.BackgroundColor = System.Drawing.Color.DodgerBlue;
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavke.Location = new System.Drawing.Point(89, 310);
             this.dgvStavke.Name = "dgvStavke";

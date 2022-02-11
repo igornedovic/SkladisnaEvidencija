@@ -252,11 +252,8 @@ namespace Forme.GUIController
         private void BtnNovaStavka_Click(object sender, EventArgs e)
         {
             dialog = new DialogNovaStavka();
-            dialog.CbProizvod.DataSource = Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.UcitajProizvode);
-            dialog.CbProizvod.SelectedIndexChanged += CbProizvod_SelectedIndexChanged;
-            dialog.TxtKolicina.TextChanged += AzurirajIznos_TextChanged;
-            dialog.TxtCena.TextChanged += AzurirajIznos_TextChanged;
             dialog.BtnDodaj.Click += BtnDodaj_Click;
+            
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -266,29 +263,6 @@ namespace Forme.GUIController
             dialog.Dispose();
         }
 
-        private void AzurirajIznos_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(dialog.TxtKolicina.Text) && !string.IsNullOrEmpty(dialog.TxtCena.Text))
-                {
-                    int kolicina = int.Parse(dialog.TxtKolicina.Text);
-                    double cena = double.Parse(dialog.TxtCena.Text);
-
-                    dialog.TxtIznos.Text = (kolicina * cena).ToString();
-                }
-                else
-                {
-                    dialog.TxtIznos.Text = "";
-                }
-            }
-            catch (FormatException ex)
-            {
-                dialog.TxtIznos.Text = "";
-                MessageBox.Show("Greska! " + ex.Message);
-            }
-        }
-
         private void BtnDodaj_Click(object sender, EventArgs e)
         {
             if(!ValidacijaStavke())
@@ -296,7 +270,7 @@ namespace Forme.GUIController
                 return;
             }
 
-            // dodati ako stavka sa istim proizvodom postoji u listi, azurirati kolicinu proizvoda
+            
             StavkaDokumenta stavka = new StavkaDokumenta();
             stavka.RbStavke = stavke.Count + 1;
             stavka.Proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
@@ -383,23 +357,6 @@ namespace Forme.GUIController
             }
 
             return uspesno;
-        }
-
-        private void CbProizvod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dialog.CbProizvod.SelectedItem != null)
-                {
-                    Proizvod proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
-                    dialog.TxtJm.Text = proizvod.JedinicaMere.Naziv;
-                }
-
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show("Greska: " + ex.Message);
-            }
         }
 
         private void CboxPravnoLice_CheckedChanged(object sender, EventArgs e)

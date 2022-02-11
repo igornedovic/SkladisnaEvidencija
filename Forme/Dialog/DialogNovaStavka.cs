@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forme.GUIController;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Forme.Dialog
 {
     public partial class DialogNovaStavka : Form
     {
+        private NovaStavkaController controller;
         public DialogNovaStavka()
         {
             InitializeComponent();
+            controller = new NovaStavkaController(this);
+            controller.Init();
         }
+
     }
 }

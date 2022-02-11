@@ -57,7 +57,7 @@ namespace Projekat.Server.Repository
         {
             List<IDomainObject> rezultat = new List<IDomainObject>();
             SqlCommand command = broker.KreirajKomandu();
-            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON ({obj.ForeignKey} = {obj1.PrimaryKey})";
+            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON (t1.{obj.ForeignKey} = t2.{obj1.PrimaryKey})";
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
@@ -104,7 +104,7 @@ namespace Projekat.Server.Repository
         {
             List<IDomainObject> rezultat = new List<IDomainObject>();
             SqlCommand command = broker.KreirajKomandu();
-            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON ({obj.ForeignKey} = {obj1.PrimaryKey}) WHERE {kriterijum}";
+            command.CommandText = $"SELECT * FROM {obj.TableName} t1 JOIN {obj1.TableName} t2 ON (t1.{obj.ForeignKey} = t2.{obj1.PrimaryKey}) WHERE {kriterijum}";
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())

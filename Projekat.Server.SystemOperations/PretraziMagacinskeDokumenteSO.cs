@@ -15,11 +15,32 @@ namespace Projekat.Server.SystemOperations
         {
             this.dokumentZaPretragu = dokumentZaPretragu;
         }
+
+        public List<Dokument> Dokumenti { get; private set; }
         public List<Dokument> Rezultat { get; private set; }
         protected override void Execute()
         {
-            dokumentZaPretragu.Criteria = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";
-            Rezultat = repository.Pretrazi(dokumentZaPretragu.Criteria, dokumentZaPretragu).OfType<Dokument>().ToList();
+            dokumentZaPretragu.Criteria = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";  
+            Dokumenti = repository.Pretrazi(dokumentZaPretragu.Criteria, dokumentZaPretragu).OfType<Dokument>().ToList();
+
+            foreach (Dokument dok in Dokumenti)
+            {
+                dok.Criteria = $"PartnerId={dok.PoslovniPartner.PartnerId}";
+                List<PoslovniPartner> pl = repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
+
+                if (pl.Count > 0)
+                {
+                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
+
+                }
+                else
+                {
+                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
+
+                }
+            }
+
+            Rezultat = Dokumenti;
         }
     }
 }
