@@ -85,6 +85,9 @@ namespace Server
                     case Operation.IzmeniMagacinskiDokument:
                         Controller.Instance.IzmeniMagacinskiDokument((Dokument)request.RequestObject);
                         break;
+                    case Operation.StornirajMagacinskiDokument:
+                        Controller.Instance.StornirajMagacinskiDokument((Dokument)request.RequestObject);
+                        break;
                     case Operation.End:
                         kraj = true;
                         break;

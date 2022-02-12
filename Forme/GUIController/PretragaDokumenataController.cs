@@ -45,6 +45,7 @@ namespace Forme.GUIController
             uCPretragaDokumenata.BtnDetalji.Click += BtnDetalji_Click;
 
             uCPretragaDokumenata.BtnIzmeni.Click += BtnIzmeni_Click;
+            uCPretragaDokumenata.BtnStorniraj.Click += BtnStorniraj_Click;
 
             uCPretragaDokumenata.BtnNovaStavka.Click += BtnNovaStavka_Click;
             uCPretragaDokumenata.BtnObrisiStavku.Click += BtnObrisiStavku_Click;
@@ -229,31 +230,55 @@ namespace Forme.GUIController
             uCPretragaDokumenata.GroupBox1.Enabled = true;
             uCPretragaDokumenata.BtnSacuvaj.Enabled = false;
         }
+
+        private void BtnStorniraj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Communication.Instance.SendRequestNoResult(Operation.StornirajMagacinskiDokument, izabraniDokument);
+                OsveziNakonIzmene();
+                MessageBox.Show("Sistem je stornirao magacinski dokument!");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sistem ne moze da stornira magacinski dokument!");
+            }
+        }
         private void BtnDetalji_Click(object sender, EventArgs e)
         {
-            if (uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count == 0)
+            try
             {
-                MessageBox.Show("Izaberite dokument u tabeli za koji zelite da ucitate podatke!");
-                return;
+                if (uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Izaberite dokument u tabeli za koji zelite da ucitate podatke!");
+                    return;
+                }
+
+                uCPretragaDokumenata.GroupBox1.Enabled = false;
+                uCPretragaDokumenata.BtnIzmeni.Enabled = true;
+                uCPretragaDokumenata.BtnStorniraj.Enabled = true;
+
+                izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
+                izabraniDokument = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
+
+                MessageBox.Show("Sistem je ucitao podatke o magacinskom dokumentu!");
+
+                stavke = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
+                uCPretragaDokumenata.DgvStavke.DataSource = stavke;
+
+                uCPretragaDokumenata.DgvStavke.Columns["DokumentId"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["TableName"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["InsertValues"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["PrimaryKey"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["ForeignKey"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["Criteria"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["Set"].Visible = false;
             }
-
-            uCPretragaDokumenata.GroupBox1.Enabled = false;
-            uCPretragaDokumenata.BtnIzmeni.Enabled = true;
-            uCPretragaDokumenata.BtnStorniraj.Enabled = true;
-
-            izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
-            izabraniDokument = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
-
-            stavke = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
-            uCPretragaDokumenata.DgvStavke.DataSource = stavke;
-
-            uCPretragaDokumenata.DgvStavke.Columns["DokumentId"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["TableName"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["InsertValues"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["PrimaryKey"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["ForeignKey"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["Criteria"].Visible = false;
-            uCPretragaDokumenata.DgvStavke.Columns["Set"].Visible = false;
+            catch (Exception)
+            {
+                MessageBox.Show("Sistem ne moze da ucita podatke o magacinskom dokumentu!");
+            }
 
 
 
