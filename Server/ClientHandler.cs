@@ -82,6 +82,9 @@ namespace Server
                     case Operation.UcitajMagacinskiDokument:
                         response.Result = Controller.Instance.UcitajMagacinskiDokument((Dokument)request.RequestObject);
                         break;
+                    case Operation.IzmeniMagacinskiDokument:
+                        Controller.Instance.IzmeniMagacinskiDokument((Dokument)request.RequestObject);
+                        break;
                     case Operation.End:
                         kraj = true;
                         break;

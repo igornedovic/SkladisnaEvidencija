@@ -91,5 +91,11 @@ namespace Projekat.Server.ApplicationLogic
             so.ExecuteTemplate();
             return ((UcitajMagacinskiDokumentSO)so).Rezultat;
         }
+
+        public void IzmeniMagacinskiDokument(Dokument izabraniDokument)
+        {
+            OpstaSistemskaOperacija so = new IzmeniMagacinskiDokumentSO(izabraniDokument);
+            so.ExecuteTemplate();
+        }
     }
 }

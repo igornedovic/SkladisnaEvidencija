@@ -40,13 +40,13 @@ namespace Forme.UserControls
             this.btnIzmeni = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSacuvaj = new System.Windows.Forms.Button();
             this.btnObrisiStavku = new System.Windows.Forms.Button();
             this.btnNovaStavka = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
             this.btnResetuj = new System.Windows.Forms.Button();
             this.btnDetalji = new System.Windows.Forms.Button();
-            this.btnSacuvaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumenti)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
@@ -109,6 +109,7 @@ namespace Forme.UserControls
             // 
             // btnIzmeni
             // 
+            this.btnIzmeni.Enabled = false;
             this.btnIzmeni.Location = new System.Drawing.Point(884, 354);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(132, 41);
@@ -118,6 +119,7 @@ namespace Forme.UserControls
             // 
             // btnStorniraj
             // 
+            this.btnStorniraj.Enabled = false;
             this.btnStorniraj.Location = new System.Drawing.Point(884, 448);
             this.btnStorniraj.Name = "btnStorniraj";
             this.btnStorniraj.Size = new System.Drawing.Size(132, 41);
@@ -139,6 +141,15 @@ namespace Forme.UserControls
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji";
+            // 
+            // btnSacuvaj
+            // 
+            this.btnSacuvaj.Location = new System.Drawing.Point(262, 234);
+            this.btnSacuvaj.Name = "btnSacuvaj";
+            this.btnSacuvaj.Size = new System.Drawing.Size(132, 41);
+            this.btnSacuvaj.TabIndex = 13;
+            this.btnSacuvaj.Text = "Sacuvaj";
+            this.btnSacuvaj.UseVisualStyleBackColor = true;
             // 
             // btnObrisiStavku
             // 
@@ -197,15 +208,6 @@ namespace Forme.UserControls
             this.btnDetalji.TabIndex = 10;
             this.btnDetalji.Text = "Detalji";
             this.btnDetalji.UseVisualStyleBackColor = true;
-            // 
-            // btnSacuvaj
-            // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(262, 234);
-            this.btnSacuvaj.Name = "btnSacuvaj";
-            this.btnSacuvaj.Size = new System.Drawing.Size(132, 41);
-            this.btnSacuvaj.TabIndex = 13;
-            this.btnSacuvaj.Text = "Sacuvaj";
-            this.btnSacuvaj.UseVisualStyleBackColor = true;
             // 
             // UCPretragaDokumenata
             // 

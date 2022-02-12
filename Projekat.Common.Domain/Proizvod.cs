@@ -24,7 +24,8 @@ namespace Projekat.Common.Domain
 
         public string ForeignKey => "JmId";
 
-        public object Criteria => null;
+        public object Criteria { get; set; }
+        public string Set { get; set; }
 
         public override bool Equals(object obj)
         {

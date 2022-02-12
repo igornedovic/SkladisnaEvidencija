@@ -41,9 +41,15 @@ namespace Forme.GUIController
 
             uCPretragaDokumenata.BtnPretrazi.Click += BtnPretrazi_Click;
             uCPretragaDokumenata.BtnResetuj.Click += BtnResetuj_Click;
+
             uCPretragaDokumenata.BtnDetalji.Click += BtnDetalji_Click;
+
             uCPretragaDokumenata.BtnIzmeni.Click += BtnIzmeni_Click;
+
             uCPretragaDokumenata.BtnNovaStavka.Click += BtnNovaStavka_Click;
+            uCPretragaDokumenata.BtnObrisiStavku.Click += BtnObrisiStavku_Click;
+
+            uCPretragaDokumenata.BtnSacuvaj.Click += BtnSacuvaj_Click;
         }
 
         private void PrilagodiTabelu()
@@ -54,9 +60,58 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.Columns["PrimaryKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["ForeignKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["Criteria"].Visible = false;
+            uCPretragaDokumenata.DgvDokumenti.Columns["Set"].Visible = false;
 
             uCPretragaDokumenata.DgvDokumenti.Columns["Datum"].DefaultCellStyle.Format = "dd.MM.yyyy";
             
+        }
+
+        private void OsveziNakonIzmene()
+        {  
+            dokumenti = new BindingList<Dokument>(Communication.Instance.SendRequestGetResult<List<Dokument>>(Operation.UcitajMagacinskeDokumente));
+            BtnResetuj_Click(this, EventArgs.Empty);
+        }
+
+        private void BtnSacuvaj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                izabraniDokument.Datum = DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyyy"), "dd.MM.yyyy", null);
+                izabraniDokument.Status = "Izmenjeno";
+                izabraniDokument.StavkeDokumenta = stavke.ToList();
+                izabraniDokument.UkupanIznos = izabraniDokument.StavkeDokumenta.Sum(s => s.Iznos);
+
+                Communication.Instance.SendRequestNoResult(Operation.IzmeniMagacinskiDokument, izabraniDokument);
+                OsveziNakonIzmene();
+                MessageBox.Show("Sistem je izmenio podatke o magacinskom dokumentu!");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sistem ne moze da izmeni podatke o magacinskom dokumentu!");
+            }
+        }
+
+        private void BtnObrisiStavku_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCPretragaDokumenata.DgvStavke.SelectedRows[0].DataBoundItem;
+
+                stavke.Remove(izabranaStavka);
+
+                for (int i = 0; i < stavke.Count; i++)
+                {
+                    stavke[i].RbStavke = i + 1;
+                }
+
+                uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Odaberite stavku iz tabele koju zelite da obrisete!");
+            }
+
         }
 
         private void BtnNovaStavka_Click(object sender, EventArgs e)
@@ -68,11 +123,9 @@ namespace Forme.GUIController
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                izabraniDokument.UkupanIznos = stavke.Sum(s => s.Iznos);
+                uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
+                dialog.Dispose();
             }
-
-            uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
-            dialog.Dispose();
         }
 
         private void BtnDodaj_Click(object sender, EventArgs e)
@@ -185,6 +238,8 @@ namespace Forme.GUIController
             }
 
             uCPretragaDokumenata.GroupBox1.Enabled = false;
+            uCPretragaDokumenata.BtnIzmeni.Enabled = true;
+            uCPretragaDokumenata.BtnStorniraj.Enabled = true;
 
             izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
             izabraniDokument = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
@@ -198,17 +253,23 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvStavke.Columns["PrimaryKey"].Visible = false;
             uCPretragaDokumenata.DgvStavke.Columns["ForeignKey"].Visible = false;
             uCPretragaDokumenata.DgvStavke.Columns["Criteria"].Visible = false;
+            uCPretragaDokumenata.DgvStavke.Columns["Set"].Visible = false;
+
+
 
         }
         private void BtnResetuj_Click(object sender, EventArgs e)
         {
             uCPretragaDokumenata.GroupBox1.Enabled = false;
+            uCPretragaDokumenata.BtnIzmeni.Enabled = false;
+            uCPretragaDokumenata.BtnStorniraj.Enabled = false;
 
             uCPretragaDokumenata.CbNaziv.SelectedIndex = 0;
             uCPretragaDokumenata.TxtDatum.Text = "";
 
             uCPretragaDokumenata.BtnPretrazi.Enabled = true;
 
+            uCPretragaDokumenata.DgvStavke.DataSource = null;
             uCPretragaDokumenata.DgvDokumenti.DataSource = null;
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumenti;
 
@@ -244,17 +305,6 @@ namespace Forme.GUIController
             }
 
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumentiPretraga;
-
-
-            //if (izabraniDokument.PoslovniPartner.TableName == "FizickoLice")
-            //{
-            //    uCPretragaDokumenata.TxtPoslovniPartner.Text = ((FizickoLice)izabraniDokument.PoslovniPartner).ToString();
-            //}
-            //else
-            //{
-            //    uCPretragaDokumenata.TxtPoslovniPartner.Text = ((PravnoLice)izabraniDokument.PoslovniPartner).ToString();
-
-            //}
 
             PrilagodiTabelu();
 

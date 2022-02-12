@@ -12,10 +12,12 @@ namespace Projekat.Common.Domain
         string TableName { get; }
         string InsertValues { get; }
 
+        string Set { get; set; }
+
         string PrimaryKey { get; }
         string ForeignKey { get; }
 
-        object Criteria { get; }
+        object Criteria { get; set; }
 
         IDomainObject ReadObjectRow(SqlDataReader reader);
     }

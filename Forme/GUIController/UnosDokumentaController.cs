@@ -30,8 +30,6 @@ namespace Forme.GUIController
 
         internal void Init()
         {
-
-            // OVDE POSTAVITI KONTROLNU PROMENLJIVU KOJA CE AKO JE 0 NPR TUMACITI OVO KAO UNOS DOKUMENTA, A AKO JE KAO 1 TUMACITI KAO IZMENU DOKUMENTA
             uCUnosDokumenta.CbImePrezime.Enabled = false;
             uCUnosDokumenta.TxtAdresaFl.Enabled = false;
             uCUnosDokumenta.CbFirma.Enabled = false;
@@ -50,6 +48,7 @@ namespace Forme.GUIController
             uCUnosDokumenta.DgvStavke.Columns["PrimaryKey"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["ForeignKey"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["Criteria"].Visible = false;
+            uCUnosDokumenta.DgvStavke.Columns["Set"].Visible = false;
 
 
             uCUnosDokumenta.CboxFizickoLice.CheckedChanged += CboxFizickoLice_CheckedChanged;

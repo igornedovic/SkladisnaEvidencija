@@ -119,12 +119,16 @@ namespace Projekat.Server.Repository
 
         public void Izmeni(IDomainObject obj)
         {
-            throw new NotImplementedException();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"UPDATE {obj.TableName} SET {obj.Set} WHERE {obj.Criteria}";
+            command.ExecuteNonQuery();
         }
 
         public void Obrisi(IDomainObject obj)
         {
-            throw new NotImplementedException();
+            SqlCommand command = broker.KreirajKomandu();
+            command.CommandText = $"DELETE FROM {obj.TableName} WHERE {obj.Criteria}";
+            command.ExecuteNonQuery();
         }
     }
 }
