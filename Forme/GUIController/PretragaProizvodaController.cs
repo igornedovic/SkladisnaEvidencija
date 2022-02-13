@@ -125,7 +125,16 @@ namespace Forme.GUIController
 
         private void BtnObrisi_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Communication.Instance.SendRequestNoResult(Operation.ObrisiProizvod, izabraniProizvod);
+                Osvezi();
+                MessageBox.Show("Sistem je obrisao proizvod!");
+            }
+            catch (Exception)
+            { 
+                MessageBox.Show("Sistem ne moze da obrise proizvod!");
+            }
         }
 
         private void BtnIzmeni_Click(object sender, EventArgs e)
@@ -179,6 +188,10 @@ namespace Forme.GUIController
             uCPretragaProizvoda.BtnObrisi.Enabled = false;
 
             uCPretragaProizvoda.TxtNaziv.Text = "";
+            uCPretragaProizvoda.TxtNazivUpdate.Text = "";
+            uCPretragaProizvoda.TxtJm.Text = "";
+            uCPretragaProizvoda.TxtRaspolozivaKolicina.Text = "";
+            uCPretragaProizvoda.TxtOpis.Text = "";
 
             uCPretragaProizvoda.BtnPretrazi.Enabled = true;
 

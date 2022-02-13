@@ -123,5 +123,11 @@ namespace Projekat.Server.ApplicationLogic
             OpstaSistemskaOperacija so = new IzmeniProizvodSO(izabraniProizvod);
             so.ExecuteTemplate();
         }
+
+        public void ObrisiProizvod(Proizvod izabraniProizvod)
+        {
+            OpstaSistemskaOperacija so = new ObrisiProizvodSO(izabraniProizvod);
+            so.ExecuteTemplate();
+        }
     }
 }

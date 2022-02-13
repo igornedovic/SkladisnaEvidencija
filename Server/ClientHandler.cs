@@ -97,6 +97,9 @@ namespace Server
                     case Operation.IzmeniProizvod:
                         Controller.Instance.IzmeniProizvod((Proizvod)request.RequestObject);
                         break;
+                    case Operation.ObrisiProizvod:
+                        Controller.Instance.ObrisiProizvod((Proizvod)request.RequestObject);
+                        break;
                     case Operation.End:
                         kraj = true;
                         break;

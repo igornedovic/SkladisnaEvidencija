@@ -93,6 +93,7 @@ namespace Forme
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogin.Location = new System.Drawing.Point(204, 345);
