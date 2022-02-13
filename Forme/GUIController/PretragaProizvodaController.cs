@@ -37,6 +37,11 @@ namespace Forme.GUIController
             uCPretragaProizvoda.BtnResetuj.Click += BtnResetuj_Click;
 
             uCPretragaProizvoda.BtnDetalji.Click += BtnDetalji_Click;
+
+            uCPretragaProizvoda.BtnIzmeni.Click += BtnIzmeni_Click;
+            uCPretragaProizvoda.BtnObrisi.Click += BtnObrisi_Click;
+
+            uCPretragaProizvoda.BtnSacuvaj.Click += BtnSacuvaj_Click;
         }
 
         private void PrilagodiTabelu()
@@ -50,6 +55,92 @@ namespace Forme.GUIController
             uCPretragaProizvoda.DgvProizvodi.Columns["ForeignKey"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["Criteria"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["Set"].Visible = false;
+        }
+
+        private void Osvezi()
+        {
+            proizvodi = new BindingList<Proizvod>(Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.UcitajProizvode));
+            BtnResetuj_Click(this, EventArgs.Empty);
+        }
+
+        private void BtnSacuvaj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Validacija())
+                {
+                    return;
+                }
+
+                izabraniProizvod.Naziv = uCPretragaProizvoda.TxtNazivUpdate.Text;
+                izabraniProizvod.UkupnaKolicina = int.Parse(uCPretragaProizvoda.TxtRaspolozivaKolicina.Text);
+                izabraniProizvod.Opis = uCPretragaProizvoda.TxtOpis.Text;
+
+                Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, izabraniProizvod);
+                Osvezi();
+                MessageBox.Show("Sistem je izmenio podatke o proizvodu!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sistem ne moze da izmeni podatke o proizvodu!");
+            }
+        }
+        
+        private bool Validacija()
+        {
+            bool uspesno = true;
+
+            if (string.IsNullOrWhiteSpace(uCPretragaProizvoda.TxtNazivUpdate.Text))
+            {
+                uCPretragaProizvoda.TxtNazivUpdate.BackColor = Color.Salmon;
+                uspesno = false;
+            }
+            else
+            {
+                uCPretragaProizvoda.TxtNazivUpdate.BackColor = Color.White;
+            }
+
+            if (string.IsNullOrWhiteSpace(uCPretragaProizvoda.TxtRaspolozivaKolicina.Text))
+            {
+                uCPretragaProizvoda.TxtRaspolozivaKolicina.BackColor = Color.Salmon;
+                uspesno = false;
+            }
+            else
+            {
+                uCPretragaProizvoda.TxtRaspolozivaKolicina.BackColor = Color.White;
+            }
+
+            if (string.IsNullOrWhiteSpace(uCPretragaProizvoda.TxtOpis.Text))
+            {
+                uCPretragaProizvoda.TxtOpis.BackColor = Color.Salmon;
+                uspesno = false;
+            }
+            else
+            {
+                uCPretragaProizvoda.TxtOpis.BackColor = Color.White;
+            }
+
+            return uspesno;
+        }
+
+        private void BtnObrisi_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BtnIzmeni_Click(object sender, EventArgs e)
+        {
+            uCPretragaProizvoda.GroupBox1.Enabled = true;
+            uCPretragaProizvoda.BtnSacuvaj.Enabled = false;
+
+            uCPretragaProizvoda.TxtNazivUpdate.TextChanged += IzvrsenaPromena_Event;
+            uCPretragaProizvoda.TxtRaspolozivaKolicina.TextChanged += IzvrsenaPromena_Event;
+            uCPretragaProizvoda.TxtOpis.TextChanged += IzvrsenaPromena_Event;
+        }
+
+        private void IzvrsenaPromena_Event(object sender, EventArgs e)
+        {
+            uCPretragaProizvoda.BtnSacuvaj.Enabled = true;
         }
 
         private void BtnDetalji_Click(object sender, EventArgs e)
@@ -83,6 +174,10 @@ namespace Forme.GUIController
 
         private void BtnResetuj_Click(object sender, EventArgs e)
         {
+            uCPretragaProizvoda.GroupBox1.Enabled = false;
+            uCPretragaProizvoda.BtnIzmeni.Enabled = false;
+            uCPretragaProizvoda.BtnObrisi.Enabled = false;
+
             uCPretragaProizvoda.TxtNaziv.Text = "";
 
             uCPretragaProizvoda.BtnPretrazi.Enabled = true;

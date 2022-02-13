@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IzmeniMagacinskiDokumentSO.cs" />
+    <Compile Include="IzmeniProizvodSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
     <Compile Include="PretraziMagacinskeDokumenteSO.cs" />
     <Compile Include="PretraziProizvodeSO.cs" />

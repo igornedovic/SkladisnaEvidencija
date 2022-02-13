@@ -94,6 +94,9 @@ namespace Server
                     case Operation.UcitajProizvod:
                         response.Result = Controller.Instance.UcitajProizvod((Proizvod)request.RequestObject);
                         break;
+                    case Operation.IzmeniProizvod:
+                        Controller.Instance.IzmeniProizvod((Proizvod)request.RequestObject);
+                        break;
                     case Operation.End:
                         kraj = true;
                         break;
