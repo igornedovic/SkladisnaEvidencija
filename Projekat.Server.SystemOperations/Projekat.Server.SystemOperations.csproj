@@ -51,6 +51,7 @@
     <Compile Include="UcitajMagacinskiDokumentSO.cs" />
     <Compile Include="UcitajPoslovnePartnereSO.cs" />
     <Compile Include="UcitajProizvodeSO.cs" />
+    <Compile Include="UcitajProizvodSO.cs" />
     <Compile Include="UnesiMagacinskiDokumentSO.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -110,5 +110,12 @@ namespace Projekat.Server.ApplicationLogic
             so.ExecuteTemplate();
             return ((PretraziProizvodeSO)so).Rezultat;
         }
+
+        public object UcitajProizvod(Proizvod izabraniProizvod)
+        {
+            OpstaSistemskaOperacija so = new UcitajProizvodSO(izabraniProizvod);
+            so.ExecuteTemplate();
+            return ((UcitajProizvodSO)so).Rezultat;
+        }
     }
 }

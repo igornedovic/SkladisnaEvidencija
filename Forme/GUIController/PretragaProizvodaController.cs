@@ -19,6 +19,7 @@ namespace Forme.GUIController
         private BindingList<Proizvod> proizvodi;
         private Proizvod proizvodZaPretragu = new Proizvod();
         private BindingList<Proizvod> proizvodiPretraga;
+        private Proizvod izabraniProizvod;
 
         public PretragaProizvodaController(UCPretragaProizvoda uCPretragaProizvoda)
         {
@@ -34,17 +35,50 @@ namespace Forme.GUIController
 
             uCPretragaProizvoda.BtnPretrazi.Click += BtnPretrazi_Click;
             uCPretragaProizvoda.BtnResetuj.Click += BtnResetuj_Click;
+
+            uCPretragaProizvoda.BtnDetalji.Click += BtnDetalji_Click;
         }
 
         private void PrilagodiTabelu()
         {
             uCPretragaProizvoda.DgvProizvodi.Columns["ProizvodId"].Visible = false;
+            uCPretragaProizvoda.DgvProizvodi.Columns["Opis"].Visible = false;
+            uCPretragaProizvoda.DgvProizvodi.Columns["JedinicaMere"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["TableName"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["InsertValues"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["PrimaryKey"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["ForeignKey"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["Criteria"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["Set"].Visible = false;
+        }
+
+        private void BtnDetalji_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (uCPretragaProizvoda.DgvProizvodi.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Izaberite proizvod u tabeli za koji zelite da ucitate podatke!");
+                    return;
+                }
+
+                izabraniProizvod = (Proizvod)uCPretragaProizvoda.DgvProizvodi.SelectedRows[0].DataBoundItem;
+                izabraniProizvod = Communication.Instance.SendRequestGetResult<Proizvod>(Operation.UcitajProizvod, izabraniProizvod);
+
+                MessageBox.Show("Sistem je ucitao podatke o proizvodu!");
+
+                uCPretragaProizvoda.TxtNazivUpdate.Text = izabraniProizvod.Naziv;
+                uCPretragaProizvoda.TxtJm.Text = izabraniProizvod.JedinicaMere.Naziv;
+                uCPretragaProizvoda.TxtRaspolozivaKolicina.Text = izabraniProizvod.UkupnaKolicina.ToString();
+                uCPretragaProizvoda.TxtOpis.Text = izabraniProizvod.Opis;
+
+                uCPretragaProizvoda.BtnIzmeni.Enabled = true;
+                uCPretragaProizvoda.BtnObrisi.Enabled = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Sistem ne moze da ucita podatke o proizvodu!");
+            }
         }
 
         private void BtnResetuj_Click(object sender, EventArgs e)

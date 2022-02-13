@@ -44,6 +44,8 @@ namespace Forme.UserControls
             this.txtOpis = new System.Windows.Forms.RichTextBox();
             this.btnIzmeni = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtJm = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.btnDetalji = new System.Windows.Forms.Button();
             this.btnResetuj = new System.Windows.Forms.Button();
@@ -86,13 +88,13 @@ namespace Forme.UserControls
             this.dgvProizvodi.Name = "dgvProizvodi";
             this.dgvProizvodi.RowHeadersWidth = 51;
             this.dgvProizvodi.RowTemplate.Height = 24;
-            this.dgvProizvodi.Size = new System.Drawing.Size(550, 192);
+            this.dgvProizvodi.Size = new System.Drawing.Size(337, 437);
             this.dgvProizvodi.TabIndex = 3;
             // 
             // btnObrisi
             // 
             this.btnObrisi.Enabled = false;
-            this.btnObrisi.Location = new System.Drawing.Point(54, 303);
+            this.btnObrisi.Location = new System.Drawing.Point(834, 475);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(113, 50);
             this.btnObrisi.TabIndex = 4;
@@ -112,7 +114,7 @@ namespace Forme.UserControls
             // 
             this.txtNazivUpdate.Location = new System.Drawing.Point(6, 67);
             this.txtNazivUpdate.Name = "txtNazivUpdate";
-            this.txtNazivUpdate.Size = new System.Drawing.Size(200, 22);
+            this.txtNazivUpdate.Size = new System.Drawing.Size(156, 22);
             this.txtNazivUpdate.TabIndex = 6;
             // 
             // label3
@@ -128,7 +130,7 @@ namespace Forme.UserControls
             // 
             this.txtRaspolozivaKolicina.Location = new System.Drawing.Point(6, 122);
             this.txtRaspolozivaKolicina.Name = "txtRaspolozivaKolicina";
-            this.txtRaspolozivaKolicina.Size = new System.Drawing.Size(200, 22);
+            this.txtRaspolozivaKolicina.Size = new System.Drawing.Size(156, 22);
             this.txtRaspolozivaKolicina.TabIndex = 8;
             // 
             // label4
@@ -142,16 +144,16 @@ namespace Forme.UserControls
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(6, 181);
+            this.txtOpis.Location = new System.Drawing.Point(6, 167);
             this.txtOpis.Name = "txtOpis";
-            this.txtOpis.Size = new System.Drawing.Size(200, 146);
+            this.txtOpis.Size = new System.Drawing.Size(207, 146);
             this.txtOpis.TabIndex = 10;
             this.txtOpis.Text = "";
             // 
             // btnIzmeni
             // 
             this.btnIzmeni.Enabled = false;
-            this.btnIzmeni.Location = new System.Drawing.Point(205, 303);
+            this.btnIzmeni.Location = new System.Drawing.Point(637, 475);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(113, 50);
             this.btnIzmeni.TabIndex = 11;
@@ -160,6 +162,8 @@ namespace Forme.UserControls
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtJm);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnSacuvaj);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNazivUpdate);
@@ -168,12 +172,29 @@ namespace Forme.UserControls
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtRaspolozivaKolicina);
             this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(639, 188);
+            this.groupBox1.Location = new System.Drawing.Point(604, 88);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(378, 349);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji";
+            // 
+            // txtJm
+            // 
+            this.txtJm.Location = new System.Drawing.Point(214, 70);
+            this.txtJm.Name = "txtJm";
+            this.txtJm.ReadOnly = true;
+            this.txtJm.Size = new System.Drawing.Size(156, 22);
+            this.txtJm.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(211, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Jedinica mere:";
             // 
             // btnSacuvaj
             // 
@@ -186,7 +207,7 @@ namespace Forme.UserControls
             // 
             // btnDetalji
             // 
-            this.btnDetalji.Location = new System.Drawing.Point(639, 103);
+            this.btnDetalji.Location = new System.Drawing.Point(439, 275);
             this.btnDetalji.Name = "btnDetalji";
             this.btnDetalji.Size = new System.Drawing.Size(113, 50);
             this.btnDetalji.TabIndex = 13;
@@ -243,6 +264,8 @@ namespace Forme.UserControls
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.Button btnResetuj;
+        private System.Windows.Forms.TextBox txtJm;
+        private System.Windows.Forms.Label label5;
 
         public Label Label1 { get => label1; set => label1 = value; }
         public TextBox TxtNaziv { get => txtNaziv; set => txtNaziv = value; }
@@ -260,5 +283,7 @@ namespace Forme.UserControls
         public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
         public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
         public Button BtnResetuj { get => btnResetuj; set => btnResetuj = value; }
+        public TextBox TxtJm { get => txtJm; set => txtJm = value; }
+        public Label Label5 { get => label5; set => label5 = value; }
     }
 }
