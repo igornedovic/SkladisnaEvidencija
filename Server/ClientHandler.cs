@@ -88,6 +88,9 @@ namespace Server
                     case Operation.StornirajMagacinskiDokument:
                         Controller.Instance.StornirajMagacinskiDokument((Dokument)request.RequestObject);
                         break;
+                    case Operation.PretraziProizvode:
+                        response.Result = Controller.Instance.PretraziProizvode((Proizvod)request.RequestObject);
+                        break;
                     case Operation.End:
                         kraj = true;
                         break;

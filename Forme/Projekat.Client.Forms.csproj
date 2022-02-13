@@ -69,6 +69,7 @@
     <Compile Include="GUIController\LoginController.cs" />
     <Compile Include="GUIController\NovaStavkaController.cs" />
     <Compile Include="GUIController\PretragaDokumenataController.cs" />
+    <Compile Include="GUIController\PretragaProizvodaController.cs" />
     <Compile Include="GUIController\UnosDokumentaController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

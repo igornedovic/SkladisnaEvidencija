@@ -85,8 +85,9 @@ namespace Forme
             // pretragaProizvodaToolStripMenuItem
             // 
             this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
-            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
+            this.pretragaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.pretragaProizvodaToolStripMenuItem_Click);
             // 
             // pnlMain
             // 

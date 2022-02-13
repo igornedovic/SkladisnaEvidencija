@@ -42,7 +42,10 @@ namespace Projekat.Common.Domain
 
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            JedinicaMere jm = new JedinicaMere();
+            jm.JedinicaMereId = (int)reader["JedinicaMereId"];
+            jm.Naziv = (string)reader["NazivJediniceMere"];
+            return jm;
         }
 
         public override string ToString()

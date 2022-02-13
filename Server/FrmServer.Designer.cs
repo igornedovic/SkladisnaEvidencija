@@ -70,6 +70,7 @@ namespace Server
             // 
             // dgvKlijenti
             // 
+            this.dgvKlijenti.AllowUserToAddRows = false;
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijenti.Location = new System.Drawing.Point(153, 99);
             this.dgvKlijenti.Name = "dgvKlijenti";

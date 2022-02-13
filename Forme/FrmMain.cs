@@ -37,6 +37,11 @@ namespace Forme
             ChangePanel(new UCPretragaDokumenata());
         }
 
+        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePanel(new UCPretragaProizvoda());
+        }
+
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             try
@@ -48,6 +53,5 @@ namespace Forme
                 Debug.WriteLine(">>> FormClosed event: " + ex.Message);
             }
         }
-
     }
 }

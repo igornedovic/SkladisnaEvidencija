@@ -103,5 +103,12 @@ namespace Projekat.Server.ApplicationLogic
             OpstaSistemskaOperacija so = new StornirajMagacinskiDokumentSO(izabraniDokument);
             so.ExecuteTemplate();
         }
+
+        public object PretraziProizvode(Proizvod proizvodZaPretragu)
+        {
+            OpstaSistemskaOperacija so = new PretraziProizvodeSO(proizvodZaPretragu);
+            so.ExecuteTemplate();
+            return ((PretraziProizvodeSO)so).Rezultat;
+        }
     }
 }

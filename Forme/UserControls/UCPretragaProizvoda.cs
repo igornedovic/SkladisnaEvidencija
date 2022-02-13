@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forme.GUIController;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Forme.UserControls
 {
     public partial class UCPretragaProizvoda : UserControl
     {
+        private PretragaProizvodaController controller;
         public UCPretragaProizvoda()
         {
             InitializeComponent();
+            controller = new PretragaProizvodaController(this);
+            controller.Init();
         }
     }
 }
