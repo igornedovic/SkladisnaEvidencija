@@ -42,6 +42,9 @@ namespace Forme.GUIController
             partneri = Communication.Instance.SendRequestGetResult<List<PoslovniPartner>>(Operation.UcitajPoslovnePartnere);
 
             uCUnosDokumenta.DgvStavke.DataSource = stavke;
+            uCUnosDokumenta.DgvStavke.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            uCUnosDokumenta.DgvStavke.ColumnHeadersDefaultCellStyle.Font = new Font("Sagoe UI", 10.2F, FontStyle.Bold);
+            uCUnosDokumenta.DgvStavke.DefaultCellStyle.Font = new Font("Sagoe UI", 9.2F, FontStyle.Bold);
             uCUnosDokumenta.DgvStavke.Columns["DokumentId"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["TableName"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["InsertValues"].Visible = false;
@@ -194,12 +197,6 @@ namespace Forme.GUIController
                 uspesno = false;
             }
 
-            if(stavke.Count == 0)
-            {
-                MessageBox.Show("Morate uneti barem jednu stavku!");
-                uspesno = false;
-            }
-
             if(string.IsNullOrWhiteSpace(uCUnosDokumenta.TxtStatus.Text))
             {
                 uCUnosDokumenta.TxtStatus.BackColor = Color.Salmon;
@@ -218,6 +215,12 @@ namespace Forme.GUIController
             else
             {
                 uCUnosDokumenta.TxtUkupno.BackColor = Color.White;
+            }
+
+            if (stavke.Count == 0)
+            {
+                MessageBox.Show("Morate uneti barem jednu stavku!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                uspesno = false;
             }
 
             return uspesno;

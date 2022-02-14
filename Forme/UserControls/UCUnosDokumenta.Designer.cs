@@ -31,7 +31,7 @@ namespace Forme.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCUnosDokumenta));
             this.lblNaziv = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,7 +49,6 @@ namespace Forme.UserControls
             this.lblIme = new System.Windows.Forms.Label();
             this.cboxPravnoLice = new System.Windows.Forms.CheckBox();
             this.cboxFizickoLice = new System.Windows.Forms.CheckBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtDatum = new System.Windows.Forms.TextBox();
             this.cbNaziv = new System.Windows.Forms.ComboBox();
             this.btnNovaStavka = new System.Windows.Forms.Button();
@@ -60,25 +59,29 @@ namespace Forme.UserControls
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNaziv
             // 
             this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(86, 31);
+            this.lblNaziv.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaziv.Location = new System.Drawing.Point(317, 45);
             this.lblNaziv.Name = "lblNaziv";
-            this.lblNaziv.Size = new System.Drawing.Size(47, 17);
+            this.lblNaziv.Size = new System.Drawing.Size(63, 23);
             this.lblNaziv.TabIndex = 0;
             this.lblNaziv.Text = "Naziv:";
             // 
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(695, 31);
+            this.lblDatum.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatum.Location = new System.Drawing.Point(778, 45);
             this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(53, 17);
+            this.lblDatum.Size = new System.Drawing.Size(72, 23);
             this.lblDatum.TabIndex = 1;
             this.lblDatum.Text = "Datum:";
             // 
@@ -98,121 +101,122 @@ namespace Forme.UserControls
             this.groupBox1.Controls.Add(this.lblIme);
             this.groupBox1.Controls.Add(this.cboxPravnoLice);
             this.groupBox1.Controls.Add(this.cboxFizickoLice);
-            this.groupBox1.Location = new System.Drawing.Point(359, 70);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(255, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 212);
+            this.groupBox1.Size = new System.Drawing.Size(795, 229);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Poslovni Partner";
             // 
             // txtAdresaPl
             // 
-            this.txtAdresaPl.Location = new System.Drawing.Point(406, 164);
+            this.txtAdresaPl.Location = new System.Drawing.Point(525, 178);
             this.txtAdresaPl.Name = "txtAdresaPl";
             this.txtAdresaPl.ReadOnly = true;
-            this.txtAdresaPl.Size = new System.Drawing.Size(181, 22);
+            this.txtAdresaPl.Size = new System.Drawing.Size(255, 30);
             this.txtAdresaPl.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(318, 169);
+            this.label1.Location = new System.Drawing.Point(393, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.Size = new System.Drawing.Size(74, 23);
             this.label1.TabIndex = 13;
             this.label1.Text = "Adresa:";
             // 
             // cbFirma
             // 
             this.cbFirma.FormattingEnabled = true;
-            this.cbFirma.Location = new System.Drawing.Point(406, 55);
+            this.cbFirma.Location = new System.Drawing.Point(525, 69);
             this.cbFirma.Name = "cbFirma";
-            this.cbFirma.Size = new System.Drawing.Size(181, 24);
+            this.cbFirma.Size = new System.Drawing.Size(255, 31);
             this.cbFirma.TabIndex = 12;
             // 
             // cbImePrezime
             // 
             this.cbImePrezime.FormattingEnabled = true;
-            this.cbImePrezime.Location = new System.Drawing.Point(131, 55);
+            this.cbImePrezime.Location = new System.Drawing.Point(151, 66);
             this.cbImePrezime.Name = "cbImePrezime";
-            this.cbImePrezime.Size = new System.Drawing.Size(181, 24);
+            this.cbImePrezime.Size = new System.Drawing.Size(236, 31);
             this.cbImePrezime.TabIndex = 11;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(406, 126);
+            this.txtEmail.Location = new System.Drawing.Point(525, 140);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(181, 22);
+            this.txtEmail.Size = new System.Drawing.Size(255, 30);
             this.txtEmail.TabIndex = 10;
             // 
             // txtPib
             // 
-            this.txtPib.Location = new System.Drawing.Point(406, 90);
+            this.txtPib.Location = new System.Drawing.Point(525, 104);
             this.txtPib.Name = "txtPib";
             this.txtPib.ReadOnly = true;
-            this.txtPib.Size = new System.Drawing.Size(181, 22);
+            this.txtPib.Size = new System.Drawing.Size(255, 30);
             this.txtPib.TabIndex = 9;
             // 
             // txtAdresaFl
             // 
-            this.txtAdresaFl.Location = new System.Drawing.Point(131, 90);
+            this.txtAdresaFl.Location = new System.Drawing.Point(151, 103);
             this.txtAdresaFl.Name = "txtAdresaFl";
             this.txtAdresaFl.ReadOnly = true;
-            this.txtAdresaFl.Size = new System.Drawing.Size(181, 22);
+            this.txtAdresaFl.Size = new System.Drawing.Size(236, 30);
             this.txtAdresaFl.TabIndex = 7;
             // 
             // lblAdresa
             // 
             this.lblAdresa.AutoSize = true;
-            this.lblAdresa.Location = new System.Drawing.Point(28, 95);
+            this.lblAdresa.Location = new System.Drawing.Point(11, 106);
             this.lblAdresa.Name = "lblAdresa";
-            this.lblAdresa.Size = new System.Drawing.Size(57, 17);
+            this.lblAdresa.Size = new System.Drawing.Size(74, 23);
             this.lblAdresa.TabIndex = 7;
             this.lblAdresa.Text = "Adresa:";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(318, 129);
+            this.lblEmail.Location = new System.Drawing.Point(393, 143);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(46, 17);
+            this.lblEmail.Size = new System.Drawing.Size(60, 23);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email:";
             // 
             // lblPib
             // 
             this.lblPib.AutoSize = true;
-            this.lblPib.Location = new System.Drawing.Point(318, 95);
+            this.lblPib.Location = new System.Drawing.Point(393, 107);
             this.lblPib.Name = "lblPib";
-            this.lblPib.Size = new System.Drawing.Size(33, 17);
+            this.lblPib.Size = new System.Drawing.Size(44, 23);
             this.lblPib.TabIndex = 6;
             this.lblPib.Text = "PIB:";
             // 
             // lblFirma
             // 
             this.lblFirma.AutoSize = true;
-            this.lblFirma.Location = new System.Drawing.Point(318, 58);
+            this.lblFirma.Location = new System.Drawing.Point(392, 72);
             this.lblFirma.Name = "lblFirma";
-            this.lblFirma.Size = new System.Drawing.Size(82, 17);
+            this.lblFirma.Size = new System.Drawing.Size(113, 23);
             this.lblFirma.TabIndex = 5;
             this.lblFirma.Text = "Naziv firme:";
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(28, 58);
+            this.lblIme.Location = new System.Drawing.Point(11, 72);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(95, 17);
+            this.lblIme.Size = new System.Drawing.Size(130, 23);
             this.lblIme.TabIndex = 3;
             this.lblIme.Text = "Ime i prezime:";
             // 
             // cboxPravnoLice
             // 
             this.cboxPravnoLice.AutoSize = true;
-            this.cboxPravnoLice.Location = new System.Drawing.Point(321, 21);
+            this.cboxPravnoLice.Location = new System.Drawing.Point(396, 39);
             this.cboxPravnoLice.Name = "cboxPravnoLice";
-            this.cboxPravnoLice.Size = new System.Drawing.Size(100, 21);
+            this.cboxPravnoLice.Size = new System.Drawing.Size(125, 27);
             this.cboxPravnoLice.TabIndex = 1;
             this.cboxPravnoLice.Text = "Pravno lice";
             this.cboxPravnoLice.UseVisualStyleBackColor = true;
@@ -220,111 +224,139 @@ namespace Forme.UserControls
             // cboxFizickoLice
             // 
             this.cboxFizickoLice.AutoSize = true;
-            this.cboxFizickoLice.Location = new System.Drawing.Point(31, 21);
+            this.cboxFizickoLice.Location = new System.Drawing.Point(15, 39);
             this.cboxFizickoLice.Name = "cboxFizickoLice";
-            this.cboxFizickoLice.Size = new System.Drawing.Size(98, 21);
+            this.cboxFizickoLice.Size = new System.Drawing.Size(122, 27);
             this.cboxFizickoLice.TabIndex = 0;
             this.cboxFizickoLice.Text = "Fizicko lice";
             this.cboxFizickoLice.UseVisualStyleBackColor = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // txtDatum
             // 
-            this.txtDatum.Location = new System.Drawing.Point(754, 28);
+            this.txtDatum.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatum.Location = new System.Drawing.Point(869, 42);
             this.txtDatum.Name = "txtDatum";
-            this.txtDatum.Size = new System.Drawing.Size(181, 22);
+            this.txtDatum.Size = new System.Drawing.Size(181, 30);
             this.txtDatum.TabIndex = 5;
             // 
             // cbNaziv
             // 
+            this.cbNaziv.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNaziv.FormattingEnabled = true;
-            this.cbNaziv.Location = new System.Drawing.Point(139, 28);
+            this.cbNaziv.Location = new System.Drawing.Point(406, 42);
             this.cbNaziv.Name = "cbNaziv";
-            this.cbNaziv.Size = new System.Drawing.Size(193, 24);
+            this.cbNaziv.Size = new System.Drawing.Size(193, 31);
             this.cbNaziv.TabIndex = 6;
             // 
             // btnNovaStavka
             // 
-            this.btnNovaStavka.Location = new System.Drawing.Point(139, 160);
+            this.btnNovaStavka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnNovaStavka.FlatAppearance.BorderSize = 0;
+            this.btnNovaStavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovaStavka.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovaStavka.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnNovaStavka.Location = new System.Drawing.Point(57, 194);
             this.btnNovaStavka.Name = "btnNovaStavka";
-            this.btnNovaStavka.Size = new System.Drawing.Size(119, 46);
+            this.btnNovaStavka.Size = new System.Drawing.Size(167, 58);
             this.btnNovaStavka.TabIndex = 7;
             this.btnNovaStavka.Text = "Nova stavka";
-            this.btnNovaStavka.UseVisualStyleBackColor = true;
+            this.btnNovaStavka.UseVisualStyleBackColor = false;
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(139, 229);
+            this.btnObrisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnObrisi.FlatAppearance.BorderSize = 0;
+            this.btnObrisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnObrisi.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisi.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnObrisi.Location = new System.Drawing.Point(57, 277);
             this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(119, 46);
+            this.btnObrisi.Size = new System.Drawing.Size(167, 58);
             this.btnObrisi.TabIndex = 8;
             this.btnObrisi.Text = "Obrisi stavku";
-            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.UseVisualStyleBackColor = false;
             // 
             // dgvStavke
             // 
             this.dgvStavke.AllowUserToAddRows = false;
             this.dgvStavke.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvStavke.BackgroundColor = System.Drawing.Color.DodgerBlue;
+            this.dgvStavke.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStavke.Location = new System.Drawing.Point(89, 310);
+            this.dgvStavke.Location = new System.Drawing.Point(21, 358);
             this.dgvStavke.Name = "dgvStavke";
             this.dgvStavke.RowHeadersWidth = 51;
             this.dgvStavke.RowTemplate.Height = 24;
-            this.dgvStavke.Size = new System.Drawing.Size(846, 150);
+            this.dgvStavke.Size = new System.Drawing.Size(1029, 150);
             this.dgvStavke.TabIndex = 9;
             // 
             // txtUkupno
             // 
-            this.txtUkupno.Location = new System.Drawing.Point(754, 472);
+            this.txtUkupno.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUkupno.Location = new System.Drawing.Point(869, 530);
             this.txtUkupno.Name = "txtUkupno";
             this.txtUkupno.ReadOnly = true;
-            this.txtUkupno.Size = new System.Drawing.Size(181, 22);
+            this.txtUkupno.Size = new System.Drawing.Size(181, 30);
             this.txtUkupno.TabIndex = 11;
             // 
             // lblUkupno
             // 
             this.lblUkupno.AutoSize = true;
-            this.lblUkupno.Location = new System.Drawing.Point(635, 475);
+            this.lblUkupno.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUkupno.Location = new System.Drawing.Point(717, 533);
             this.lblUkupno.Name = "lblUkupno";
-            this.lblUkupno.Size = new System.Drawing.Size(98, 17);
+            this.lblUkupno.Size = new System.Drawing.Size(130, 23);
             this.lblUkupno.TabIndex = 10;
             this.lblUkupno.Text = "Ukupan iznos:";
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(212, 475);
+            this.txtStatus.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtStatus.Location = new System.Drawing.Point(255, 530);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(181, 22);
+            this.txtStatus.Size = new System.Drawing.Size(181, 30);
             this.txtStatus.TabIndex = 13;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(80, 478);
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(53, 533);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(126, 17);
+            this.lblStatus.Size = new System.Drawing.Size(170, 23);
             this.lblStatus.TabIndex = 12;
             this.lblStatus.Text = "Status dokumenta:";
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(451, 500);
+            this.btnSacuvaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnSacuvaj.FlatAppearance.BorderSize = 0;
+            this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSacuvaj.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSacuvaj.Location = new System.Drawing.Point(497, 558);
             this.btnSacuvaj.Name = "btnSacuvaj";
-            this.btnSacuvaj.Size = new System.Drawing.Size(119, 46);
+            this.btnSacuvaj.Size = new System.Drawing.Size(167, 58);
             this.btnSacuvaj.TabIndex = 14;
             this.btnSacuvaj.Text = "Sacuvaj";
-            this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(114, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // UCUnosDokumenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.lblStatus);
@@ -339,10 +371,11 @@ namespace Forme.UserControls
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.lblNaziv);
             this.Name = "UCUnosDokumenta";
-            this.Size = new System.Drawing.Size(1032, 554);
+            this.Size = new System.Drawing.Size(1070, 630);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,7 +396,6 @@ namespace Forme.UserControls
         private System.Windows.Forms.Label lblIme;
         private System.Windows.Forms.CheckBox cboxPravnoLice;
         private System.Windows.Forms.CheckBox cboxFizickoLice;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox txtDatum;
         private System.Windows.Forms.ComboBox cbNaziv;
         private System.Windows.Forms.Button btnNovaStavka;
@@ -378,6 +410,7 @@ namespace Forme.UserControls
         private ComboBox cbImePrezime;
         private TextBox txtAdresaPl;
         private Label label1;
+        private PictureBox pictureBox1;
 
         public Label LblNaziv { get => lblNaziv; set => lblNaziv = value; }
         public Label LblDatum { get => lblDatum; set => lblDatum = value; }
@@ -395,7 +428,6 @@ namespace Forme.UserControls
         public Label LblIme { get => lblIme; set => lblIme = value; }
         public CheckBox CboxPravnoLice { get => cboxPravnoLice; set => cboxPravnoLice = value; }
         public CheckBox CboxFizickoLice { get => cboxFizickoLice; set => cboxFizickoLice = value; }
-        public ContextMenuStrip ContextMenuStrip1 { get => contextMenuStrip1; set => contextMenuStrip1 = value; }
         public TextBox TxtDatum { get => txtDatum; set => txtDatum = value; }
         public ComboBox CbNaziv { get => cbNaziv; set => cbNaziv = value; }
         public Button BtnNovaStavka { get => btnNovaStavka; set => btnNovaStavka = value; }

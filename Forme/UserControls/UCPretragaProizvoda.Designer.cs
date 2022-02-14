@@ -82,7 +82,7 @@ namespace Forme.UserControls
             // 
             this.dgvProizvodi.AllowUserToAddRows = false;
             this.dgvProizvodi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvProizvodi.BackgroundColor = System.Drawing.Color.DodgerBlue;
+            this.dgvProizvodi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
             this.dgvProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProizvodi.Location = new System.Drawing.Point(54, 88);
             this.dgvProizvodi.Name = "dgvProizvodi";
