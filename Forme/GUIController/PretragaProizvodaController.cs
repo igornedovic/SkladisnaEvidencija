@@ -46,6 +46,9 @@ namespace Forme.GUIController
 
         private void PrilagodiTabelu()
         {
+            uCPretragaProizvoda.DgvProizvodi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            uCPretragaProizvoda.DgvProizvodi.ColumnHeadersDefaultCellStyle.Font = new Font("Sagoe UI", 10.2F, FontStyle.Bold);
+            uCPretragaProizvoda.DgvProizvodi.DefaultCellStyle.Font = new Font("Sagoe UI", 9.2F, FontStyle.Bold);
             uCPretragaProizvoda.DgvProizvodi.Columns["ProizvodId"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["Opis"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["JedinicaMere"].Visible = false;
