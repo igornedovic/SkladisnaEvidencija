@@ -55,6 +55,9 @@ namespace Forme.GUIController
 
         private void PrilagodiTabelu()
         {
+            uCPretragaDokumenata.DgvDokumenti.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            uCPretragaDokumenata.DgvDokumenti.ColumnHeadersDefaultCellStyle.Font = new Font("Sagoe UI", 10.2F, FontStyle.Bold);
+            uCPretragaDokumenata.DgvDokumenti.DefaultCellStyle.Font = new Font("Sagoe UI", 9.2F, FontStyle.Bold);
             uCPretragaDokumenata.DgvDokumenti.Columns["DokumentId"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["TableName"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["InsertValues"].Visible = false;
@@ -95,23 +98,24 @@ namespace Forme.GUIController
 
         private void BtnObrisiStavku_Click(object sender, EventArgs e)
         {
-            try
+
+            if (uCPretragaDokumenata.DgvStavke.SelectedRows.Count == 0 || uCPretragaDokumenata.DgvStavke.SelectedRows.Count > 1)
             {
-                StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCPretragaDokumenata.DgvStavke.SelectedRows[0].DataBoundItem;
-
-                stavke.Remove(izabranaStavka);
-
-                for (int i = 0; i < stavke.Count; i++)
-                {
-                    stavke[i].RbStavke = i + 1;
-                }
-
-                uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
+                MessageBox.Show("Odaberite stavku iz tabele koju zelite da obrisete!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            catch (Exception)
+
+            StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCPretragaDokumenata.DgvStavke.SelectedRows[0].DataBoundItem;
+
+            stavke.Remove(izabranaStavka);
+
+            for (int i = 0; i < stavke.Count; i++)
             {
-                MessageBox.Show("Odaberite stavku iz tabele koju zelite da obrisete!");
+                stavke[i].RbStavke = i + 1;
             }
+
+            uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
+
 
         }
 
@@ -249,9 +253,9 @@ namespace Forme.GUIController
         {
             try
             {
-                if (uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count == 0)
+                if (uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count == 0 || uCPretragaDokumenata.DgvDokumenti.SelectedRows.Count > 1)
                 {
-                    MessageBox.Show("Izaberite dokument u tabeli za koji zelite da ucitate podatke!");
+                    MessageBox.Show("Izaberite dokument u tabeli za koji zelite da ucitate podatke!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

@@ -334,7 +334,7 @@ namespace Forme.UserControls
             this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSacuvaj.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSacuvaj.Location = new System.Drawing.Point(497, 558);
+            this.btnSacuvaj.Location = new System.Drawing.Point(500, 562);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(167, 58);
             this.btnSacuvaj.TabIndex = 14;
