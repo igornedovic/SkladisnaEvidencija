@@ -23,6 +23,9 @@ namespace Server
             btnStop.Enabled = false;
 
             dgvKlijenti.DataSource = new BindingList<Admin>(Controller.Instance.Admini);
+            dgvKlijenti.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKlijenti.ColumnHeadersDefaultCellStyle.Font = new Font("Sagoe UI", 10.2F, FontStyle.Bold);
+            dgvKlijenti.DefaultCellStyle.Font = new Font("Sagoe UI", 9.2F, FontStyle.Bold);
             dgvKlijenti.Columns["Username"].HeaderText = "Korisnicko ime";
             dgvKlijenti.Columns["Password"].HeaderText = "Sifra";
 

@@ -43,7 +43,7 @@ namespace Forme.GUIController
                 SessionData.Instance.Admin = Communication.Instance.SendRequestGetResult<Admin>(Operation.Login, admin);
                 if (SessionData.Instance.Admin != null)
                 {
-                    MessageBox.Show($"Dobrodosli, {SessionData.Instance.Admin.Username}");
+                    MessageBox.Show($"Dobrodosli, {SessionData.Instance.Admin.Username}!");
                     frmLogin.DialogResult = DialogResult.OK;
                 }
                 else

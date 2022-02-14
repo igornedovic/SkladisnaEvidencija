@@ -46,93 +46,108 @@ namespace Forme.Dialog
             // 
             // txtJm
             // 
-            this.txtJm.Location = new System.Drawing.Point(211, 85);
+            this.txtJm.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJm.Location = new System.Drawing.Point(235, 82);
             this.txtJm.Name = "txtJm";
             this.txtJm.ReadOnly = true;
-            this.txtJm.Size = new System.Drawing.Size(177, 22);
+            this.txtJm.Size = new System.Drawing.Size(177, 30);
             this.txtJm.TabIndex = 26;
             // 
             // cbProizvod
             // 
+            this.cbProizvod.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProizvod.FormattingEnabled = true;
-            this.cbProizvod.Location = new System.Drawing.Point(211, 31);
+            this.cbProizvod.Location = new System.Drawing.Point(235, 28);
             this.cbProizvod.Name = "cbProizvod";
-            this.cbProizvod.Size = new System.Drawing.Size(177, 24);
+            this.cbProizvod.Size = new System.Drawing.Size(177, 31);
             this.cbProizvod.TabIndex = 25;
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(167, 314);
+            this.btnDodaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnDodaj.FlatAppearance.BorderSize = 0;
+            this.btnDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodaj.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDodaj.Location = new System.Drawing.Point(148, 338);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(108, 42);
+            this.btnDodaj.Size = new System.Drawing.Size(167, 58);
             this.btnDodaj.TabIndex = 24;
             this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.UseVisualStyleBackColor = false;
             // 
             // txtIznos
             // 
-            this.txtIznos.Location = new System.Drawing.Point(211, 244);
+            this.txtIznos.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIznos.Location = new System.Drawing.Point(235, 244);
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.ReadOnly = true;
-            this.txtIznos.Size = new System.Drawing.Size(177, 22);
+            this.txtIznos.Size = new System.Drawing.Size(177, 30);
             this.txtIznos.TabIndex = 22;
             // 
             // txtCena
             // 
-            this.txtCena.Location = new System.Drawing.Point(211, 187);
+            this.txtCena.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCena.Location = new System.Drawing.Point(235, 187);
             this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(177, 22);
+            this.txtCena.Size = new System.Drawing.Size(177, 30);
             this.txtCena.TabIndex = 21;
             // 
             // txtKolicina
             // 
-            this.txtKolicina.Location = new System.Drawing.Point(211, 134);
+            this.txtKolicina.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKolicina.Location = new System.Drawing.Point(235, 134);
             this.txtKolicina.Name = "txtKolicina";
-            this.txtKolicina.Size = new System.Drawing.Size(177, 22);
+            this.txtKolicina.Size = new System.Drawing.Size(177, 30);
             this.txtKolicina.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(70, 247);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.Size = new System.Drawing.Size(60, 23);
             this.label5.TabIndex = 19;
             this.label5.Text = "Iznos:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(70, 190);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
+            this.label4.Size = new System.Drawing.Size(57, 23);
             this.label4.TabIndex = 18;
             this.label4.Text = "Cena:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(70, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 17);
+            this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 17;
             this.label3.Text = "Kolicina:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(70, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
+            this.label2.Size = new System.Drawing.Size(132, 23);
             this.label2.TabIndex = 16;
             this.label2.Text = "Jedinica mere:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(70, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.Size = new System.Drawing.Size(90, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "Proizvod:";
             // 
@@ -140,7 +155,7 @@ namespace Forme.Dialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 384);
+            this.ClientSize = new System.Drawing.Size(481, 408);
             this.Controls.Add(this.txtJm);
             this.Controls.Add(this.cbProizvod);
             this.Controls.Add(this.btnDodaj);
@@ -153,7 +168,7 @@ namespace Forme.Dialog
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "DialogNovaStavka";
-            this.Text = "DialogNovaStavka";
+            this.Text = "Nova stavka";
             this.ResumeLayout(false);
             this.PerformLayout();
 
