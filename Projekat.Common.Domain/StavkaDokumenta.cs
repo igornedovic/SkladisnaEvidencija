@@ -43,5 +43,20 @@ namespace Projekat.Common.Domain
 
             return sd;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is StavkaDokumenta s)
+            {
+                return s.Proizvod.Naziv == Proizvod.Naziv;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -128,6 +128,7 @@ namespace Forme.UserControls
             // 
             // cbFirma
             // 
+            this.cbFirma.Enabled = false;
             this.cbFirma.FormattingEnabled = true;
             this.cbFirma.Location = new System.Drawing.Point(525, 69);
             this.cbFirma.Name = "cbFirma";
@@ -136,6 +137,7 @@ namespace Forme.UserControls
             // 
             // cbImePrezime
             // 
+            this.cbImePrezime.Enabled = false;
             this.cbImePrezime.FormattingEnabled = true;
             this.cbImePrezime.Location = new System.Drawing.Point(151, 66);
             this.cbImePrezime.Name = "cbImePrezime";

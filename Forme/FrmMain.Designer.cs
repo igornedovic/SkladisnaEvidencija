@@ -44,6 +44,7 @@ namespace Forme
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
             this.pnlMenu.Controls.Add(this.btnPretragaProizvoda);
             this.pnlMenu.Controls.Add(this.lblProizvodi);
@@ -138,6 +139,7 @@ namespace Forme
             // 
             // pnlMain
             // 
+            this.pnlMain.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlMain.Location = new System.Drawing.Point(326, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1103, 640);

@@ -280,9 +280,17 @@ namespace Forme.GUIController
             stavka.Cena = double.Parse(dialog.TxtCena.Text);
             stavka.Iznos = stavka.Kolicina * stavka.Cena;
 
-            stavke.Add(stavka);
-
-            dialog.DialogResult = DialogResult.OK;
+            if (!stavke.Contains(stavka))
+            {
+                stavke.Add(stavka);
+                dialog.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Vec ste uneli stavku koja se odnosi na dati proizvod! " +
+                    "Postojecu stavku mozete izmeniti u odeljku za izmenu dokumenta", "Upozorenje",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private bool ValidacijaStavke()
@@ -363,14 +371,28 @@ namespace Forme.GUIController
 
         private void CboxPravnoLice_CheckedChanged(object sender, EventArgs e)
         {
-            uCUnosDokumenta.CboxFizickoLice.Enabled = false;
-            uCUnosDokumenta.CbFirma.Enabled = true;
-            uCUnosDokumenta.TxtPib.Enabled = true;
-            uCUnosDokumenta.TxtEmail.Enabled = true;
-            uCUnosDokumenta.TxtAdresaPl.Enabled = true;
+            if (uCUnosDokumenta.CboxPravnoLice.Checked)
+            {
+                //uCUnosDokumenta.CboxFizickoLice.Enabled = false;
+                uCUnosDokumenta.CboxFizickoLice.CheckState = CheckState.Unchecked;
+                uCUnosDokumenta.CbImePrezime.Text = "";
+                uCUnosDokumenta.TxtAdresaFl.Text = "";
 
-            uCUnosDokumenta.CbFirma.DataSource = partneri.Where(p => p.TableName == "PravnoLice").ToList();
-            uCUnosDokumenta.CbFirma.SelectedIndexChanged += CbFirma_SelectedIndexChanged;
+                uCUnosDokumenta.CbFirma.Enabled = true;
+                uCUnosDokumenta.TxtPib.Enabled = true;
+                uCUnosDokumenta.TxtEmail.Enabled = true;
+                uCUnosDokumenta.TxtAdresaPl.Enabled = true;
+
+                uCUnosDokumenta.CbFirma.DataSource = partneri.Where(p => p.TableName == "PravnoLice").ToList();
+                uCUnosDokumenta.CbFirma.SelectedIndexChanged += CbFirma_SelectedIndexChanged;
+            }
+            else
+            {
+                uCUnosDokumenta.CbFirma.Text = "";
+                uCUnosDokumenta.TxtPib.Text = "";
+                uCUnosDokumenta.TxtEmail.Text = "";
+                uCUnosDokumenta.TxtAdresaPl.Text = "";
+            }
         }
 
         private void CbFirma_SelectedIndexChanged(object sender, EventArgs e)
@@ -394,12 +416,27 @@ namespace Forme.GUIController
 
         private void CboxFizickoLice_CheckedChanged(object sender, EventArgs e)
         {
-            uCUnosDokumenta.CboxPravnoLice.Enabled = false;
-            uCUnosDokumenta.CbImePrezime.Enabled = true;
-            uCUnosDokumenta.TxtAdresaFl.Enabled = true;
+            if (uCUnosDokumenta.CboxFizickoLice.Checked)
+            {
+                //uCUnosDokumenta.CboxPravnoLice.Enabled = false;
+                uCUnosDokumenta.CboxPravnoLice.CheckState = CheckState.Unchecked;
+                uCUnosDokumenta.CbFirma.Text = "";
+                uCUnosDokumenta.TxtPib.Text = "";
+                uCUnosDokumenta.TxtEmail.Text = "";
+                uCUnosDokumenta.TxtAdresaPl.Text = "";
 
-            uCUnosDokumenta.CbImePrezime.DataSource = partneri.Where(p => p.TableName == "FizickoLice").ToList();
-            uCUnosDokumenta.CbImePrezime.SelectedIndexChanged += CbImePrezime_SelectedIndexChanged;
+                uCUnosDokumenta.CbImePrezime.Enabled = true;
+                uCUnosDokumenta.TxtAdresaFl.Enabled = true;
+
+                uCUnosDokumenta.CbImePrezime.DataSource = partneri.Where(p => p.TableName == "FizickoLice").ToList();
+                uCUnosDokumenta.CbImePrezime.SelectedIndexChanged += CbImePrezime_SelectedIndexChanged;
+            }
+            else
+            {
+                uCUnosDokumenta.CbImePrezime.Text = "";
+                uCUnosDokumenta.TxtAdresaFl.Text = "";
+            }
+
         }
 
         private void CbImePrezime_SelectedIndexChanged(object sender, EventArgs e)
