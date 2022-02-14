@@ -27,17 +27,17 @@ namespace Forme
             userControl.Dock = DockStyle.Fill;
             pnlMain.Controls.Add(userControl);
         }
-        private void unosDokumentaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnUnosDokumenta_Click(object sender, EventArgs e)
         {
             ChangePanel(new UCUnosDokumenta());
         }
 
-        private void pretragaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnPretragaDokumenata_Click(object sender, EventArgs e)
         {
             ChangePanel(new UCPretragaDokumenata());
         }
 
-        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnPretragaProizvoda_Click(object sender, EventArgs e)
         {
             ChangePanel(new UCPretragaProizvoda());
         }

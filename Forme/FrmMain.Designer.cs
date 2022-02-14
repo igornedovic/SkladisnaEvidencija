@@ -29,99 +29,145 @@ namespace Forme
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.magacinskiDokumentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unosDokumentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pretragaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proizvodiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pretragaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDokumenti = new System.Windows.Forms.Label();
+            this.btnUnosDokumenta = new System.Windows.Forms.Button();
+            this.btnPretragaDokumenata = new System.Windows.Forms.Button();
+            this.btnPretragaProizvoda = new System.Windows.Forms.Button();
+            this.lblProizvodi = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.menuStrip1.SuspendLayout();
+            this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // pnlMenu
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.magacinskiDokumentiToolStripMenuItem,
-            this.proizvodiToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1041, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.pnlMenu.Controls.Add(this.btnPretragaProizvoda);
+            this.pnlMenu.Controls.Add(this.lblProizvodi);
+            this.pnlMenu.Controls.Add(this.btnPretragaDokumenata);
+            this.pnlMenu.Controls.Add(this.btnUnosDokumenta);
+            this.pnlMenu.Controls.Add(this.lblDokumenti);
+            this.pnlMenu.Controls.Add(this.pictureBox1);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(320, 568);
+            this.pnlMenu.TabIndex = 2;
             // 
-            // magacinskiDokumentiToolStripMenuItem
+            // pictureBox1
             // 
-            this.magacinskiDokumentiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.unosDokumentaToolStripMenuItem,
-            this.pretragaToolStripMenuItem});
-            this.magacinskiDokumentiToolStripMenuItem.Name = "magacinskiDokumentiToolStripMenuItem";
-            this.magacinskiDokumentiToolStripMenuItem.Size = new System.Drawing.Size(172, 24);
-            this.magacinskiDokumentiToolStripMenuItem.Text = "Magacinski dokumenti";
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(108, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(98, 107);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
-            // unosDokumentaToolStripMenuItem
+            // lblDokumenti
             // 
-            this.unosDokumentaToolStripMenuItem.Name = "unosDokumentaToolStripMenuItem";
-            this.unosDokumentaToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.unosDokumentaToolStripMenuItem.Text = "Unos dokumenta";
-            this.unosDokumentaToolStripMenuItem.Click += new System.EventHandler(this.unosDokumentaToolStripMenuItem_Click);
+            this.lblDokumenti.AutoSize = true;
+            this.lblDokumenti.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDokumenti.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDokumenti.Location = new System.Drawing.Point(24, 163);
+            this.lblDokumenti.Name = "lblDokumenti";
+            this.lblDokumenti.Size = new System.Drawing.Size(145, 32);
+            this.lblDokumenti.TabIndex = 4;
+            this.lblDokumenti.Text = "Dokumenti";
             // 
-            // pretragaToolStripMenuItem
+            // btnUnosDokumenta
             // 
-            this.pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
-            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.pretragaToolStripMenuItem.Text = "Pretraga dokumenata";
-            this.pretragaToolStripMenuItem.Click += new System.EventHandler(this.pretragaToolStripMenuItem_Click);
+            this.btnUnosDokumenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnUnosDokumenta.FlatAppearance.BorderSize = 0;
+            this.btnUnosDokumenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnosDokumenta.Font = new System.Drawing.Font("Segoe UI Black", 11.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnosDokumenta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnUnosDokumenta.Location = new System.Drawing.Point(30, 198);
+            this.btnUnosDokumenta.Name = "btnUnosDokumenta";
+            this.btnUnosDokumenta.Size = new System.Drawing.Size(287, 49);
+            this.btnUnosDokumenta.TabIndex = 6;
+            this.btnUnosDokumenta.Text = "> Unos dokumenta";
+            this.btnUnosDokumenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUnosDokumenta.UseVisualStyleBackColor = false;
+            this.btnUnosDokumenta.Click += new System.EventHandler(this.btnUnosDokumenta_Click);
             // 
-            // proizvodiToolStripMenuItem
+            // btnPretragaDokumenata
             // 
-            this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pretragaProizvodaToolStripMenuItem});
-            this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
-            this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
-            this.proizvodiToolStripMenuItem.Text = "Proizvodi";
+            this.btnPretragaDokumenata.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnPretragaDokumenata.FlatAppearance.BorderSize = 0;
+            this.btnPretragaDokumenata.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPretragaDokumenata.Font = new System.Drawing.Font("Segoe UI Black", 11.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretragaDokumenata.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPretragaDokumenata.Location = new System.Drawing.Point(30, 244);
+            this.btnPretragaDokumenata.Name = "btnPretragaDokumenata";
+            this.btnPretragaDokumenata.Size = new System.Drawing.Size(290, 48);
+            this.btnPretragaDokumenata.TabIndex = 7;
+            this.btnPretragaDokumenata.Text = "> Pretraga dokumenata";
+            this.btnPretragaDokumenata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPretragaDokumenata.UseVisualStyleBackColor = false;
+            this.btnPretragaDokumenata.Click += new System.EventHandler(this.btnPretragaDokumenata_Click);
             // 
-            // pretragaProizvodaToolStripMenuItem
+            // btnPretragaProizvoda
             // 
-            this.pretragaProizvodaToolStripMenuItem.Name = "pretragaProizvodaToolStripMenuItem";
-            this.pretragaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pretragaProizvodaToolStripMenuItem.Text = "Pretraga proizvoda";
-            this.pretragaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.pretragaProizvodaToolStripMenuItem_Click);
+            this.btnPretragaProizvoda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(135)))), ((int)(((byte)(245)))));
+            this.btnPretragaProizvoda.FlatAppearance.BorderSize = 0;
+            this.btnPretragaProizvoda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPretragaProizvoda.Font = new System.Drawing.Font("Segoe UI Black", 11.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretragaProizvoda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPretragaProizvoda.Location = new System.Drawing.Point(30, 339);
+            this.btnPretragaProizvoda.Name = "btnPretragaProizvoda";
+            this.btnPretragaProizvoda.Size = new System.Drawing.Size(287, 48);
+            this.btnPretragaProizvoda.TabIndex = 8;
+            this.btnPretragaProizvoda.Text = "> Pretraga proizvoda";
+            this.btnPretragaProizvoda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPretragaProizvoda.UseVisualStyleBackColor = false;
+            this.btnPretragaProizvoda.Click += new System.EventHandler(this.btnPretragaProizvoda_Click);
+            // 
+            // lblProizvodi
+            // 
+            this.lblProizvodi.AutoSize = true;
+            this.lblProizvodi.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProizvodi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblProizvodi.Location = new System.Drawing.Point(24, 304);
+            this.lblProizvodi.Name = "lblProizvodi";
+            this.lblProizvodi.Size = new System.Drawing.Size(126, 32);
+            this.lblProizvodi.TabIndex = 8;
+            this.lblProizvodi.Text = "Proizvodi";
             // 
             // pnlMain
             // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 28);
+            this.pnlMain.Location = new System.Drawing.Point(326, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1041, 562);
-            this.pnlMain.TabIndex = 1;
+            this.pnlMain.Size = new System.Drawing.Size(1103, 568);
+            this.pnlMain.TabIndex = 3;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 590);
+            this.ClientSize = new System.Drawing.Size(1437, 568);
+            this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.menuStrip1);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.pnlMenu.ResumeLayout(false);
+            this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem magacinskiDokumentiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unosDokumentaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem proizvodiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pretragaProizvodaToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblDokumenti;
+        private System.Windows.Forms.Button btnUnosDokumenta;
+        private System.Windows.Forms.Button btnPretragaProizvoda;
+        private System.Windows.Forms.Label lblProizvodi;
+        private System.Windows.Forms.Button btnPretragaDokumenata;
         private System.Windows.Forms.Panel pnlMain;
     }
 }

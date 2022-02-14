@@ -129,11 +129,11 @@ namespace Forme.GUIController
             {
                 Communication.Instance.SendRequestNoResult(Operation.ObrisiProizvod, izabraniProizvod);
                 Osvezi();
-                MessageBox.Show("Sistem je obrisao proizvod!");
+                MessageBox.Show("Sistem je obrisao proizvod!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             { 
-                MessageBox.Show("Sistem ne moze da obrise proizvod!");
+                MessageBox.Show("Sistem ne moze da obrise proizvod!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
