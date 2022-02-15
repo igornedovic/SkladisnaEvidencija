@@ -1,6 +1,7 @@
 ﻿using Projekat.Common.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Forme.Session
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     lock (lockObject)
                     {
@@ -33,6 +34,8 @@ namespace Forme.Session
             }
         }
 
-        public Admin Admin { get; set; }
+        public NazivDokumenta NazivDokumenta { get; set; }
+        public Proizvod TrenutniProizvod { get; set; }
+        public BindingList<StavkaDokumenta> StavkeDokumenta { get; set; } = new BindingList<StavkaDokumenta>();
     }
 }

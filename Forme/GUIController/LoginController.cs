@@ -1,6 +1,5 @@
 ﻿using Forme.Exceptions;
 using Forme.ServerCommunication;
-using Forme.Session;
 using Projekat.Common.Communication;
 using Projekat.Common.Domain;
 using System;
@@ -40,10 +39,10 @@ namespace Forme.GUIController
 
                 Communication.Instance.Connect();
 
-                SessionData.Instance.Admin = Communication.Instance.SendRequestGetResult<Admin>(Operation.Login, admin);
-                if (SessionData.Instance.Admin != null)
+                admin = Communication.Instance.SendRequestGetResult<Admin>(Operation.Login, admin);
+                if (admin != null)
                 {
-                    MessageBox.Show($"Dobrodosli, {SessionData.Instance.Admin.Username}!");
+                    MessageBox.Show($"Dobrodosli, {admin.Username}!");
                     frmLogin.DialogResult = DialogResult.OK;
                 }
                 else

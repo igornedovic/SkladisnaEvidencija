@@ -1,5 +1,6 @@
 ﻿using Forme.Dialog;
 using Forme.ServerCommunication;
+using Forme.Session;
 using Forme.UserControls;
 using Projekat.Common.Communication;
 using Projekat.Common.Domain;
@@ -22,7 +23,6 @@ namespace Forme.GUIController
         private BindingList<Dokument> dokumentiPretraga;
         private Dokument dokumentZaPretragu = new Dokument();
         private Dokument izabraniDokument;
-        private BindingList<StavkaDokumenta> stavke;
         private DialogNovaStavka dialog;
 
         public PretragaDokumenataController(UCPretragaDokumenata uCPretragaDokumenata)
@@ -82,7 +82,7 @@ namespace Forme.GUIController
             {
                 izabraniDokument.Datum = DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyyy"), "dd.MM.yyyy", null);
                 izabraniDokument.Status = "Izmenjeno";
-                izabraniDokument.StavkeDokumenta = stavke.ToList();
+                izabraniDokument.StavkeDokumenta = SessionData.Instance.StavkeDokumenta.ToList();
                 izabraniDokument.UkupanIznos = izabraniDokument.StavkeDokumenta.Sum(s => s.Iznos);
 
                 Communication.Instance.SendRequestNoResult(Operation.IzmeniMagacinskiDokument, izabraniDokument);
@@ -107,11 +107,11 @@ namespace Forme.GUIController
 
             StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCPretragaDokumenata.DgvStavke.SelectedRows[0].DataBoundItem;
 
-            stavke.Remove(izabranaStavka);
+            SessionData.Instance.StavkeDokumenta.Remove(izabranaStavka);
 
-            for (int i = 0; i < stavke.Count; i++)
+            for (int i = 0; i < SessionData.Instance.StavkeDokumenta.Count; i++)
             {
-                stavke[i].RbStavke = i + 1;
+                SessionData.Instance.StavkeDokumenta[i].RbStavke = i + 1;
             }
 
             uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
@@ -123,9 +123,6 @@ namespace Forme.GUIController
         {
             dialog = new DialogNovaStavka();
 
-            dialog.BtnDodaj.Click += BtnDodaj_Click;
-
-
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
@@ -133,101 +130,6 @@ namespace Forme.GUIController
             }
         }
 
-        private void BtnDodaj_Click(object sender, EventArgs e)
-        {
-            if (!ValidacijaStavke())
-            {
-                return;
-            }
-
-
-            StavkaDokumenta stavka = new StavkaDokumenta();
-            stavka.RbStavke = stavke.Count + 1;
-            stavka.Proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
-            stavka.Kolicina = int.Parse(dialog.TxtKolicina.Text);
-            stavka.Cena = double.Parse(dialog.TxtCena.Text);
-            stavka.Iznos = stavka.Kolicina * stavka.Cena;
-
-            stavke.Add(stavka);
-
-            dialog.DialogResult = DialogResult.OK;
-        }
-
-        internal bool ValidacijaStavke()
-        {
-            bool uspesno = true;
-            if (dialog.CbProizvod.SelectedItem == null)
-            {
-                dialog.CbProizvod.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.CbProizvod.BackColor = Color.White;
-            }
-
-            if (string.IsNullOrEmpty(dialog.TxtJm.Text))
-            {
-                dialog.TxtJm.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtJm.BackColor = Color.White;
-            }
-
-            if (!int.TryParse(dialog.TxtKolicina.Text, out int kolicina))
-            {
-                dialog.TxtKolicina.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (kolicina <= 0)
-            {
-                dialog.TxtKolicina.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (!double.TryParse(dialog.TxtCena.Text, out double cena))
-            {
-                dialog.TxtCena.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtCena.BackColor = Color.White;
-            }
-
-            if (cena <= 0)
-            {
-                dialog.TxtCena.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (string.IsNullOrEmpty(dialog.TxtIznos.Text))
-            {
-                dialog.TxtIznos.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtIznos.BackColor = Color.White;
-            }
-
-            return uspesno;
-        }
 
         private void BtnIzmeni_Click(object sender, EventArgs e)
         {
@@ -268,8 +170,8 @@ namespace Forme.GUIController
 
                 MessageBox.Show("Sistem je ucitao podatke o magacinskom dokumentu!");
 
-                stavke = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
-                uCPretragaDokumenata.DgvStavke.DataSource = stavke;
+                SessionData.Instance.StavkeDokumenta = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
+                uCPretragaDokumenata.DgvStavke.DataSource = SessionData.Instance.StavkeDokumenta;
 
                 uCPretragaDokumenata.DgvStavke.Columns["DokumentId"].Visible = false;
                 uCPretragaDokumenata.DgvStavke.Columns["TableName"].Visible = false;

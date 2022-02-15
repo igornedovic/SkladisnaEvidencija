@@ -24,10 +24,12 @@ namespace Forme.GUIController
         internal void Init()
         {
             dialog.CbProizvod.DataSource = Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.UcitajProizvode);
-            dialog.CbProizvod.DataSource = Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.UcitajProizvode);
+            UslovZaOtpremnicu();
+
             dialog.CbProizvod.SelectedIndexChanged += CbProizvod_SelectedIndexChanged;
             dialog.TxtKolicina.TextChanged += AzurirajIznos_TextChanged;
             dialog.TxtCena.TextChanged += AzurirajIznos_TextChanged;
+            dialog.BtnDodaj.Click += BtnDodaj_Click;
         }
 
         private void AzurirajIznos_TextChanged(object sender, EventArgs e)
@@ -52,6 +54,70 @@ namespace Forme.GUIController
                 MessageBox.Show("Greska! " + ex.Message);
             }
         }
+
+        private void CbProizvod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                UslovZaOtpremnicu();
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Greska: " + ex.Message);
+            }
+        }
+
+        private void UslovZaOtpremnicu()
+        {
+            Session.SessionData.Instance.TrenutniProizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+
+            if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
+            {
+                dialog.LblNapomena.Text = $"Napomena: Ukupna raspoloziva kolicina ovog proizvoda je " +
+                    $"{Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina}!";
+                dialog.LblNapomena.Visible = true;
+            }
+
+            dialog.TxtJm.Text = Session.SessionData.Instance.TrenutniProizvod.JedinicaMere.Naziv;
+        }
+
+        private void BtnDodaj_Click(object sender, EventArgs e)
+        {
+            if (!ValidacijaStavke())
+            {
+                return;
+            }
+
+
+            StavkaDokumenta stavka = new StavkaDokumenta();
+            stavka.RbStavke = Session.SessionData.Instance.StavkeDokumenta.Count + 1;
+            stavka.Proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+            stavka.Kolicina = int.Parse(dialog.TxtKolicina.Text);
+            stavka.Cena = double.Parse(dialog.TxtCena.Text);
+            stavka.Iznos = stavka.Kolicina * stavka.Cena;
+
+            if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Prijemnica)
+            {
+                stavka.Proizvod.UkupnaKolicina += stavka.Kolicina;
+            }
+            else
+            {
+                stavka.Proizvod.UkupnaKolicina -= stavka.Kolicina;
+            }
+
+            if (!Session.SessionData.Instance.StavkeDokumenta.Contains(stavka))
+            {
+                Session.SessionData.Instance.StavkeDokumenta.Add(stavka);
+                dialog.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Vec ste uneli stavku koja se odnosi na dati proizvod! " +
+                    "Postojecu stavku mozete izmeniti u odeljku za izmenu dokumenta", "Upozorenje",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
 
         private bool ValidacijaStavke()
         {
@@ -86,7 +152,10 @@ namespace Forme.GUIController
                 dialog.TxtKolicina.BackColor = Color.White;
             }
 
-            if (kolicina <= 0)
+            bool uslovZaOtpremnicu = (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
+                                        && (kolicina > Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina);
+
+            if (kolicina <= 0 || uslovZaOtpremnicu)
             {
                 dialog.TxtKolicina.BackColor = Color.Salmon;
                 uspesno = false;
@@ -127,23 +196,6 @@ namespace Forme.GUIController
             }
 
             return uspesno;
-        }
-
-        private void CbProizvod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dialog.CbProizvod.SelectedItem != null)
-                {
-                    Proizvod proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
-                    dialog.TxtJm.Text = proizvod.JedinicaMere.Naziv;
-                }
-
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show("Greska: " + ex.Message);
-            }
         }
     }
 }

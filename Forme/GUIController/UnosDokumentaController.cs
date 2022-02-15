@@ -1,5 +1,6 @@
 ﻿using Forme.Dialog;
 using Forme.ServerCommunication;
+using Forme.Session;
 using Forme.UserControls;
 using Projekat.Common.Communication;
 using Projekat.Common.Domain;
@@ -19,7 +20,6 @@ namespace Forme.GUIController
     {
         private UCUnosDokumenta uCUnosDokumenta;
         private Dokument dokument = new Dokument();
-        private BindingList<StavkaDokumenta> stavke = new BindingList<StavkaDokumenta>();
         private DialogNovaStavka dialog;
         private List<PoslovniPartner> partneri = new List<PoslovniPartner>();
 
@@ -39,9 +39,11 @@ namespace Forme.GUIController
 
 
             uCUnosDokumenta.CbNaziv.DataSource = Enum.GetValues(typeof(NazivDokumenta));
+            SessionData.Instance.NazivDokumenta = (NazivDokumenta)uCUnosDokumenta.CbNaziv.SelectedItem;
+            SessionData.Instance.StavkeDokumenta = new BindingList<StavkaDokumenta>();
             partneri = Communication.Instance.SendRequestGetResult<List<PoslovniPartner>>(Operation.UcitajPoslovnePartnere);
 
-            uCUnosDokumenta.DgvStavke.DataSource = stavke;
+            uCUnosDokumenta.DgvStavke.DataSource = SessionData.Instance.StavkeDokumenta;
             uCUnosDokumenta.DgvStavke.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             uCUnosDokumenta.DgvStavke.ColumnHeadersDefaultCellStyle.Font = new Font("Sagoe UI", 10.2F, FontStyle.Bold);
             uCUnosDokumenta.DgvStavke.DefaultCellStyle.Font = new Font("Sagoe UI", 9.2F, FontStyle.Bold);
@@ -54,6 +56,7 @@ namespace Forme.GUIController
             uCUnosDokumenta.DgvStavke.Columns["Set"].Visible = false;
 
 
+            uCUnosDokumenta.CbNaziv.SelectedIndexChanged += CbNaziv_SelectedIndexChanged;
             uCUnosDokumenta.CboxFizickoLice.CheckedChanged += CboxFizickoLice_CheckedChanged;
             uCUnosDokumenta.CboxPravnoLice.CheckedChanged += CboxPravnoLice_CheckedChanged;
 
@@ -86,7 +89,12 @@ namespace Forme.GUIController
                     dokument.PoslovniPartner = (PravnoLice)uCUnosDokumenta.CbFirma.SelectedItem;
                 }
 
-                dokument.StavkeDokumenta = stavke.ToList();
+                dokument.StavkeDokumenta = SessionData.Instance.StavkeDokumenta.ToList();
+
+                foreach (StavkaDokumenta stavka in dokument.StavkeDokumenta)
+                {
+                    Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, stavka.Proizvod);
+                }
 
                 Communication.Instance.SendRequestNoResult(Operation.UnesiMagacinskiDokument, dokument);
                 MessageBox.Show("Magacinski dokument je sacuvan!");
@@ -217,7 +225,7 @@ namespace Forme.GUIController
                 uCUnosDokumenta.TxtUkupno.BackColor = Color.White;
             }
 
-            if (stavke.Count == 0)
+            if (SessionData.Instance.StavkeDokumenta.Count == 0)
             {
                 MessageBox.Show("Morate uneti barem jednu stavku!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 uspesno = false;
@@ -232,15 +240,14 @@ namespace Forme.GUIController
             {
                 StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCUnosDokumenta.DgvStavke.SelectedRows[0].DataBoundItem;
 
+                SessionData.Instance.StavkeDokumenta.Remove(izabranaStavka);
 
-                stavke.Remove(izabranaStavka);
-
-                for (int i = 0; i < stavke.Count; i++)
+                for (int i = 0; i < SessionData.Instance.StavkeDokumenta.Count; i++)
                 {
-                    stavke[i].RbStavke = i + 1;
+                    SessionData.Instance.StavkeDokumenta[i].RbStavke = i + 1;
                 }
 
-                uCUnosDokumenta.TxtUkupno.Text = stavke.Sum(s => s.Iznos).ToString();
+                uCUnosDokumenta.TxtUkupno.Text = SessionData.Instance.StavkeDokumenta.Sum(s => s.Iznos).ToString();
 
             }
             catch (Exception)
@@ -253,120 +260,14 @@ namespace Forme.GUIController
 
         private void BtnNovaStavka_Click(object sender, EventArgs e)
         {
+            uCUnosDokumenta.CbNaziv.Enabled = false;
             dialog = new DialogNovaStavka();
-            dialog.BtnDodaj.Click += BtnDodaj_Click;
-            
-
+                    
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                uCUnosDokumenta.TxtUkupno.Text = stavke.Sum(s => s.Iznos).ToString();
+                uCUnosDokumenta.TxtUkupno.Text = SessionData.Instance.StavkeDokumenta.Sum(s => s.Iznos).ToString();
+                dialog.Dispose();
             }
-
-            dialog.Dispose();
-        }
-
-        private void BtnDodaj_Click(object sender, EventArgs e)
-        {
-            if(!ValidacijaStavke())
-            {
-                return;
-            }
-
-            
-            StavkaDokumenta stavka = new StavkaDokumenta();
-            stavka.RbStavke = stavke.Count + 1;
-            stavka.Proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
-            stavka.Kolicina = int.Parse(dialog.TxtKolicina.Text);
-            stavka.Cena = double.Parse(dialog.TxtCena.Text);
-            stavka.Iznos = stavka.Kolicina * stavka.Cena;
-
-            if (!stavke.Contains(stavka))
-            {
-                stavke.Add(stavka);
-                dialog.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                MessageBox.Show("Vec ste uneli stavku koja se odnosi na dati proizvod! " +
-                    "Postojecu stavku mozete izmeniti u odeljku za izmenu dokumenta", "Upozorenje",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private bool ValidacijaStavke()
-        {
-            bool uspesno = true;
-            if (dialog.CbProizvod.SelectedItem == null)
-            {
-                dialog.CbProizvod.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.CbProizvod.BackColor = Color.White;
-            }
-
-            if (string.IsNullOrEmpty(dialog.TxtJm.Text))
-            {
-                dialog.TxtJm.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtJm.BackColor = Color.White;
-            }
-
-            if (!int.TryParse(dialog.TxtKolicina.Text, out int kolicina))
-            {
-                dialog.TxtKolicina.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (kolicina <= 0)
-            {
-                dialog.TxtKolicina.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (!double.TryParse(dialog.TxtCena.Text, out double cena))
-            {
-                dialog.TxtCena.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtCena.BackColor = Color.White;
-            }
-
-            if (cena <= 0)
-            {
-                dialog.TxtCena.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtKolicina.BackColor = Color.White;
-            }
-
-            if (string.IsNullOrEmpty(dialog.TxtIznos.Text))
-            {
-                dialog.TxtIznos.BackColor = Color.Salmon;
-                uspesno = false;
-            }
-            else
-            {
-                dialog.TxtIznos.BackColor = Color.White;
-            }
-
-            return uspesno;
         }
 
         private void CboxPravnoLice_CheckedChanged(object sender, EventArgs e)
@@ -454,6 +355,11 @@ namespace Forme.GUIController
                 MessageBox.Show("Greska: " + ex.Message);
 
             }
+        }
+
+        private void CbNaziv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SessionData.Instance.NazivDokumenta = (NazivDokumenta)uCUnosDokumenta.CbNaziv.SelectedItem;
         }
     }
 }

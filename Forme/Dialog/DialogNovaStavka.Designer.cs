@@ -42,6 +42,7 @@ namespace Forme.Dialog
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblNapomena = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtJm
@@ -151,11 +152,24 @@ namespace Forme.Dialog
             this.label1.TabIndex = 15;
             this.label1.Text = "Proizvod:";
             // 
+            // lblNapomena
+            // 
+            this.lblNapomena.AutoSize = true;
+            this.lblNapomena.Font = new System.Drawing.Font("Segoe UI Black", 8.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNapomena.ForeColor = System.Drawing.Color.Salmon;
+            this.lblNapomena.Location = new System.Drawing.Point(12, 298);
+            this.lblNapomena.Name = "lblNapomena";
+            this.lblNapomena.Size = new System.Drawing.Size(84, 19);
+            this.lblNapomena.TabIndex = 27;
+            this.lblNapomena.Text = "Napomena";
+            this.lblNapomena.Visible = false;
+            // 
             // DialogNovaStavka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 408);
+            this.Controls.Add(this.lblNapomena);
             this.Controls.Add(this.txtJm);
             this.Controls.Add(this.cbProizvod);
             this.Controls.Add(this.btnDodaj);
@@ -187,6 +201,7 @@ namespace Forme.Dialog
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNapomena;
 
         public TextBox TxtJm { get => txtJm; set => txtJm = value; }
         public ComboBox CbProizvod { get => cbProizvod; set => cbProizvod = value; }
@@ -199,5 +214,6 @@ namespace Forme.Dialog
         public Label Label3 { get => label3; set => label3 = value; }
         public Label Label2 { get => label2; set => label2 = value; }
         public Label Label1 { get => label1; set => label1 = value; }
+        public Label LblNapomena { get => lblNapomena; set => lblNapomena = value; }
     }
 }
