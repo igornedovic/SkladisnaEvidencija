@@ -285,6 +285,7 @@ namespace Forme.GUIController
                 uCUnosDokumenta.TxtAdresaPl.Enabled = true;
 
                 uCUnosDokumenta.CbFirma.DataSource = partneri.Where(p => p.TableName == "PravnoLice").ToList();
+                PrikaziDetaljeOPravnomLicu();
                 uCUnosDokumenta.CbFirma.SelectedIndexChanged += CbFirma_SelectedIndexChanged;
             }
             else
@@ -297,6 +298,11 @@ namespace Forme.GUIController
         }
 
         private void CbFirma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PrikaziDetaljeOPravnomLicu();
+        }
+
+        private void PrikaziDetaljeOPravnomLicu()
         {
             try
             {
@@ -330,6 +336,7 @@ namespace Forme.GUIController
                 uCUnosDokumenta.TxtAdresaFl.Enabled = true;
 
                 uCUnosDokumenta.CbImePrezime.DataSource = partneri.Where(p => p.TableName == "FizickoLice").ToList();
+                PrikaziDetaljeOFizickomLicu();
                 uCUnosDokumenta.CbImePrezime.SelectedIndexChanged += CbImePrezime_SelectedIndexChanged;
             }
             else
@@ -341,6 +348,11 @@ namespace Forme.GUIController
         }
 
         private void CbImePrezime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PrikaziDetaljeOFizickomLicu();
+        }
+
+        private void PrikaziDetaljeOFizickomLicu()
         {
             try
             {

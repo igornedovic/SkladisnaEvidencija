@@ -57,28 +57,30 @@ namespace Forme.GUIController
 
         private void CbProizvod_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            UslovZaOtpremnicu();
+  
+        }
+
+        private void UslovZaOtpremnicu()
+        {
             try
             {
-                UslovZaOtpremnicu();
+                Session.SessionData.Instance.TrenutniProizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+
+                if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
+                {
+                    dialog.LblNapomena.Text = $"Napomena: Ukupna raspoloziva kolicina ovog proizvoda je " +
+                        $"{Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina}!";
+                    dialog.LblNapomena.Visible = true;
+                }
+
+                dialog.TxtJm.Text = Session.SessionData.Instance.TrenutniProizvod.JedinicaMere.Naziv;
             }
             catch (FormatException ex)
             {
                 MessageBox.Show("Greska: " + ex.Message);
             }
-        }
-
-        private void UslovZaOtpremnicu()
-        {
-            Session.SessionData.Instance.TrenutniProizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
-
-            if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
-            {
-                dialog.LblNapomena.Text = $"Napomena: Ukupna raspoloziva kolicina ovog proizvoda je " +
-                    $"{Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina}!";
-                dialog.LblNapomena.Visible = true;
-            }
-
-            dialog.TxtJm.Text = Session.SessionData.Instance.TrenutniProizvod.JedinicaMere.Naziv;
         }
 
         private void BtnDodaj_Click(object sender, EventArgs e)
@@ -113,7 +115,7 @@ namespace Forme.GUIController
             else
             {
                 MessageBox.Show("Vec ste uneli stavku koja se odnosi na dati proizvod! " +
-                    "Postojecu stavku mozete izmeniti u odeljku za izmenu dokumenta", "Upozorenje",
+                    "Mozete obrisati postojecu stavku i uneti novu za isti proizvod", "Upozorenje",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
