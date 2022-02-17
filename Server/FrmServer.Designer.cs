@@ -102,7 +102,7 @@ namespace Server
             this.Controls.Add(this.btnStart);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmServer";
-            this.Text = "Form1";
+            this.Text = "Server";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

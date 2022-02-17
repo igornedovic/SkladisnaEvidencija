@@ -21,12 +21,12 @@ namespace Projekat.Common.Domain
 
         public string InsertValues => $"{DokumentId}, {RbStavke}, {Kolicina}, {Cena}, {Iznos}, {Proizvod.ProizvodId}";
 
-        public string PrimaryKey => null;
+        public string PrimaryKey => "DokumentId";
 
-        public string ForeignKey => null;
+        public string ForeignKey => "ProizId";
 
-        public object Criteria { get; set; }
-        public string Set { get; set; }
+        public string SetValues { get; set; }
+        public string WhereCondition { get; set; }
 
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {
@@ -38,7 +38,15 @@ namespace Projekat.Common.Domain
             sd.Iznos = (double)reader["Iznos"];
             sd.Proizvod = new Proizvod
             {
-                ProizvodId = (int)reader["ProizvodId"]
+                ProizvodId = (int)reader["ProizId"],
+                Naziv = (string)reader["NazivProizvoda"],
+                UkupnaKolicina = (int)reader["UkupnaKolicina"],
+                Opis = (string)reader["Opis"],
+                JedinicaMere = new JedinicaMere
+                {
+                    JedinicaMereId = (int)reader["JmId"],
+                    Naziv = (string)reader["NazivJediniceMere"]
+                }
             };
 
             return sd;

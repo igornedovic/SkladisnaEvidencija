@@ -21,8 +21,8 @@ namespace Projekat.Common.Domain
 
         public virtual string ForeignKey => null;
 
-        public object Criteria { get; set; }
-        public string Set { get; set; }
+        public string SetValues { get; set; }
+        public string WhereCondition { get; set; }
 
         public virtual IDomainObject ReadObjectRow(SqlDataReader reader)
         {

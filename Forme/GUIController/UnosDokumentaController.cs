@@ -52,8 +52,8 @@ namespace Forme.GUIController
             uCUnosDokumenta.DgvStavke.Columns["InsertValues"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["PrimaryKey"].Visible = false;
             uCUnosDokumenta.DgvStavke.Columns["ForeignKey"].Visible = false;
-            uCUnosDokumenta.DgvStavke.Columns["Criteria"].Visible = false;
-            uCUnosDokumenta.DgvStavke.Columns["Set"].Visible = false;
+            uCUnosDokumenta.DgvStavke.Columns["WhereCondition"].Visible = false;
+            uCUnosDokumenta.DgvStavke.Columns["SetValues"].Visible = false;
 
 
             uCUnosDokumenta.CbNaziv.SelectedIndexChanged += CbNaziv_SelectedIndexChanged;
@@ -97,11 +97,11 @@ namespace Forme.GUIController
                 }
 
                 Communication.Instance.SendRequestNoResult(Operation.UnesiMagacinskiDokument, dokument);
-                MessageBox.Show("Magacinski dokument je sacuvan!");
+                MessageBox.Show("Magacinski dokument je sacuvan!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da sacuva magacinski dokument!");
+                MessageBox.Show("Sistem ne moze da sacuva magacinski dokument!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

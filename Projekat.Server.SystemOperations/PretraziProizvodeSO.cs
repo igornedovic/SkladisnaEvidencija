@@ -9,18 +9,12 @@ namespace Projekat.Server.SystemOperations
 {
     public class PretraziProizvodeSO : OpstaSistemskaOperacija
     {
-        private readonly Proizvod proizvodZaPretragu;
-
-        public PretraziProizvodeSO(Proizvod proizvodZaPretragu)
-        {
-            this.proizvodZaPretragu = proizvodZaPretragu;
-        }
-
         public List<Proizvod> Rezultat { get; set; }
-        protected override void Execute()
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            proizvodZaPretragu.Criteria = $"LOWER(NazivProizvoda) LIKE LOWER('%{proizvodZaPretragu.Naziv}%')";
-            Rezultat = repository.PretraziJoin(proizvodZaPretragu.Criteria, proizvodZaPretragu, new JedinicaMere()).OfType<Proizvod>().ToList();
+            Proizvod proizvodZaPretragu = (Proizvod)obj;
+            proizvodZaPretragu.WhereCondition = $"LOWER(NazivProizvoda) LIKE LOWER('%{proizvodZaPretragu.Naziv}%')";
+            Rezultat = repository.PretraziJoin(proizvodZaPretragu.WhereCondition, proizvodZaPretragu, new JedinicaMere()).OfType<Proizvod>().ToList();
         }
     }
 }

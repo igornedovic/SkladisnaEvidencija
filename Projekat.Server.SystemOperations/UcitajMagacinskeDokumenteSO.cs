@@ -9,30 +9,28 @@ namespace Projekat.Server.SystemOperations
 {
     public class UcitajMagacinskeDokumenteSO : OpstaSistemskaOperacija
     {
-        public List<Dokument> Dokumenti { get; private set; }
         public List<Dokument> Rezultat { get; private set; }
-        protected override void Execute()
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            Dokumenti = repository.VratiSve(new Dokument()).OfType<Dokument>().ToList();
+            List<Dokument>  dokumenti = repository.VratiSve(new Dokument()).OfType<Dokument>().ToList();
 
-            foreach (Dokument dok in Dokumenti)
+            foreach (Dokument dok in dokumenti)
             {
-                dok.Criteria = $"PartnerId={dok.PoslovniPartner.PartnerId}";
-                List<PoslovniPartner> pl = repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
+                dok.WhereCondition = $"PartnerId={dok.PoslovniPartner.PartnerId}";
+                List<PoslovniPartner> pl = repository.PretraziJoin(dok.WhereCondition, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
 
                 if (pl.Count > 0)
                 {
-                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
+                    dok.PoslovniPartner = pl.First();
 
                 }
                 else
                 {
-                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
-
+                    dok.PoslovniPartner = (repository.PretraziJoin(dok.WhereCondition, new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList()).First();
                 }
             }
 
-            Rezultat = Dokumenti;
+            Rezultat = dokumenti;
         }
     }
 }

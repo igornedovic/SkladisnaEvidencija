@@ -9,38 +9,30 @@ namespace Projekat.Server.SystemOperations
 {
     public class PretraziMagacinskeDokumenteSO : OpstaSistemskaOperacija
     {
-        private readonly Dokument dokumentZaPretragu;
-
-        public PretraziMagacinskeDokumenteSO(Dokument dokumentZaPretragu)
-        {
-            this.dokumentZaPretragu = dokumentZaPretragu;
-        }
-
-        public List<Dokument> Dokumenti { get; private set; }
         public List<Dokument> Rezultat { get; private set; }
-        protected override void Execute()
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            dokumentZaPretragu.Criteria = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";  
-            Dokumenti = repository.Pretrazi(dokumentZaPretragu.Criteria, dokumentZaPretragu).OfType<Dokument>().ToList();
+            Dokument dokumentZaPretragu = (Dokument)obj;
+            dokumentZaPretragu.WhereCondition = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";
+            List<Dokument>  dokumenti = repository.Pretrazi(dokumentZaPretragu.WhereCondition, dokumentZaPretragu).OfType<Dokument>().ToList();
 
-            foreach (Dokument dok in Dokumenti)
+            foreach (Dokument dok in dokumenti)
             {
-                dok.Criteria = $"PartnerId={dok.PoslovniPartner.PartnerId}";
-                List<PoslovniPartner> pl = repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
+                dok.WhereCondition = $"PartnerId={dok.PoslovniPartner.PartnerId}";
+                List<PoslovniPartner> pl = repository.PretraziJoin(dok.WhereCondition, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
 
                 if (pl.Count > 0)
                 {
-                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
-
+                    dok.PoslovniPartner = pl.First();
                 }
                 else
                 {
-                    dok.PoslovniPartner = (repository.PretraziJoin(dok.Criteria, new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList())[0];
+                    dok.PoslovniPartner = (repository.PretraziJoin(dok.WhereCondition, new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList()).First();
 
                 }
             }
 
-            Rezultat = Dokumenti;
+            Rezultat = dokumenti;
         }
     }
 }

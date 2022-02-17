@@ -9,15 +9,10 @@ namespace Projekat.Server.SystemOperations
 {
     public class ObrisiProizvodSO : OpstaSistemskaOperacija
     {
-        private readonly Proizvod izabraniProizvod;
-
-        public ObrisiProizvodSO(Proizvod izabraniProizvod)
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            this.izabraniProizvod = izabraniProizvod;
-        }
-        protected override void Execute()
-        {
-            izabraniProizvod.Criteria = $"ProizvodId={izabraniProizvod.ProizvodId}";
+            Proizvod izabraniProizvod = (Proizvod)obj;
+            izabraniProizvod.WhereCondition = $"ProizvodId={izabraniProizvod.ProizvodId}";
             repository.Obrisi(izabraniProizvod);
         }
     }

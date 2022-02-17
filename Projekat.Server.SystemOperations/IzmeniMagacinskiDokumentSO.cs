@@ -9,20 +9,15 @@ namespace Projekat.Server.SystemOperations
 {
     public class IzmeniMagacinskiDokumentSO : OpstaSistemskaOperacija
     {
-        private readonly Dokument dokument;
-
-        public IzmeniMagacinskiDokumentSO(Dokument dokument)
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            this.dokument = dokument;
-        }
-        protected override void Execute()
-        {
-            dokument.Set = $"Datum='{dokument.Datum}', UkupanIznos={dokument.UkupanIznos}, Status='{dokument.Status}'";
-            dokument.Criteria = $"MagacinskiDokumentId={dokument.DokumentId}";
+            Dokument dokument = (Dokument)obj;
+            dokument.SetValues = $"Datum='{dokument.Datum}', UkupanIznos={dokument.UkupanIznos}, Status='{dokument.Status}'";
+            dokument.WhereCondition = $"MagacinskiDokumentId={dokument.DokumentId}";
             repository.Izmeni(dokument);
 
             StavkaDokumenta stavka = new StavkaDokumenta();
-            stavka.Criteria = $"DokumentId={dokument.DokumentId}";
+            stavka.WhereCondition = $"DokumentId={dokument.DokumentId}";
             repository.Obrisi(stavka);
 
             foreach (StavkaDokumenta s in dokument.StavkeDokumenta)

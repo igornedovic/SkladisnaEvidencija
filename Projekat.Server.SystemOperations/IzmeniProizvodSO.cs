@@ -9,16 +9,11 @@ namespace Projekat.Server.SystemOperations
 {
     public class IzmeniProizvodSO : OpstaSistemskaOperacija
     {
-        private readonly Proizvod izabraniProizvod;
-
-        public IzmeniProizvodSO(Proizvod izabraniProizvod)
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            this.izabraniProizvod = izabraniProizvod;
-        }
-        protected override void Execute()
-        {
-            izabraniProizvod.Set = $"NazivProizvoda='{izabraniProizvod.Naziv}', UkupnaKolicina={izabraniProizvod.UkupnaKolicina}, Opis='{izabraniProizvod.Opis}'";
-            izabraniProizvod.Criteria = $"ProizvodId={izabraniProizvod.ProizvodId}";
+            Proizvod izabraniProizvod = (Proizvod)obj;
+            izabraniProizvod.SetValues = $"NazivProizvoda='{izabraniProizvod.Naziv}', UkupnaKolicina={izabraniProizvod.UkupnaKolicina}, Opis='{izabraniProizvod.Opis}'";
+            izabraniProizvod.WhereCondition = $"ProizvodId={izabraniProizvod.ProizvodId}";
             repository.Izmeni(izabraniProizvod);
         }
     }

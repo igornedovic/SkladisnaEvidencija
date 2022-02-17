@@ -63,8 +63,8 @@ namespace Forme.GUIController
             uCPretragaDokumenata.DgvDokumenti.Columns["InsertValues"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["PrimaryKey"].Visible = false;
             uCPretragaDokumenata.DgvDokumenti.Columns["ForeignKey"].Visible = false;
-            uCPretragaDokumenata.DgvDokumenti.Columns["Criteria"].Visible = false;
-            uCPretragaDokumenata.DgvDokumenti.Columns["Set"].Visible = false;
+            uCPretragaDokumenata.DgvDokumenti.Columns["WhereCondition"].Visible = false;
+            uCPretragaDokumenata.DgvDokumenti.Columns["SetValues"].Visible = false;
 
             uCPretragaDokumenata.DgvDokumenti.Columns["Datum"].DefaultCellStyle.Format = "dd.MM.yyyy";
             
@@ -87,12 +87,11 @@ namespace Forme.GUIController
 
                 Communication.Instance.SendRequestNoResult(Operation.IzmeniMagacinskiDokument, izabraniDokument);
                 OsveziNakonIzmene();
-                MessageBox.Show("Sistem je izmenio podatke o magacinskom dokumentu!");
-
+                MessageBox.Show("Sistem je izmenio podatke o magacinskom dokumentu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da izmeni podatke o magacinskom dokumentu!");
+                MessageBox.Show("Sistem ne moze da izmeni podatke o magacinskom dokumentu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -143,12 +142,11 @@ namespace Forme.GUIController
             {
                 Communication.Instance.SendRequestNoResult(Operation.StornirajMagacinskiDokument, izabraniDokument);
                 OsveziNakonIzmene();
-                MessageBox.Show("Sistem je stornirao magacinski dokument!");
-
+                MessageBox.Show("Sistem je stornirao magacinski dokument!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da stornira magacinski dokument!");
+                MessageBox.Show("Sistem ne moze da stornira magacinski dokument!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BtnDetalji_Click(object sender, EventArgs e)
@@ -168,8 +166,6 @@ namespace Forme.GUIController
                 izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
                 izabraniDokument = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
 
-                MessageBox.Show("Sistem je ucitao podatke o magacinskom dokumentu!");
-
                 SessionData.Instance.StavkeDokumenta = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
                 uCPretragaDokumenata.DgvStavke.DataSource = SessionData.Instance.StavkeDokumenta;
 
@@ -178,12 +174,14 @@ namespace Forme.GUIController
                 uCPretragaDokumenata.DgvStavke.Columns["InsertValues"].Visible = false;
                 uCPretragaDokumenata.DgvStavke.Columns["PrimaryKey"].Visible = false;
                 uCPretragaDokumenata.DgvStavke.Columns["ForeignKey"].Visible = false;
-                uCPretragaDokumenata.DgvStavke.Columns["Criteria"].Visible = false;
-                uCPretragaDokumenata.DgvStavke.Columns["Set"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["WhereCondition"].Visible = false;
+                uCPretragaDokumenata.DgvStavke.Columns["SetValues"].Visible = false;
+
+                MessageBox.Show("Sistem je ucitao podatke o magacinskom dokumentu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da ucita podatke o magacinskom dokumentu!");
+                MessageBox.Show("Sistem ne moze da ucita podatke o magacinskom dokumentu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -241,11 +239,11 @@ namespace Forme.GUIController
 
             if (dokumentiPretraga != null && dokumentiPretraga.Count > 0)
             {
-                MessageBox.Show("Sistem je pronasao magacinske dokumente po zadatom kriterijumu!");
+                MessageBox.Show("Sistem je pronasao magacinske dokumente po zadatom kriterijumu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Sistem ne moze da pronadje magacinske dokumente po zadatom kriterijumu!");
+                MessageBox.Show("Sistem ne moze da pronadje magacinske dokumente po zadatom kriterijumu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             uCPretragaDokumenata.BtnPretrazi.Enabled = false;

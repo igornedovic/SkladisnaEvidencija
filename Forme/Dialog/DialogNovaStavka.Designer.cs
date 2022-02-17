@@ -51,7 +51,7 @@ namespace Forme.Dialog
             this.txtJm.Location = new System.Drawing.Point(235, 82);
             this.txtJm.Name = "txtJm";
             this.txtJm.ReadOnly = true;
-            this.txtJm.Size = new System.Drawing.Size(177, 30);
+            this.txtJm.Size = new System.Drawing.Size(270, 30);
             this.txtJm.TabIndex = 26;
             // 
             // cbProizvod
@@ -60,7 +60,7 @@ namespace Forme.Dialog
             this.cbProizvod.FormattingEnabled = true;
             this.cbProizvod.Location = new System.Drawing.Point(235, 28);
             this.cbProizvod.Name = "cbProizvod";
-            this.cbProizvod.Size = new System.Drawing.Size(177, 31);
+            this.cbProizvod.Size = new System.Drawing.Size(270, 31);
             this.cbProizvod.TabIndex = 25;
             // 
             // btnDodaj
@@ -70,7 +70,7 @@ namespace Forme.Dialog
             this.btnDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodaj.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodaj.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDodaj.Location = new System.Drawing.Point(148, 338);
+            this.btnDodaj.Location = new System.Drawing.Point(197, 338);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(167, 58);
             this.btnDodaj.TabIndex = 24;
@@ -83,7 +83,7 @@ namespace Forme.Dialog
             this.txtIznos.Location = new System.Drawing.Point(235, 244);
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.ReadOnly = true;
-            this.txtIznos.Size = new System.Drawing.Size(177, 30);
+            this.txtIznos.Size = new System.Drawing.Size(270, 30);
             this.txtIznos.TabIndex = 22;
             // 
             // txtCena
@@ -91,7 +91,7 @@ namespace Forme.Dialog
             this.txtCena.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCena.Location = new System.Drawing.Point(235, 187);
             this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(177, 30);
+            this.txtCena.Size = new System.Drawing.Size(270, 30);
             this.txtCena.TabIndex = 21;
             // 
             // txtKolicina
@@ -99,7 +99,7 @@ namespace Forme.Dialog
             this.txtKolicina.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKolicina.Location = new System.Drawing.Point(235, 134);
             this.txtKolicina.Name = "txtKolicina";
-            this.txtKolicina.Size = new System.Drawing.Size(177, 30);
+            this.txtKolicina.Size = new System.Drawing.Size(270, 30);
             this.txtKolicina.TabIndex = 20;
             // 
             // label5
@@ -155,11 +155,11 @@ namespace Forme.Dialog
             // lblNapomena
             // 
             this.lblNapomena.AutoSize = true;
-            this.lblNapomena.Font = new System.Drawing.Font("Segoe UI Black", 8.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNapomena.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNapomena.ForeColor = System.Drawing.Color.Salmon;
-            this.lblNapomena.Location = new System.Drawing.Point(12, 298);
+            this.lblNapomena.Location = new System.Drawing.Point(12, 299);
             this.lblNapomena.Name = "lblNapomena";
-            this.lblNapomena.Size = new System.Drawing.Size(84, 19);
+            this.lblNapomena.Size = new System.Drawing.Size(88, 20);
             this.lblNapomena.TabIndex = 27;
             this.lblNapomena.Text = "Napomena";
             this.lblNapomena.Visible = false;
@@ -168,7 +168,7 @@ namespace Forme.Dialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 408);
+            this.ClientSize = new System.Drawing.Size(580, 408);
             this.Controls.Add(this.lblNapomena);
             this.Controls.Add(this.txtJm);
             this.Controls.Add(this.cbProizvod);

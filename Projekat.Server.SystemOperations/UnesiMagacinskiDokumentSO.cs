@@ -9,14 +9,9 @@ namespace Projekat.Server.SystemOperations
 {
     public class UnesiMagacinskiDokumentSO : OpstaSistemskaOperacija
     {
-        private readonly Dokument dokument;
-
-        public UnesiMagacinskiDokumentSO(Dokument dokument)
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            this.dokument = dokument;
-        }
-        protected override void Execute()
-        {
+            Dokument dokument = (Dokument)obj;
             int dokumentId = repository.SacuvajIVratiId(dokument);
 
             foreach (StavkaDokumenta stavka in dokument.StavkeDokumenta)

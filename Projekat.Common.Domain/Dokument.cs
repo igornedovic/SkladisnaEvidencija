@@ -28,12 +28,12 @@ namespace Projekat.Common.Domain
 
         public string InsertValues => $"{(int)NazivDokumenta}, '{Datum}', {UkupanIznos}, '{Status}', {PoslovniPartner.PartnerId}";
 
-        public string PrimaryKey => null;
+        public string PrimaryKey => "MagacinskiDokumentId";
 
-        public string ForeignKey => null;
+        public string ForeignKey => "PartnerId";
 
-        public object Criteria { get; set; }
-        public string Set { get; set; }
+        public string SetValues { get; set; }
+        public string WhereCondition { get; set; }
 
         public IDomainObject ReadObjectRow(SqlDataReader reader)
         {

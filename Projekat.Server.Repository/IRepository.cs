@@ -10,11 +10,11 @@ namespace Projekat.Server.Repository
     public interface IRepository<T> where T : class
     {
         List<T> VratiSve(T obj);
-        List<T> VratiSveJoin(T obj, T obj1);
+        List<T> VratiSveJoin(params T[] obj);
+        List<T> Pretrazi(string kriterijum, T obj);
+        List<T> PretraziJoin(string kriterijum, params T[] obj);
         int SacuvajIVratiId(T obj);
         void Sacuvaj(T obj);
-        List<T> Pretrazi(object kriterijum, T obj);
-        List<T> PretraziJoin(object kriterijum, T obj, T obj1);
         void Izmeni(T obj);
         void Obrisi(T obj);
         void OtvoriKonekciju();

@@ -56,8 +56,8 @@ namespace Forme.GUIController
             uCPretragaProizvoda.DgvProizvodi.Columns["InsertValues"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["PrimaryKey"].Visible = false;
             uCPretragaProizvoda.DgvProizvodi.Columns["ForeignKey"].Visible = false;
-            uCPretragaProizvoda.DgvProizvodi.Columns["Criteria"].Visible = false;
-            uCPretragaProizvoda.DgvProizvodi.Columns["Set"].Visible = false;
+            uCPretragaProizvoda.DgvProizvodi.Columns["WhereCondition"].Visible = false;
+            uCPretragaProizvoda.DgvProizvodi.Columns["SetValues"].Visible = false;
         }
 
         private void Osvezi()
@@ -81,11 +81,11 @@ namespace Forme.GUIController
 
                 Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, izabraniProizvod);
                 Osvezi();
-                MessageBox.Show("Sistem je izmenio podatke o proizvodu!");
+                MessageBox.Show("Sistem je izmenio podatke o proizvodu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da izmeni podatke o proizvodu!");
+                MessageBox.Show("Sistem ne moze da izmeni podatke o proizvodu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         
@@ -164,11 +164,9 @@ namespace Forme.GUIController
                     MessageBox.Show("Izaberite proizvod u tabeli za koji zelite da ucitate podatke!");
                     return;
                 }
-
+             
                 izabraniProizvod = (Proizvod)uCPretragaProizvoda.DgvProizvodi.SelectedRows[0].DataBoundItem;
                 izabraniProizvod = Communication.Instance.SendRequestGetResult<Proizvod>(Operation.UcitajProizvod, izabraniProizvod);
-
-                MessageBox.Show("Sistem je ucitao podatke o proizvodu!");
 
                 uCPretragaProizvoda.TxtNazivUpdate.Text = izabraniProizvod.Naziv;
                 uCPretragaProizvoda.TxtJm.Text = izabraniProizvod.JedinicaMere.Naziv;
@@ -177,10 +175,12 @@ namespace Forme.GUIController
 
                 uCPretragaProizvoda.BtnIzmeni.Enabled = true;
                 uCPretragaProizvoda.BtnObrisi.Enabled = true;
+
+                MessageBox.Show("Sistem je ucitao podatke o proizvodu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Sistem ne moze da ucita podatke o proizvodu!");
+                MessageBox.Show("Sistem ne moze da ucita podatke o proizvodu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -205,33 +205,40 @@ namespace Forme.GUIController
 
         private void BtnPretrazi_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(uCPretragaProizvoda.TxtNaziv.Text))
+            try
             {
-                uCPretragaProizvoda.TxtNaziv.BackColor = Color.Salmon;
-                return;
+                if (string.IsNullOrWhiteSpace(uCPretragaProizvoda.TxtNaziv.Text))
+                {
+                    uCPretragaProizvoda.TxtNaziv.BackColor = Color.Salmon;
+                    return;
+                }
+                else
+                {
+                    uCPretragaProizvoda.TxtNaziv.BackColor = Color.White;
+                }       
+
+                proizvodZaPretragu.Naziv = uCPretragaProizvoda.TxtNaziv.Text;
+                proizvodiPretraga = new BindingList<Proizvod>(Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.PretraziProizvode, proizvodZaPretragu));
+
+                uCPretragaProizvoda.DgvProizvodi.DataSource = null;
+                uCPretragaProizvoda.DgvProizvodi.DataSource = proizvodiPretraga;
+                PrilagodiTabelu();
+
+                if (proizvodiPretraga != null && proizvodiPretraga.Count > 0)
+                {
+                    MessageBox.Show("Sistem je pronasao proizvode po trazenom kriterijumu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Sistem ne moze da pronadje proizvode po zadatom kriterijumu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                uCPretragaProizvoda.BtnPretrazi.Enabled = false;
             }
-            else
+            catch (Exception)
             {
-                uCPretragaProizvoda.TxtNaziv.BackColor = Color.White;
+                MessageBox.Show("Sistem ne moze da pronadje proizvode po zadatom kriterijumu!", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            proizvodZaPretragu.Naziv = uCPretragaProizvoda.TxtNaziv.Text;
-            proizvodiPretraga = new BindingList<Proizvod>(Communication.Instance.SendRequestGetResult<List<Proizvod>>(Operation.PretraziProizvode, proizvodZaPretragu));
-
-            uCPretragaProizvoda.DgvProizvodi.DataSource = null;
-            uCPretragaProizvoda.DgvProizvodi.DataSource = proizvodiPretraga;
-            PrilagodiTabelu();
-
-            if (proizvodiPretraga != null && proizvodiPretraga.Count > 0)
-            {
-                MessageBox.Show("Sistem je pronasao proizvode po trazenom kriterijumu!");
-            }
-            else
-            {
-                MessageBox.Show("Sistem ne moze da pronadje proizvode po zadatom kriterijumu!");
-            }
-
-            uCPretragaProizvoda.BtnPretrazi.Enabled = false;
         }
     }
 }

@@ -9,14 +9,11 @@ namespace Projekat.Server.SystemOperations
 {
     public class UcitajPoslovnePartnereSO : OpstaSistemskaOperacija
     {
-        public List<PoslovniPartner> PravnaLica { get; private set; }
-        public List<PoslovniPartner> FizickaLica { get; private set; }
-
         public List<PoslovniPartner> Rezultat { get; private set; }
-        protected override void Execute()
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            PravnaLica = repository.VratiSveJoin(new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
-            FizickaLica = repository.VratiSveJoin(new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
+            List<PoslovniPartner> PravnaLica = repository.VratiSveJoin(new PravnoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
+            List<PoslovniPartner> FizickaLica = repository.VratiSveJoin(new FizickoLice(), new PoslovniPartner()).OfType<PoslovniPartner>().ToList();
 
             Rezultat = PravnaLica.Concat(FizickaLica).ToList();
         }

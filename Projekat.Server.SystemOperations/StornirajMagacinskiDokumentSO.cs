@@ -9,15 +9,10 @@ namespace Projekat.Server.SystemOperations
 {
     public class StornirajMagacinskiDokumentSO : OpstaSistemskaOperacija
     {
-        private readonly Dokument dokument;
-
-        public StornirajMagacinskiDokumentSO(Dokument dokument)
+        protected override void IzvrsiOperaciju(IDomainObject obj)
         {
-            this.dokument = dokument;
-        }
-        protected override void Execute()
-        {
-            dokument.Criteria = $"MagacinskiDokumentId={dokument.DokumentId}";
+            Dokument dokument = (Dokument)obj;
+            dokument.WhereCondition = $"MagacinskiDokumentId={dokument.DokumentId}";
             repository.Obrisi(dokument);
         }
     }

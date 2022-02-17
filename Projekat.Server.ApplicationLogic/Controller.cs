@@ -54,80 +54,80 @@ namespace Projekat.Server.ApplicationLogic
         public List<PoslovniPartner> UcitajPoslovnePartnere()
         {
             OpstaSistemskaOperacija so = new UcitajPoslovnePartnereSO();
-            so.ExecuteTemplate();
+            so.Izvrsi();
             return ((UcitajPoslovnePartnereSO)so).Rezultat;
         }
 
         public List<Proizvod> UcitajProizvode()
         {
             OpstaSistemskaOperacija so = new UcitajProizvodeSO();
-            so.ExecuteTemplate();
+            so.Izvrsi();
             return ((UcitajProizvodeSO)so).Rezultat;
         }
 
         public void UnesiMagacinskiDokument(Dokument dokument)
         {
-            OpstaSistemskaOperacija so = new UnesiMagacinskiDokumentSO(dokument);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new UnesiMagacinskiDokumentSO();
+            so.Izvrsi(dokument);
         }
 
         public object UcitajMagacinskeDokumente()
         {
             OpstaSistemskaOperacija so = new UcitajMagacinskeDokumenteSO();
-            so.ExecuteTemplate();
+            so.Izvrsi();
             return ((UcitajMagacinskeDokumenteSO)so).Rezultat;
         }
 
         public object PretraziMagacinskeDokumente(Dokument dokumentZaPretragu)
         {
-            OpstaSistemskaOperacija so = new PretraziMagacinskeDokumenteSO(dokumentZaPretragu);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new PretraziMagacinskeDokumenteSO();
+            so.Izvrsi(dokumentZaPretragu);
             return ((PretraziMagacinskeDokumenteSO)so).Rezultat;
         }
 
         public object UcitajMagacinskiDokument(Dokument izabraniDokument)
         {
-            OpstaSistemskaOperacija so = new UcitajMagacinskiDokumentSO(izabraniDokument);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new UcitajMagacinskiDokumentSO();
+            so.Izvrsi(izabraniDokument);
             return ((UcitajMagacinskiDokumentSO)so).Rezultat;
         }
 
         public void IzmeniMagacinskiDokument(Dokument izabraniDokument)
         {
-            OpstaSistemskaOperacija so = new IzmeniMagacinskiDokumentSO(izabraniDokument);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new IzmeniMagacinskiDokumentSO();
+            so.Izvrsi(izabraniDokument);
         }
 
         public void StornirajMagacinskiDokument(Dokument izabraniDokument)
         {
-            OpstaSistemskaOperacija so = new StornirajMagacinskiDokumentSO(izabraniDokument);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new StornirajMagacinskiDokumentSO();
+            so.Izvrsi(izabraniDokument);
         }
 
         public object PretraziProizvode(Proizvod proizvodZaPretragu)
         {
-            OpstaSistemskaOperacija so = new PretraziProizvodeSO(proizvodZaPretragu);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new PretraziProizvodeSO();
+            so.Izvrsi(proizvodZaPretragu);
             return ((PretraziProizvodeSO)so).Rezultat;
         }
 
         public object UcitajProizvod(Proizvod izabraniProizvod)
         {
-            OpstaSistemskaOperacija so = new UcitajProizvodSO(izabraniProizvod);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new UcitajProizvodSO();
+            so.Izvrsi(izabraniProizvod);
             return ((UcitajProizvodSO)so).Rezultat;
         }
 
         public void IzmeniProizvod(Proizvod izabraniProizvod)
         {
-            OpstaSistemskaOperacija so = new IzmeniProizvodSO(izabraniProizvod);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new IzmeniProizvodSO();
+            so.Izvrsi(izabraniProizvod);
         }
 
         public void ObrisiProizvod(Proizvod izabraniProizvod)
         {
-            OpstaSistemskaOperacija so = new ObrisiProizvodSO(izabraniProizvod);
-            so.ExecuteTemplate();
+            OpstaSistemskaOperacija so = new ObrisiProizvodSO();
+            so.Izvrsi(izabraniProizvod);
         }
     }
 }

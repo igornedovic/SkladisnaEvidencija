@@ -12,13 +12,13 @@ namespace Projekat.Server.SystemOperations
     {
         protected IRepository<IDomainObject> repository = new GenericDbRepository();
 
-        public void ExecuteTemplate()
+        public void Izvrsi(IDomainObject obj = null)
         {
             try
             {
                 repository.OtvoriKonekciju();
                 repository.ZapocniTransakciju();
-                Execute();
+                IzvrsiOperaciju(obj);
                 repository.PotvrdiTransakciju();
             }
             catch (Exception ex)
@@ -32,6 +32,6 @@ namespace Projekat.Server.SystemOperations
             }
         }
 
-        protected abstract void Execute();
+        protected abstract void IzvrsiOperaciju(IDomainObject obj = null);
     }
 }
