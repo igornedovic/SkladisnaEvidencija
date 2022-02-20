@@ -45,7 +45,7 @@ namespace Projekat.Common.Domain
             d.Status = (string)reader["Status"];
             d.PoslovniPartner = new PoslovniPartner
             {
-                PartnerId = (int)reader["PartnerId"]
+                PartnerId = (int)reader["PartnerId"]          
             };
             return d;
         }

@@ -14,7 +14,7 @@ namespace Projekat.Server.SystemOperations
         {
             Dokument dokumentZaPretragu = (Dokument)obj;
             dokumentZaPretragu.WhereCondition = $"NazivMagacinskogDokumenta={(int)dokumentZaPretragu.NazivDokumenta} AND Datum='{dokumentZaPretragu.Datum}'";
-            List<Dokument>  dokumenti = repository.Pretrazi(dokumentZaPretragu.WhereCondition, dokumentZaPretragu).OfType<Dokument>().ToList();
+            List<Dokument> dokumenti = repository.Pretrazi(dokumentZaPretragu.WhereCondition, dokumentZaPretragu).OfType<Dokument>().ToList();
 
             foreach (Dokument dok in dokumenti)
             {

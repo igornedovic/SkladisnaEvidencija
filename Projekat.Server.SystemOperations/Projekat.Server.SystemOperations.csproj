@@ -41,20 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IzmeniMagacinskiDokumentSO.cs" />
-    <Compile Include="IzmeniProizvodSO.cs" />
-    <Compile Include="ObrisiProizvodSO.cs" />
+    <Compile Include="DokumentSO\IzmeniMagacinskiDokumentSO.cs" />
+    <Compile Include="ProizvodSO\IzmeniProizvodSO.cs" />
+    <Compile Include="ProizvodSO\ObrisiProizvodSO.cs" />
     <Compile Include="OpstaSistemskaOperacija.cs" />
-    <Compile Include="PretraziMagacinskeDokumenteSO.cs" />
-    <Compile Include="PretraziProizvodeSO.cs" />
+    <Compile Include="DokumentSO\PretraziMagacinskeDokumenteSO.cs" />
+    <Compile Include="ProizvodSO\PretraziProizvodeSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StornirajMagacinskiDokumentSO.cs" />
-    <Compile Include="UcitajMagacinskeDokumenteSO.cs" />
-    <Compile Include="UcitajMagacinskiDokumentSO.cs" />
-    <Compile Include="UcitajPoslovnePartnereSO.cs" />
-    <Compile Include="UcitajProizvodeSO.cs" />
-    <Compile Include="UcitajProizvodSO.cs" />
-    <Compile Include="UnesiMagacinskiDokumentSO.cs" />
+    <Compile Include="DokumentSO\StornirajMagacinskiDokumentSO.cs" />
+    <Compile Include="DokumentSO\UcitajMagacinskeDokumenteSO.cs" />
+    <Compile Include="DokumentSO\UcitajMagacinskiDokumentSO.cs" />
+    <Compile Include="PoslovniPartnerSO\UcitajPoslovnePartnereSO.cs" />
+    <Compile Include="ProizvodSO\UcitajProizvodeSO.cs" />
+    <Compile Include="ProizvodSO\UcitajProizvodSO.cs" />
+    <Compile Include="DokumentSO\UnesiMagacinskiDokumentSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Projekat.Common.Domain\Projekat.Common.Domain.csproj">
@@ -66,5 +66,6 @@
       <Name>Projekat.Server.Repository</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

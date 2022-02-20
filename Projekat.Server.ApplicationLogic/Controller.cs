@@ -71,21 +71,21 @@ namespace Projekat.Server.ApplicationLogic
             so.Izvrsi(dokument);
         }
 
-        public object UcitajMagacinskeDokumente()
+        public List<Dokument> UcitajMagacinskeDokumente()
         {
             OpstaSistemskaOperacija so = new UcitajMagacinskeDokumenteSO();
             so.Izvrsi();
             return ((UcitajMagacinskeDokumenteSO)so).Rezultat;
         }
 
-        public object PretraziMagacinskeDokumente(Dokument dokumentZaPretragu)
+        public List<Dokument> PretraziMagacinskeDokumente(Dokument dokumentZaPretragu)
         {
             OpstaSistemskaOperacija so = new PretraziMagacinskeDokumenteSO();
             so.Izvrsi(dokumentZaPretragu);
             return ((PretraziMagacinskeDokumenteSO)so).Rezultat;
         }
 
-        public object UcitajMagacinskiDokument(Dokument izabraniDokument)
+        public Dokument UcitajMagacinskiDokument(Dokument izabraniDokument)
         {
             OpstaSistemskaOperacija so = new UcitajMagacinskiDokumentSO();
             so.Izvrsi(izabraniDokument);
@@ -104,14 +104,14 @@ namespace Projekat.Server.ApplicationLogic
             so.Izvrsi(izabraniDokument);
         }
 
-        public object PretraziProizvode(Proizvod proizvodZaPretragu)
+        public List<Proizvod> PretraziProizvode(Proizvod proizvodZaPretragu)
         {
             OpstaSistemskaOperacija so = new PretraziProizvodeSO();
             so.Izvrsi(proizvodZaPretragu);
             return ((PretraziProizvodeSO)so).Rezultat;
         }
 
-        public object UcitajProizvod(Proizvod izabraniProizvod)
+        public Proizvod UcitajProizvod(Proizvod izabraniProizvod)
         {
             OpstaSistemskaOperacija so = new UcitajProizvodSO();
             so.Izvrsi(izabraniProizvod);

@@ -36,6 +36,7 @@ namespace Forme.Session
 
         public NazivDokumenta NazivDokumenta { get; set; }
         public Proizvod TrenutniProizvod { get; set; }
+        public List<Proizvod> DodatiProizvodi { get; set; } = new List<Proizvod>();
         public BindingList<StavkaDokumenta> StavkeDokumenta { get; set; } = new BindingList<StavkaDokumenta>();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Forme.Dialog;
 using Forme.ServerCommunication;
+using Forme.Session;
 using Projekat.Common.Communication;
 using Projekat.Common.Domain;
 using System;
@@ -39,6 +40,12 @@ namespace Forme.GUIController
                 if (!string.IsNullOrEmpty(dialog.TxtKolicina.Text) && !string.IsNullOrEmpty(dialog.TxtCena.Text))
                 {
                     int kolicina = int.Parse(dialog.TxtKolicina.Text);
+
+                    if (dialog.TxtCena.Text.Contains(","))
+                    {
+                        dialog.TxtCena.Text = dialog.TxtCena.Text.Replace(",", ".");
+                    }
+
                     double cena = double.Parse(dialog.TxtCena.Text);
 
                     dialog.TxtIznos.Text = (kolicina * cena).ToString();
@@ -66,16 +73,27 @@ namespace Forme.GUIController
         {
             try
             {
-                Session.SessionData.Instance.TrenutniProizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+                SessionData.Instance.TrenutniProizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
+                dialog.TxtJm.Text = SessionData.Instance.TrenutniProizvod.JedinicaMere.Naziv;
 
-                if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
+                if (SessionData.Instance.DodatiProizvodi.Contains(SessionData.Instance.TrenutniProizvod))
+                {
+                    dialog.LblNapomena.Text = $"Napomena: Proizvod je vec dodat u listu stavki!";
+                    dialog.LblNapomena.Visible = true;
+                    return;
+                }
+                else
+                {
+                    dialog.LblNapomena.Visible = false;
+                }
+
+                if (SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
                 {
                     dialog.LblNapomena.Text = $"Napomena: Ukupna raspoloziva kolicina ovog proizvoda je " +
-                        $"{Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina}!";
+                        $"{SessionData.Instance.TrenutniProizvod.UkupnaKolicina}!";
                     dialog.LblNapomena.Visible = true;
                 }
 
-                dialog.TxtJm.Text = Session.SessionData.Instance.TrenutniProizvod.JedinicaMere.Naziv;
             }
             catch (FormatException ex)
             {
@@ -92,13 +110,13 @@ namespace Forme.GUIController
 
 
             StavkaDokumenta stavka = new StavkaDokumenta();
-            stavka.RbStavke = Session.SessionData.Instance.StavkeDokumenta.Count + 1;
+            stavka.RbStavke = SessionData.Instance.StavkeDokumenta.Count + 1;
             stavka.Proizvod = (Proizvod)dialog.CbProizvod.SelectedItem;
             stavka.Kolicina = int.Parse(dialog.TxtKolicina.Text);
             stavka.Cena = double.Parse(dialog.TxtCena.Text);
             stavka.Iznos = stavka.Kolicina * stavka.Cena;
 
-            if (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Prijemnica)
+            if (SessionData.Instance.NazivDokumenta == NazivDokumenta.Prijemnica)
             {
                 stavka.Proizvod.UkupnaKolicina += stavka.Kolicina;
             }
@@ -107,9 +125,10 @@ namespace Forme.GUIController
                 stavka.Proizvod.UkupnaKolicina -= stavka.Kolicina;
             }
 
-            if (!Session.SessionData.Instance.StavkeDokumenta.Contains(stavka))
+            if (!SessionData.Instance.StavkeDokumenta.Contains(stavka))
             {
-                Session.SessionData.Instance.StavkeDokumenta.Add(stavka);
+                SessionData.Instance.StavkeDokumenta.Add(stavka);
+                SessionData.Instance.DodatiProizvodi.Add(SessionData.Instance.TrenutniProizvod);
                 dialog.DialogResult = DialogResult.OK;
             }
             else
@@ -154,8 +173,8 @@ namespace Forme.GUIController
                 dialog.TxtKolicina.BackColor = Color.White;
             }
 
-            bool uslovZaOtpremnicu = (Session.SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
-                                        && (kolicina > Session.SessionData.Instance.TrenutniProizvod.UkupnaKolicina);
+            bool uslovZaOtpremnicu = (SessionData.Instance.NazivDokumenta == NazivDokumenta.Otpremnica)
+                                        && (kolicina > SessionData.Instance.TrenutniProizvod.UkupnaKolicina);
 
             if (kolicina <= 0 || uslovZaOtpremnicu)
             {
@@ -165,6 +184,11 @@ namespace Forme.GUIController
             else
             {
                 dialog.TxtKolicina.BackColor = Color.White;
+            }
+
+            if (dialog.TxtCena.Text.Contains(","))
+            {
+                dialog.TxtCena.Text = dialog.TxtCena.Text.Replace(",", ".");
             }
 
             if (!double.TryParse(dialog.TxtCena.Text, out double cena))

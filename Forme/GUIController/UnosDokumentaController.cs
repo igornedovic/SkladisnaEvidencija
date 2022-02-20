@@ -40,6 +40,7 @@ namespace Forme.GUIController
 
             uCUnosDokumenta.CbNaziv.DataSource = Enum.GetValues(typeof(NazivDokumenta));
             SessionData.Instance.NazivDokumenta = (NazivDokumenta)uCUnosDokumenta.CbNaziv.SelectedItem;
+            SessionData.Instance.DodatiProizvodi = new List<Proizvod>();
             SessionData.Instance.StavkeDokumenta = new BindingList<StavkaDokumenta>();
             partneri = Communication.Instance.SendRequestGetResult<List<PoslovniPartner>>(Operation.UcitajPoslovnePartnere);
 
@@ -93,6 +94,7 @@ namespace Forme.GUIController
 
                 foreach (StavkaDokumenta stavka in dokument.StavkeDokumenta)
                 {
+                    // izmena kolicine proizvoda
                     Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, stavka.Proizvod);
                 }
 
@@ -106,7 +108,6 @@ namespace Forme.GUIController
 
         }
 
-        // morate uneti barem jednu stavku
         private bool ValidacijaDokumenta()
         {
             bool uspesno = true;
@@ -249,10 +250,12 @@ namespace Forme.GUIController
 
                 uCUnosDokumenta.TxtUkupno.Text = SessionData.Instance.StavkeDokumenta.Sum(s => s.Iznos).ToString();
 
+
+                SessionData.Instance.DodatiProizvodi.Remove(izabranaStavka.Proizvod);
             }
             catch (Exception)
             {
-                MessageBox.Show("Odaberite stavku iz tabele koju zelite da obrisete!");
+                MessageBox.Show("Odaberite stavku iz tabele koju zelite da obrisete!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 
             }
 
@@ -262,7 +265,8 @@ namespace Forme.GUIController
         {
             uCUnosDokumenta.CbNaziv.Enabled = false;
             dialog = new DialogNovaStavka();
-                    
+
+
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 uCUnosDokumenta.TxtUkupno.Text = SessionData.Instance.StavkeDokumenta.Sum(s => s.Iznos).ToString();
