@@ -18,27 +18,27 @@ namespace Forme
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.ShowDialog();
-            DialogResult result = frmLogin.DialogResult;
-            frmLogin.Dispose();
-
             while (true)
             {
-                try
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+                DialogResult frmLoginResult = frmLogin.DialogResult;
+
+                if (frmLoginResult == DialogResult.OK)
                 {
-                    if (result == DialogResult.OK)
+                    try
                     {
                         Application.Run(new FrmMain());
+
                     }
-                    if (result == DialogResult.Cancel)
+                    catch (ServerCommunicationException ex) 
                     {
-                        break;
+                        MessageBox.Show("Greska pri radu sa serverom! Bicete odjavljeni sa sistema ukoliko ste ulogovani! >>> " + ex.Message);
                     }
                 }
-                catch (ServerCommunicationException)
+                else
                 {
-                    MessageBox.Show("Greska pri radu sa serverom!");
+                    break;
                 }
             }
         }

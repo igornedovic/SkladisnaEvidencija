@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekat.Server.ApplicationLogic;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -57,13 +58,15 @@ namespace Server
 
         private void Handler_OdjavljenKlijent(object sender, EventArgs e)
         {
-            clients.Remove((ClientHandler)sender);
+            ClientHandler odjavljeniAdmin = (ClientHandler)sender;
+            clients.Remove(odjavljeniAdmin);
+            Controller.Instance.Admini.Find(a => a.Username == odjavljeniAdmin.Admin.Username && a.Password == odjavljeniAdmin.Admin.Password).Status = "Neaktivan";
         }
 
         public void Stop()
         {
             socket.Close();
-            foreach(ClientHandler handler in clients)
+            foreach(ClientHandler handler in clients.ToList())
             {
                 handler.CloseSocket();
             }

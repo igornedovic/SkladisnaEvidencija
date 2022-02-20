@@ -21,6 +21,8 @@ namespace Server
 
         public EventHandler OdjavljenKlijent;
 
+        public Admin Admin { get; private set; }
+
         public ClientHandler(Socket socket)
         {
             this.socket = socket;
@@ -62,6 +64,10 @@ namespace Server
                         {
                             response.IsSuccessful = false;
                             response.Message = "Pogresni kredencijali!";
+                        }
+                        else
+                        {
+                            Admin = (Admin)response.Result;
                         }
                         break;
                     case Operation.UcitajPoslovnePartnere:
@@ -117,7 +123,7 @@ namespace Server
             return response;
         }
 
-        private static object lockObject = new object();
+        private readonly object lockObject = new object();
         internal void CloseSocket()
         {
             if (socket != null)

@@ -110,6 +110,9 @@ namespace Forme.GUIController
             }
 
             StavkaDokumenta izabranaStavka = (StavkaDokumenta)uCPretragaDokumenata.DgvStavke.SelectedRows[0].DataBoundItem;
+            izabranaStavka.Proizvod.UkupnaKolicina += izabranaStavka.Kolicina;
+            Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, izabranaStavka.Proizvod);
+
 
             SessionData.Instance.StavkeDokumenta.Remove(izabranaStavka);
 
@@ -145,6 +148,13 @@ namespace Forme.GUIController
         {
             try
             {
+                izabraniDokument.StavkeDokumenta.ForEach(stavka =>
+                {
+                    stavka.Proizvod.UkupnaKolicina += stavka.Kolicina;
+                    Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, stavka.Proizvod);
+
+                });
+
                 Communication.Instance.SendRequestNoResult(Operation.StornirajMagacinskiDokument, izabraniDokument);
                 OsveziNakonIzmene();
                 MessageBox.Show("Sistem je stornirao magacinski dokument!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
