@@ -36,7 +36,6 @@ namespace Forme.GUIController
 
             dokumenti = new BindingList<Dokument>(Communication.Instance.SendRequestGetResult<List<Dokument>>(Operation.UcitajMagacinskeDokumente));
             uCPretragaDokumenata.DgvDokumenti.DataSource = dokumenti;
-
             PrilagodiTabelu();
 
             uCPretragaDokumenata.BtnPretrazi.Click += BtnPretrazi_Click;
@@ -81,9 +80,15 @@ namespace Forme.GUIController
             try
             {
                 izabraniDokument.Datum = DateTime.ParseExact(DateTime.Now.ToString("dd.MM.yyyy"), "dd.MM.yyyy", null);
-                izabraniDokument.Status = "Izmenjeno";
+                izabraniDokument.Status = "Poslednji put izmenjeno: " + DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
                 izabraniDokument.StavkeDokumenta = SessionData.Instance.StavkeDokumenta.ToList();
                 izabraniDokument.UkupanIznos = izabraniDokument.StavkeDokumenta.Sum(s => s.Iznos);
+
+                foreach (StavkaDokumenta stavka in izabraniDokument.StavkeDokumenta)
+                {
+                    // izmena kolicine proizvoda
+                    Communication.Instance.SendRequestNoResult(Operation.IzmeniProizvod, stavka.Proizvod);
+                }
 
                 Communication.Instance.SendRequestNoResult(Operation.IzmeniMagacinskiDokument, izabraniDokument);
                 OsveziNakonIzmene();
@@ -113,9 +118,9 @@ namespace Forme.GUIController
                 SessionData.Instance.StavkeDokumenta[i].RbStavke = i + 1;
             }
 
+            SessionData.Instance.DodatiProizvodi.Remove(izabranaStavka.Proizvod);
+
             uCPretragaDokumenata.BtnSacuvaj.Enabled = true;
-
-
         }
 
         private void BtnNovaStavka_Click(object sender, EventArgs e)
@@ -166,8 +171,11 @@ namespace Forme.GUIController
                 izabraniDokument = (Dokument)uCPretragaDokumenata.DgvDokumenti.SelectedRows[0].DataBoundItem;
                 izabraniDokument = Communication.Instance.SendRequestGetResult<Dokument>(Operation.UcitajMagacinskiDokument, izabraniDokument);
 
+                SessionData.Instance.NazivDokumenta = izabraniDokument.NazivDokumenta;
                 SessionData.Instance.StavkeDokumenta = new BindingList<StavkaDokumenta>(izabraniDokument.StavkeDokumenta);
                 uCPretragaDokumenata.DgvStavke.DataSource = SessionData.Instance.StavkeDokumenta;
+                SessionData.Instance.DodatiProizvodi = new List<Proizvod>();
+                izabraniDokument.StavkeDokumenta.ForEach(s => SessionData.Instance.DodatiProizvodi.Add(s.Proizvod));
 
                 uCPretragaDokumenata.DgvStavke.Columns["DokumentId"].Visible = false;
                 uCPretragaDokumenata.DgvStavke.Columns["TableName"].Visible = false;
@@ -220,25 +228,25 @@ namespace Forme.GUIController
             dokumentiPretraga = new BindingList<Dokument>(Communication.Instance.SendRequestGetResult<List<Dokument>>(Operation.PretraziMagacinskeDokumente, dokumentZaPretragu));
             
             uCPretragaDokumenata.DgvDokumenti.DataSource = null;
-            foreach (Dokument dok in dokumentiPretraga)
-            {
-                if (dok.PoslovniPartner.TableName == "FizickoLice")
-                {
-                    dok.PoslovniPartner = (FizickoLice)dok.PoslovniPartner;
-
-                }
-                else
-                {
-                    dok.PoslovniPartner = (PravnoLice)dok.PoslovniPartner;
-                }
-            }
-
-            uCPretragaDokumenata.DgvDokumenti.DataSource = dokumentiPretraga;
-
-            PrilagodiTabelu();
 
             if (dokumentiPretraga != null && dokumentiPretraga.Count > 0)
             {
+                foreach (Dokument dok in dokumentiPretraga)
+                {
+                    if (dok.PoslovniPartner.TableName == "FizickoLice")
+                    {
+                        dok.PoslovniPartner = (FizickoLice)dok.PoslovniPartner;
+
+                    }
+                    else
+                    {
+                        dok.PoslovniPartner = (PravnoLice)dok.PoslovniPartner;
+                    }
+                }
+
+                uCPretragaDokumenata.DgvDokumenti.DataSource = dokumentiPretraga;
+
+                PrilagodiTabelu();
                 MessageBox.Show("Sistem je pronasao magacinske dokumente po zadatom kriterijumu!", "Obavestenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
